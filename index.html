@@ -8,10 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Use your existing site styles and JS -->
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body data-page="home">
+  <!-- Subtle particle background (driven by js/main.js) -->
   <canvas id="bg" style="position:fixed;inset:0;z-index:0;opacity:.35;"></canvas>
+
+  <!-- ===== HEADER / NAV ===== -->
   <header>
     <div class="container nav">
       <div class="brand"><a href="index.html">XAVIER CONZET</a></div>
@@ -31,38 +35,124 @@
       </label>
     </div>
   </header>
+
   <main class="container">
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+      <div class="kicker">Analytics Developer • Data Storyteller • Educator</div>
+      <h1>Analytics is the Vehicle, Not a Destination</h1>
+      <p class="lede">I’m Xavier Conzet, an analytics consultant and adjunct professor who helps businesses use data storytelling, advanced analytics, and process automation/optimization to pursue what truly drives performance. Analytics shouldn’t be the finish line—it’s the engine for smarter decisions, streamlined operations, and measurable growth. Every insight I deliver moves organizations toward real objectives, not just another dashboard.</p>
+      <div class="hero-actions" style="margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;">
+        <a class="btn" href="projects.html">View Projects</a>
+        <a class="btn" href="case-studies.html">Impact Case Studies</a>
+        <a class="btn" href="contact.html">Book a Conversation</a>
+        <a class="btn" href="assets/Xavier_Conzet_Resume.docx" download>Download Résumé</a>
+      </div>
+    </section>
 
-<section class="hero" id="home">
-  <div class="kicker">Analytics Developer • Data Storyteller • Educator</div>
-  <h1>Analytics is the Vehicle, Not a Destination</h1>
-  I’m Xavier Conzet, an analytics consultant and adjunct professor who helps businesses use data storytelling, advanced analytics, 
-  and process automation/optimization to pursue what truly drives performance. I believe analytics should never be the finish 
-  line—it’s the engine that powers smarter decisions, streamlined operations, and measurable growth. 
-  Every insight I deliver is designed to move organizations closer to their real objectives, not just fill another dashboard.
-</p>
-  <div style="margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;">
-    <a class="btn" href="projects.html">View Projects</a>
-    <a class="btn" href="case-studies.html">Impact Case Studies</a>
-    <a class="btn" href="contact.html">Book a Conversation</a>
-    <a class="btn" href="assets/Xavier_Conzet_Resume.docx">Download Résumé</a>
-  </div>
-</section>
-<section id="highlights">
-  <h2 class="section-title">Highlights</h2>
-  <div class="grid">
-    <div class="card" style="grid-column:span 6;">
-      <h3>Reducing ETL Runtime by 76%</h3>
-      <p>Rebuilt a full-refresh into an incremental flow with SQL + Python orchestration.</p>
-    </div>
-    <div class="card" style="grid-column:span 6;">
-      <h3>Exec KPI Deck Adoption 85%</h3>
-      <p>Designed a Power BI dashboard with clear narrative and mobile views.</p>
-    </div>
-  </div>
-</section>
+    <!-- ===== ABOUT (SNEAK PEEK) ===== -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about card">
+        <div class="avatar" aria-label="Headshot placeholder"></div>
+        <div>
+          <p>Hi, I’m Xavier — analytics consultant at Optum and Corporate Fellow at the University of St. Thomas. I specialize in business‑first analytics: tight feedback loops, explainable models, and visuals that drive decisions. I like projects where impact is measurable and users feel the improvement.</p>
+          <p>Outside of delivery, I teach data storytelling, build courseware, and mentor analysts transitioning into Python.</p>
+          <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn" href="about.html">Read More</a>
+            <a class="btn" href="resume.html">Résumé</a>
+            <a class="btn" href="blog.html">Articles</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- ===== SKILLS (SNEAK PEEK) ===== -->
+    <section id="skills" class="skills">
+      <h2 class="section-title">Skills & Stack</h2>
+      <div class="card">
+        <ul>
+          <li class="pill">SQL / SSMS</li>
+          <li class="pill">Python (Pandas, Polars)</li>
+          <li class="pill">Power BI (DAX, Tabular)</li>
+          <li class="pill">Tableau</li>
+          <li class="pill">ETL (Alteryx)</li>
+          <li class="pill">Git & GitHub</li>
+          <li class="pill">Storytelling & Slidecraft</li>
+          <li class="pill">Teaching & Workshops</li>
+        </ul>
+        <div style="margin-top:12px"><a class="btn" href="skills.html">Explore Full Stack</a></div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS (SNEAK PEEK WITH ONE EMBED) ===== -->
+    <section id="projects">
+      <h2 class="section-title">Interactive Projects</h2>
+      <div class="card">
+        <!-- Teaser copy -->
+        <p class="muted">A quick look at a favorite — more dashboards on the Projects page.</p>
+        <!-- Tableau Public Embed: St. Thomas Alumni (replace with your actual embed) -->
+        <div class="embed" style="aspect-ratio:16/9;width:100%;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#0a0a0f;">
+          <!-- TODO: Paste your Tableau Public embed for the St. Thomas alumni viz below -->
+          <iframe title="St. Thomas Alumni Dashboard" src="" allowfullscreen></iframe>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+          <a class="btn" href="projects.html">See All Projects</a>
+          <a class="btn" href="https://public.tableau.com/app/profile/xavier.conzet4100" target="_blank" rel="noopener">Tableau Profile</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CASE STUDIES (SNEAK PEEK) ===== -->
+    <section id="case-studies">
+      <h2 class="section-title">Case Studies (Impact)</h2>
+      <div class="grid">
+        <article class="card" style="grid-column:span 6;">
+          <h3>Reducing ETL Runtime by 76%</h3>
+          <p class="muted">SQL · Python · Scheduling</p>
+          <p>Rebuilt a legacy Alteryx full‑refresh into an incremental SQL procedure orchestrated by Python. Saved infra cost and nightly window.</p>
+          <ul>
+            <li>Before: 95 min nightly • After: 23 min</li>
+            <li>Storage cut by 40% via partitioning</li>
+            <li>Fail‑safe alerts & retries</li>
+          </ul>
+          <a class="btn" href="case-studies.html">Read more</a>
+        </article>
+        <article class="card" style="grid-column:span 6;">
+          <h3>Executive KPI Deck People Actually Use</h3>
+          <p class="muted">Power BI · DAX · UX</p>
+          <p>Designed a KPI dashboard with clear narrative framing, scenario filters, and mobile views. Adoption tracked at 85% monthly active.</p>
+          <ul>
+            <li>Time‑to‑insight reduced by 60%</li>
+            <li>Stakeholder NPS +34</li>
+          </ul>
+          <a class="btn" href="case-studies.html">Read more</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== BLOG (SNEAK PEEK) ===== -->
+    <section id="blog">
+      <h2 class="section-title">Articles</h2>
+      <div class="grid">
+        <div class="post card" style="grid-column:span 6;">
+          <h3>Designing Dashboards That Drive Decisions</h3>
+          <p class="muted">Data storytelling · 6 min read</p>
+          <p>How to pick the right visual, write micro‑copy, and frame trade‑offs so your audience acts.</p>
+        </div>
+        <div class="post card" style="grid-column:span 6;">
+          <h3>Incremental Loads: The 80/20 for Busy Analysts</h3>
+          <p class="muted">SQL & Python · 7 min read</p>
+          <p>A practical pattern for turning full refreshes into incremental updates using keys and watermarks.</p>
+        </div>
+      </div>
+      <div style="margin-top:12px;">
+        <a class="btn" href="blog.html">Browse all posts</a>
+      </div>
+    </section>
   </main>
+
+  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="container">
       <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
@@ -75,6 +165,8 @@
       </div>
     </div>
   </footer>
+
+  <!-- Your site JS (theme toggle, particles, etc.) -->
   <script src="./js/main.js"></script>
 </body>
 </html>
