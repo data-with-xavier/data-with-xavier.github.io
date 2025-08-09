@@ -6,4 +6,3 @@ Deployed via GitHub Pages. Generated 2025-08-09.
 - Power BI: paste a Publish-to-web `<iframe>` into `projects.html`.
 - Blog: replace placeholder cards in `blog.html`.
 - All paths are relative for easy local preview.
-  
