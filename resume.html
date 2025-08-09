@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Résumé – Xavier Conzet</title>
+  <meta name="description" content="Analytics developer portfolio of Xavier Conzet." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="resume">
+  
+  <header>
+    <div class="container nav">
+      <div class="brand"><a href="index.html">XAVIER CONZET</a></div>
+      <nav>
+        <a href="about.html" data-page-link="about">About</a>
+        <a href="skills.html" data-page-link="skills">Skills</a>
+        <a href="projects.html" data-page-link="projects">Projects</a>
+        <a href="case-studies.html" data-page-link="case-studies">Case Studies</a>
+        <a href="blog.html" data-page-link="blog">Blog</a>
+        <a href="resume.html" data-page-link="resume">Resume</a>
+        <a href="contact.html" data-page-link="contact">Contact</a>
+        <a class="cta" href="assets/Xavier_Conzet_Resume.docx" download>Download Résumé</a>
+      </nav>
+      <label class="toggle-label" title="Toggle Cyberpunk mode">
+        <span>Cyberpunk</span>
+        <input id="themeToggle" type="checkbox" class="toggle" />
+      </label>
+    </div>
+  </header>
+  <main class="container">
+
+<section id="resume">
+  <h2 class="section-title">Résumé</h2>
+  <div class="card">
+    <p>View the PDF below. If the viewer doesn’t appear, use the download buttons.</p>
+    <object data="assets/Xavier_Conzet_Resume.pdf" type="application/pdf" class="res-frame">
+      <div class="res-fallback">
+        <p><strong>PDF not found</strong> (or your browser blocked inline PDFs). You can download instead:</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;">
+          <a class="btn" href="assets/Xavier_Conzet_Resume.pdf" download>Download PDF</a>
+          <a class="btn" href="assets/Xavier_Conzet_Resume.docx" download>Download DOCX</a>
+        </div>
+      </div>
+    </object>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
+      <a class="btn" href="assets/Xavier_Conzet_Resume.pdf" download>Download PDF</a>
+      <a class="btn" href="assets/Xavier_Conzet_Resume.docx" download>Download DOCX</a>
+    </div>
+    <p class="note">Place your PDF at <code>assets/Xavier_Conzet_Resume.pdf</code> to enable the inline preview.</p>
+  </div>
+</section>
+
+  </main>
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+        <span>© <span id="year"></span> Xavier Conzet</span>
+        <div style="display:flex;gap:12px;">
+          <a href="https://www.linkedin.com/in/xavierconzet/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://public.tableau.com/app/profile/xavier.conzet4100" target="_blank" rel="noopener">Tableau</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
