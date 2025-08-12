@@ -38,38 +38,6 @@ h1{font-size:clamp(2rem,3.8vw,3.2rem);line-height:1.1;margin:.2em 0 .3em}
 .note{color:var(--muted);font-size:.95rem}
 
 @media (max-width: 768px){
-  .embed{position:relative;aspect-ratio:16/9;width:100%;max-width:100%;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#0a0a0f;display:block}
+  .embed{aspect-ratio:4/3}
   .embed.full{height:65vh}
 }
-
-
-/* Optional aspect variants for specific vizzes */
-.embed.tall{aspect-ratio:4/3}
-.embed.portrait{aspect-ratio:3/4}
-.embed.full{aspect-ratio:auto;height:80vh}
-@media (max-width: 800px){.embed{aspect-ratio:4/3}.embed.full{height:65vh}}
-
-
-/* Projects page: allow wider embeds so Tableau/Power BI aren't squished */
-body[data-page="projects"] .container{max-width:1440px}
-
-/* Ensure tableau-viz fills the embed container like iframes */
-.embed tableau-viz{position:absolute;inset:0;width:100%;height:100%}
-
-/* Optional: hide Tableau toolbar for more space inside embed cards */
-.embed tableau-viz[toolbar="hidden"]{}
-
-/* === Fixed-scale embeds: keep original dashboard dimensions and scale uniformly === */
-.embed.fixedscale{aspect-ratio:auto; position:relative}
-.embed.fixedscale > iframe {transform-origin: top left;}
-.embed.fixedscale > tableau-viz{transform-origin: top left; display:block}
-
-
-/* === Projects page wider layout === */
-body[data-page="projects"] .container{max-width:1600px}
-
-/* Optional: make embed 'windows' taller on desktop when desired */
-body[data-page="projects"] .embed.full{height:85vh}
-
-/* Optional full-bleed section (spans edge-to-edge) */
-.full-bleed{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
