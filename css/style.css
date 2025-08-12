@@ -63,3 +63,13 @@ body[data-page="projects"] .container{max-width:1440px}
 .embed.fixedscale{aspect-ratio:auto; position:relative}
 .embed.fixedscale > iframe {transform-origin: top left;}
 .embed.fixedscale > tableau-viz{transform-origin: top left; display:block}
+
+
+/* === Projects page wider layout === */
+body[data-page="projects"] .container{max-width:1600px}
+
+/* Optional: make embed 'windows' taller on desktop when desired */
+body[data-page="projects"] .embed.full{height:85vh}
+
+/* Optional full-bleed section (spans edge-to-edge) */
+.full-bleed{width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw}
