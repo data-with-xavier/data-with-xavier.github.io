@@ -1,113 +1,78 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Projects – Xavier Conzet</title>
-<meta content="Analytics developer portfolio of Xavier Conzet." name="description"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
-<link href="./css/style.css?v=2025-08-12" rel="stylesheet">
-</link><script src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js" type="module"></script></head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects – Xavier Conzet</title>
+  <meta name="description" content="Analytics developer portfolio of Xavier Conzet." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css?v=2025-08-12" />
+</head>
 <body data-page="projects">
-<header>
-<div class="container nav">
-<div class="brand"><a href="index.html">XAVIER CONZET</a></div>
-<nav>
-<a data-page-link="about" href="about.html">About</a>
-<a data-page-link="skills" href="skills.html">Skills</a>
-<a data-page-link="projects" href="projects.html">Projects</a>
-<a data-page-link="case-studies" href="case-studies.html">Case Studies</a>
-<a data-page-link="blog" href="blog.html">Blog</a>
-<a data-page-link="resume" href="resume.html">Resume</a>
-<a data-page-link="contact" href="contact.html">Contact</a>
-<a class="cta" download="" href="assets/Xavier_Conzet_Resume.docx">Download Résumé</a>
-</nav>
-<label class="toggle-label" title="Toggle Cyberpunk mode">
-<span>Cyberpunk</span>
-<input class="toggle" id="themeToggle" type="checkbox"/>
-</label>
-</div>
-</header>
-<main class="container">
+  
+  <header>
+    <div class="container nav">
+      <div class="brand"><a href="index.html">XAVIER CONZET</a></div>
+      <nav>
+        <a href="about.html" data-page-link="about">About</a>
+        <a href="skills.html" data-page-link="skills">Skills</a>
+        <a href="projects.html" data-page-link="projects">Projects</a>
+        <a href="case-studies.html" data-page-link="case-studies">Case Studies</a>
+        <a href="blog.html" data-page-link="blog">Blog</a>
+        <a href="resume.html" data-page-link="resume">Resume</a>
+        <a href="contact.html" data-page-link="contact">Contact</a>
+        <a class="cta" href="assets/Xavier_Conzet_Resume.docx" download>Download Résumé</a>
+      </nav>
+      <label class="toggle-label" title="Toggle Cyberpunk mode">
+        <span>Cyberpunk</span>
+        <input id="themeToggle" type="checkbox" class="toggle" />
+      </label>
+    </div>
+  </header>
+  <main class="container">
+
 <section id="projects">
-<h2 class="section-title">Interactive Projects</h2>
-<div class="card">
-<h3>Power BI</h3>
-<div class="embed fixedscale" data-w="1366" data-h="768">
-<!-- Replace SRC with your Publish to web link -->
-<span>Power BI embed placeholder. Paste your Publish to web iframe src here.</span>
-</div>
-</div>
-<div class="card" style="margin-top:18px;">
-<h3>Tableau (Public)</h3>
-<div class="grid">
-<div class="embed fixedscale" data-w="1366" data-h="768" style="grid-column:span 12;">
-<iframe src="https://public.tableau.com/views/StThomasAlumniDashboard/AlumniSummary?:showVizHome=no&:showVizHome=no&:embed=y" allowfullscreen></iframe>
-</div>
-<div class="embed fixedscale" data-w="1366" data-h="768" style="grid-column:span 12;">
-<iframe src="https://public.tableau.com/views/20230615_buan714_group_one_dashboard_final_v2/Resilience?:showVizHome=no&:showVizHome=no&:embed=y" allowfullscreen></iframe>
-</div>
-</div>
-</div>
-<div class="card" style="margin-top:18px;">
-<h3>Jupyter Notebooks</h3>
-<p>Host notebooks in this repo and link via nbviewer, e.g.:</p>
-<div class="embed fixedscale" data-w="1366" data-h="768"><span>https://nbviewer.org/github/your-user/your-repo/blob/main/notebooks/demo.ipynb</span></div>
-</div>
+  <h2 class="section-title">Interactive Projects</h2>
+  <div class="card">
+    <h3>Power BI</h3>
+    <div class="embed">
+      <!-- Replace SRC with your Publish to web link -->
+      <span>Power BI embed placeholder. Paste your Publish to web iframe src here.</span>
+    </div>
+  </div>
+  <div class="card" style="margin-top:18px;">
+    <h3>Tableau (Public)</h3>
+    <div class="grid">
+      <div class="embed" style="grid-column:span 12;">
+        <iframe src="https://public.tableau.com/views/StThomasAlumniDashboard/AlumniSummary?:showVizHome=no&:embed=y"></iframe>
+      </div>
+      <div class="embed" style="grid-column:span 12;">
+        <iframe src="https://public.tableau.com/views/20230615_buan714_group_one_dashboard_final_v2/Resilience?:showVizHome=no&:embed=y"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:18px;">
+    <h3>Jupyter Notebooks</h3>
+    <p>Host notebooks in this repo and link via nbviewer, e.g.:</p>
+    <div class="embed"><span>https://nbviewer.org/github/your-user/your-repo/blob/main/notebooks/demo.ipynb</span></div>
+  </div>
 </section>
-</main>
-<footer>
-<div class="container">
-<div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-<span>© <span id="year"></span> Xavier Conzet</span>
-<div style="display:flex;gap:12px;">
-<a href="https://www.linkedin.com/in/xavierconzet/" rel="noopener" target="_blank">LinkedIn</a>
-<a href="https://github.com/" rel="noopener" target="_blank">GitHub</a>
-<a href="https://public.tableau.com/app/profile/xavier.conzet4100" rel="noopener" target="_blank">Tableau</a>
-</div>
-</div>
-</div>
-</footer>
-<script src="./js/main.js"></script>
 
-<script>
-(function(){
-  function resizeAll(){
-    document.querySelectorAll('.embed.fixedscale').forEach(function(box){
-      var w = parseFloat(box.getAttribute('data-w')) || 1366;
-      var h = parseFloat(box.getAttribute('data-h')) || 768;
-      var iframe = box.querySelector('iframe, tableau-viz');
-      if(!iframe) return;
-      // Set the base (unscaled) size
-      if(iframe.tagName.toLowerCase() === 'iframe'){
-        iframe.style.width = w + 'px';
-        iframe.style.height = h + 'px';
-      }
-      // Compute scale to fit width
-      var cw = box.clientWidth;
-      var scale = Math.min(cw / w, 1);
-      var scaledW = w * scale;
-      var offsetX = Math.max((cw - scaledW) / 2, 0);
-      // Update height of the box to keep aspect
-      box.style.height = (h * scale) + 'px';
-      // Apply transform
-      iframe.style.transform = 'scale(' + scale + ')';
-      iframe.style.transformOrigin = 'top left';
-      iframe.style.border = '0';
-      iframe.style.display = 'block';
-      iframe.style.position = 'absolute';
-      iframe.style.top = '0';
-      iframe.style.left = offsetX + 'px';
-    });
-  }
-  window.addEventListener('resize', resizeAll);
-  window.addEventListener('DOMContentLoaded', resizeAll);
-  resizeAll();
-})();
-</script>
-
+  </main>
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+        <span>© <span id="year"></span> Xavier Conzet</span>
+        <div style="display:flex;gap:12px;">
+          <a href="https://www.linkedin.com/in/xavierconzet/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://public.tableau.com/app/profile/xavier.conzet4100" target="_blank" rel="noopener">Tableau</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="./js/main.js"></script>
 </body>
 </html>
