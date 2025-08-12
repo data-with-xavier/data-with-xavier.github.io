@@ -36,7 +36,7 @@
 <h2 class="section-title">Interactive Projects</h2>
 <div class="card">
 <h3>Power BI</h3>
-<div class="embed">
+<div class="embed fixedscale" data-w="1366" data-h="768">
 <!-- Replace SRC with your Publish to web link -->
 <span>Power BI embed placeholder. Paste your Publish to web iframe src here.</span>
 </div>
@@ -44,18 +44,18 @@
 <div class="card" style="margin-top:18px;">
 <h3>Tableau (Public)</h3>
 <div class="grid">
-<div class="embed" style="grid-column:span 12;">
-<tableau-viz hide-tabs="" src="https://public.tableau.com/views/StThomasAlumniDashboard/AlumniSummary?:showVizHome=no" style="width:100%;height:75vh;border:0" toolbar="bottom"></tableau-viz>
+<div class="embed fixedscale" data-w="1366" data-h="768" style="grid-column:span 12;">
+<iframe src="https://public.tableau.com/views/StThomasAlumniDashboard/AlumniSummary?:showVizHome=no&:showVizHome=no&:embed=y" allowfullscreen></iframe>
 </div>
-<div class="embed" style="grid-column:span 12;">
-<tableau-viz hide-tabs="" src="https://public.tableau.com/views/20230615_buan714_group_one_dashboard_final_v2/Resilience?:showVizHome=no" style="width:100%;height:75vh;border:0" toolbar="bottom"></tableau-viz>
+<div class="embed fixedscale" data-w="1366" data-h="768" style="grid-column:span 12;">
+<iframe src="https://public.tableau.com/views/20230615_buan714_group_one_dashboard_final_v2/Resilience?:showVizHome=no&:showVizHome=no&:embed=y" allowfullscreen></iframe>
 </div>
 </div>
 </div>
 <div class="card" style="margin-top:18px;">
 <h3>Jupyter Notebooks</h3>
 <p>Host notebooks in this repo and link via nbviewer, e.g.:</p>
-<div class="embed"><span>https://nbviewer.org/github/your-user/your-repo/blob/main/notebooks/demo.ipynb</span></div>
+<div class="embed fixedscale" data-w="1366" data-h="768"><span>https://nbviewer.org/github/your-user/your-repo/blob/main/notebooks/demo.ipynb</span></div>
 </div>
 </section>
 </main>
@@ -72,5 +72,40 @@
 </div>
 </footer>
 <script src="./js/main.js"></script>
+
+<script>
+(function(){
+  function resizeAll(){
+    document.querySelectorAll('.embed.fixedscale').forEach(function(box){
+      var w = parseFloat(box.getAttribute('data-w')) || 1366;
+      var h = parseFloat(box.getAttribute('data-h')) || 768;
+      var iframe = box.querySelector('iframe, tableau-viz');
+      if(!iframe) return;
+      // Set the base (unscaled) size
+      if(iframe.tagName.toLowerCase() === 'iframe'){
+        iframe.style.width = w + 'px';
+        iframe.style.height = h + 'px';
+      }
+      // Compute scale to fit width
+      var cw = box.clientWidth;
+      var scale = cw / w;
+      // Update height of the box to keep aspect
+      box.style.height = (h * scale) + 'px';
+      // Apply transform
+      iframe.style.transform = 'scale(' + scale + ')';
+      iframe.style.transformOrigin = 'top left';
+      iframe.style.border = '0';
+      iframe.style.display = 'block';
+      iframe.style.position = 'absolute';
+      iframe.style.top = '0';
+      iframe.style.left = '0';
+    });
+  }
+  window.addEventListener('resize', resizeAll);
+  window.addEventListener('DOMContentLoaded', resizeAll);
+  resizeAll();
+})();
+</script>
+
 </body>
 </html>
