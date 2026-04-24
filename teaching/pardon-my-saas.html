@@ -306,37 +306,6 @@
           <hr class="step-divider">
 
           <div class="lesson-step">
-            <h4>Step 6 — Build Your Portfolio Home Page</h4>
-            <p>Navigate to your repo folder in Terminal (<code>cd path/to/your-username.github.io</code>), then run <code>claude</code> and use this prompt:</p>
-
-            <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Prompt — Portfolio Home Page</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">I'm building a personal portfolio website that will host my data dashboards and projects. Please create an index.html file with these requirements:
-
-- Clean, modern dark theme (dark navy background, light text, one accent color of your choosing)
-- My name prominently in the header: [YOUR FULL NAME]
-- A short bio: "Data analytics student at the University of St. Thomas. I build data dashboards and visualizations using AI tools."
-- A "My Work" section with 4 placeholder project cards (just empty cards with "Project coming soon" text for now)
-- Links to my GitHub (https://github.com/[your-username]) and LinkedIn ([your-linkedin-url])
-- Use Inter font from Google Fonts
-- Should look professional — something I'd be proud to show a recruiter
-
-Keep everything in one HTML file (HTML, CSS, and any JS all inline).</pre>
-            </div>
-
-            <p>Once Claude generates the file, commit it to your repo:</p>
-            <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Terminal Commands</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">git add index.html
-git commit -m "Add portfolio home page"
-git push</pre>
-            </div>
-            <p>Visit <code>https://[username].github.io</code> — your portfolio is live.</p>
-          </div>
-
-          <hr class="step-divider">
-
-          <div class="lesson-step">
             <h4>Getting Unstuck — The Most Important Skill in This Course</h4>
             <p>Claude will sometimes give you broken code. This is normal. Here's the loop that fixes it every time:</p>
             <ol>
@@ -368,9 +337,8 @@ Please identify the problem and fix it.</pre>
               <li>Portfolio repo named <code>[username].github.io</code> is public</li>
               <li>GitHub Pages is enabled and the site loads at your URL</li>
               <li>VS Code is installed with Live Server extension — you can preview HTML files locally</li>
-              <li><code>index.html</code> is live with your name, bio, and placeholder project cards</li>
               <li>Claude Desktop is installed and logged in with your Claude Pro account</li>
-              <li>Claude Code is installed and you've had your first conversation</li>
+              <li>Claude Code is installed and authenticated — you've run <code>claude</code> in Terminal at least once</li>
             </ul>
           </div>
         </div>
@@ -596,12 +564,88 @@ My goal for this session: [describe what you want to accomplish]</pre>
             </div>
           </div>
 
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Putting It All Together — Build Your Portfolio Home Page</h4>
+            <p>Now you're going to use everything from this module to build something real. This is a guided build — follow each step in order. The goal isn't just a portfolio page; it's getting comfortable with the loop you'll use for every project in this course.</p>
+
+            <p><strong>Step 1 — Orient Claude to the project</strong></p>
+            <p>Open Terminal, navigate to your repo folder, and run <code>claude</code>. Start by giving Claude context before asking it to do anything:</p>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt 1 — Orient Claude</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">I'm building a personal portfolio website. The repo is named [your-username].github.io and it will be hosted on GitHub Pages. I'll be adding data dashboards to it throughout a course. Before we build anything, I want you to make a plan for the index.html file I'm about to describe.</pre>
+            </div>
+
+            <p style="margin-top:16px;"><strong>Step 2 — Use plan mode before building</strong></p>
+            <p>Now give Claude the full spec and ask it to plan — not build — first. This is plan mode in action.</p>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt 2 — Plan the Portfolio</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Before you write any code, make a plan for this portfolio page. Describe the structure and approach, then wait for my approval.
+
+Here are the requirements:
+- Single HTML file (all CSS and JS inline — no separate files)
+- Dark theme using these exact colors:
+    Background: #0b0f1a
+    Panel/card background: #131929
+    Body text: #e2e8f0
+    Muted text: #94a3b8
+    Accent: #6366f1
+    Border: #1e2a3a
+- Inter font loaded from Google Fonts
+- Fixed header: my name on the left, nav links on the right (Home, My Work, GitHub)
+- Hero section: large H1 with my name, a subtitle ("Data Analyst · University of St. Thomas"), a 2-sentence bio, and two buttons — GitHub and LinkedIn
+- "My Dashboards" section: a 2×2 grid of placeholder project cards. Each card has a title ("Project Coming Soon"), a one-line description placeholder, and a muted "In progress" badge
+- Footer: copyright with current year and GitHub/LinkedIn links
+- Subtle card hover effect (border color change on hover)
+
+Describe your plan in numbered steps. Do not write any code yet.</pre>
+            </div>
+
+            <div class="callout callout-tip"><strong>Read the plan carefully.</strong> Does Claude understand what you're building? If something looks off — wrong structure, missing section, misunderstood requirement — correct it now before any code is written. This is the whole point of plan mode.</div>
+
+            <p style="margin-top:16px;"><strong>Step 3 — Approve and build</strong></p>
+            <p>Once you're satisfied with the plan, send a simple approval:</p>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt 3 — Approve the Plan</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Looks good. Go ahead and build it.</pre>
+            </div>
+            <p>Claude will generate <code>index.html</code> in your project folder. Open it with Live Server in VS Code and review it.</p>
+
+            <p style="margin-top:16px;"><strong>Step 4 — Personalize it (practice the iteration loop)</strong></p>
+            <p>The structure is there — now make it yours. Replace the placeholders with your actual information. Notice that you're describing specific changes, not re-explaining the whole page.</p>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt 4 — Add Your Information</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Update the page with my real information:
+- Name: [YOUR FULL NAME]
+- Bio: [1-2 sentences about yourself — your program, what you're interested in, anything you want a recruiter to know]
+- GitHub: https://github.com/[your-username]
+- LinkedIn: [your-linkedin-url]
+
+Don't change anything structural — just replace the placeholder text.</pre>
+            </div>
+
+            <p style="margin-top:16px;"><strong>Step 5 — Make one more refinement</strong></p>
+            <p>Look at your page and find one thing you'd change. Maybe the hero section feels too cramped, or the card grid needs more spacing, or you want the accent color on the nav links. Describe it specifically and send one more prompt. This is the iteration loop — practice it now so it's second nature when you're building dashboards.</p>
+
+            <p style="margin-top:16px;"><strong>Step 6 — Commit and go live</strong></p>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Terminal — Publish Your Portfolio</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">git add index.html
+git commit -m "Add portfolio home page"
+git push</pre>
+            </div>
+            <p>Visit <code>https://[username].github.io</code>. Your portfolio is live on the internet.</p>
+            <div class="callout callout-tip"><strong>Bookmark this URL.</strong> Every dashboard you build in this course will link back here. By the capstone, this page will be a real portfolio you can share with employers.</div>
+          </div>
+
           <div class="deliverable">
             <div class="deliverable-label">Module 1.5 Deliverable</div>
             <ul>
+              <li>You used plan mode — Claude described its approach before writing any code, and you reviewed it</li>
+              <li>You iterated at least once after the initial build — described a specific change and got an improved result</li>
+              <li><code>index.html</code> is live at <code>https://[username].github.io</code> with your name, bio, and placeholder project cards</li>
               <li>You can explain when to use Claude Desktop vs. Claude Code without looking it up</li>
-              <li>You've used plan mode at least once and reviewed Claude's plan before approving it</li>
-              <li>You've iterated on a prompt at least twice — describing what was wrong and getting an improved result</li>
             </ul>
           </div>
         </div>
