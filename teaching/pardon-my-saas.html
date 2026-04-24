@@ -92,6 +92,12 @@
     .data-download:hover { border-color: var(--brand-2); background: rgba(34,211,238,.05); }
     .data-download svg { flex-shrink: 0; }
 
+    /* ── Assignment dividers ── */
+    .assignment-divider { display:flex; align-items:center; gap:14px; margin:28px 0 10px; }
+    .assignment-divider span { font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.14em; color:var(--brand); white-space:nowrap; }
+    .assignment-divider::before, .assignment-divider::after { content:''; flex:1; height:1px; background:var(--border); }
+    .assignment-divider::before { max-width:0; }
+
     /* ── Cheat sheet ── */
     .cheatsheet { margin-bottom: 80px; }
     .cheat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-top: 20px; }
@@ -125,7 +131,7 @@
       <h1 class="course-title">Pardon My SaaS</h1>
       <p class="course-subtitle">Build stunning, fully custom dashboards with AI — no Tableau, no Power BI, no expensive subscriptions required.</p>
       <div class="course-stats">
-        <div class="stat"><span class="stat-num">7</span><span class="stat-label">Modules</span></div>
+        <div class="stat"><span class="stat-num">8</span><span class="stat-label">Modules</span></div>
         <div class="stat"><span class="stat-num">4</span><span class="stat-label">Projects</span></div>
         <div class="stat"><span class="stat-num">3</span><span class="stat-label">Data Files</span></div>
         <div class="stat"><span class="stat-num">0</span><span class="stat-label">Prior Experience Needed</span></div>
@@ -163,6 +169,8 @@
     <!-- ── Modules ── -->
     <section class="modules-section">
       <p class="section-label">Course Modules</p>
+
+      <div class="assignment-divider"><span>Assignment 1</span></div>
 
       <!-- Module 0 -->
       <div class="module" id="module-0">
@@ -272,7 +280,22 @@
           <hr class="step-divider">
 
           <div class="lesson-step">
-            <h4>Step 5 — Build Your Portfolio Home Page</h4>
+            <h4>Step 5 — Set Up VS Code</h4>
+            <p>VS Code is the code editor you'll use to view, organize, and manage your project files. Claude Code writes the code — VS Code is where you see it, navigate it, and keep everything tidy.</p>
+            <ol>
+              <li>Download <strong>Visual Studio Code</strong> from <strong>code.visualstudio.com</strong> (free)</li>
+              <li>Open VS Code, then go to <strong>File → Open Folder</strong> and select your <code>[username].github.io</code> folder</li>
+              <li>In the left sidebar, click the <strong>Extensions</strong> icon (four squares) and search for <strong>Live Server</strong> by Ritwick Dey — install it</li>
+            </ol>
+            <p><strong>Why Live Server matters:</strong> When you double-click an HTML file to open it, the browser uses a <code>file://</code> URL which blocks certain features (including fetching data files). Live Server runs a tiny local web server, opening your file at <code>http://localhost:5500</code> instead — everything works, and the page auto-refreshes every time you save a file.</p>
+            <p>To use it: right-click any HTML file in VS Code's sidebar → <em>Open with Live Server</em>. Your browser opens and stays in sync as you work.</p>
+            <div class="callout callout-tip"><strong>Your workflow from here:</strong> Claude Code writes files to your project folder → VS Code shows you the file tree and lets you navigate → Live Server previews it in the browser → you describe changes back to Claude → repeat.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 6 — Build Your Portfolio Home Page</h4>
             <p>Navigate to your repo folder in Terminal (<code>cd path/to/your-username.github.io</code>), then run <code>claude</code> and use this prompt:</p>
 
             <div class="prompt-block">
@@ -333,6 +356,7 @@ Please identify the problem and fix it.</pre>
               <li>GitHub account created with a professional username</li>
               <li>Portfolio repo named <code>[username].github.io</code> is public</li>
               <li>GitHub Pages is enabled and the site loads at your URL</li>
+              <li>VS Code is installed with Live Server extension — you can preview HTML files locally</li>
               <li><code>index.html</code> is live with your name, bio, and placeholder project cards</li>
               <li>Claude Code is installed and you've had your first conversation</li>
             </ul>
@@ -340,10 +364,188 @@ Please identify the problem and fix it.</pre>
         </div>
       </div>
 
+      <div class="assignment-divider"><span>Assignment 2</span></div>
+
       <!-- Module 2 -->
-      <div class="module" id="module-2">
+      <div class="module" id="module-2-viz">
         <button class="module-header" aria-expanded="false">
           <span class="module-num">02</span>
+          <span class="module-title">Fundamentals of Visualization</span>
+          <span class="module-chip chip-setup">Foundations</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">Before you build dashboards, you need to know what makes a visualization work — and what makes it fail. This module covers the principles that separate data storytelling from data dumping. You'll build several charts along the way.</p>
+
+          <div class="lesson-step">
+            <h4>Why This Comes Before Dashboarding</h4>
+            <p>It's easy to build a dashboard that's full of charts and completely useless. The charts are technically correct but answer no questions, guide no decisions, and waste the reader's time. The principles in this module are the difference between a dashboard that gets used and one that gets ignored.</p>
+            <p>These aren't design rules — they're communication rules. Visualization is a language. This module teaches you the grammar.</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>1 — Choose the Right Chart for the Story</h4>
+            <p>The most common visualization mistake is choosing a chart type because it looks interesting, not because it fits the data. Here's the map:</p>
+            <ul>
+              <li><strong>Bar chart</strong> — comparing values across categories. Best for: "Which region had the highest revenue?" Always use horizontal bars when category labels are long.</li>
+              <li><strong>Line chart</strong> — showing change over time. Best for: "How has revenue trended over the past 12 months?" Never use for unordered categories.</li>
+              <li><strong>Scatter plot</strong> — showing the relationship between two numeric variables. Best for: "Is there a correlation between marketing spend and sales?"</li>
+              <li><strong>Pie / Doughnut</strong> — showing composition (parts of a whole). Use sparingly — only when you have 4 or fewer slices and the proportions are meaningfully different. When in doubt, use a bar chart instead.</li>
+              <li><strong>Area chart</strong> — showing cumulative volume over time. Good for: "How much total revenue has accumulated this quarter?"</li>
+              <li><strong>Stacked bar</strong> — showing both totals and composition simultaneously. Best for: "How does revenue break down by region, and how do totals compare month to month?"</li>
+            </ul>
+            <div class="callout callout-warn"><strong>The pie chart trap:</strong> Humans are bad at comparing angles and areas. A bar chart almost always communicates the same information more clearly. Reserve pie charts for when the "part of whole" framing is genuinely the point — e.g., "60% of users are on mobile."</div>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Tutorial 1 — The Right Chart</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build me a single HTML file with three side-by-side charts, all using the same dataset: monthly coffee shop revenue for Jan–Jun (Jan: $12,400, Feb: $10,800, Mar: $14,200, Apr: $15,600, May: $18,900, Jun: $22,300).
+
+Chart 1: A bar chart
+Chart 2: A line chart
+Chart 3: A pie chart
+
+Use Chart.js via CDN. Dark background. Put a label above each chart with its chart type. Make all three the same size so I can compare them directly.
+
+Don't style them beautifully — I want to see the raw difference in how each type communicates the same data.</pre>
+            </div>
+            <p style="color:var(--muted);font-size:.875rem;">After building it: which chart makes the trend most obvious? Which makes it hardest to see? Which one would you never use for this data, and why?</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>2 — Color with Purpose</h4>
+            <p>Color is one of the most misused tools in data visualization. The default Chart.js rainbow palette looks playful but communicates nothing — each color is just "a different category" with no additional meaning.</p>
+            <p>There are three meaningful ways to use color:</p>
+            <ul>
+              <li><strong>Categorical</strong> — distinct colors for distinct groups (regions, teams, product lines). Limit to 5–7 colors. Use colors that are perceptually distinct, not just visually different.</li>
+              <li><strong>Sequential</strong> — light → dark of one hue to show quantity (e.g., a heat map of sales density). More color = more value.</li>
+              <li><strong>Diverging</strong> — two hues from a neutral midpoint, for data with a meaningful center (e.g., profit vs. loss, above vs. below average).</li>
+            </ul>
+            <p><strong>The accent rule:</strong> In most dashboards, use neutral colors for most data and one bright accent color to highlight the most important value. The eye goes to contrast — use that deliberately.</p>
+            <div class="callout callout-warn"><strong>Colorblind accessibility:</strong> ~8% of men have red-green color blindness. Avoid using red and green to encode opposing meanings (good vs. bad, up vs. down). Use blue/orange or add icons/patterns as a secondary signal.</div>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Tutorial 2 — Color with Purpose</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build me a bar chart showing quarterly revenue for three product lines (Software: Q1 $142k, Q2 $158k, Q3 $171k, Q4 $196k | Hardware: Q1 $89k, Q2 $94k, Q3 $101k, Q4 $118k | Services: Q1 $67k, Q2 $71k, Q3 $79k, Q4 $93k).
+
+First, build it with Chart.js default colors. Then, in the same HTML file, build a second version directly below it using a purposeful color palette: muted blue-gray for Hardware and Services, and a bright accent color (your choice) for Software — because Software is our fastest-growing line and deserves emphasis.
+
+Dark background. Add a short caption below each chart: "Default palette" and "Purposeful palette." I want to see the difference side by side.</pre>
+            </div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>3 — The Data-Ink Ratio</h4>
+            <p>Edward Tufte's most useful principle: <em>every pixel on a chart should be doing work</em>. The ratio of "ink that represents data" to "total ink used" should be as high as possible.</p>
+            <p><strong>Things that don't represent data (remove them):</strong></p>
+            <ul>
+              <li>Heavy gridlines — use very faint ones or none at all</li>
+              <li>Chart borders and box outlines</li>
+              <li>3D effects (never — they distort perception of values)</li>
+              <li>Redundant legends when the data is already labeled directly</li>
+              <li>Decorative background images or gradients behind charts</li>
+              <li>Excessive tick marks on axes</li>
+            </ul>
+            <p><strong>Things that do represent data (keep them):</strong></p>
+            <ul>
+              <li>The bars, lines, or points themselves</li>
+              <li>Axis labels (with units)</li>
+              <li>A descriptive title</li>
+              <li>Data labels when precision matters</li>
+              <li>A legend when the colors encode meaningful categories</li>
+            </ul>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Tutorial 3 — Data-Ink Ratio</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build me a line chart showing monthly active users for a SaaS product over 12 months: Jan: 4200, Feb: 4800, Mar: 5100, Apr: 5600, May: 6200, Jun: 6800, Jul: 7100, Aug: 7400, Sep: 7200, Oct: 7800, Nov: 8400, Dec: 9100.
+
+Build two versions side by side in the same HTML file:
+
+Version 1 — "Cluttered": Add a visible chart border, heavy gridlines (every 500 units), a background gradient behind the chart area, bold axis tick marks, a large legend box, and a 3D-style drop shadow on the line.
+
+Version 2 — "Clean": Remove the border, use faint gridlines only at major values, remove the legend (label the line directly instead), keep axis labels minimal, no decorative elements. Let the upward trend be the only thing you notice.
+
+Same data, same size. I want to see Tufte's principle in action.</pre>
+            </div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>4 — Titles That Make an Argument</h4>
+            <p>A title is not a label. "Monthly Revenue" describes what the chart shows. "Revenue Has Grown 58% Since January — And It's Accelerating" tells the reader what to think about it.</p>
+            <p>The best data visualization titles are declarative — they make a claim and use the chart as evidence. This is especially important in narrative reports (Module 05), but it applies everywhere.</p>
+            <p><strong>The formula:</strong></p>
+            <ul>
+              <li><strong>Weak:</strong> "Sales by Region" — describes the axes</li>
+              <li><strong>Better:</strong> "North Region Leads in Sales" — identifies the key finding</li>
+              <li><strong>Best:</strong> "North Region Outperforms East and West by 30% — and the Gap Is Widening" — makes an argument with specificity</li>
+            </ul>
+            <p>Always include: units on axes ("Revenue ($K)" not just "Revenue"), the date range in the title or subtitle, and a data source note at the bottom.</p>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Tutorial 4 — Declarative Titles</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build me a clean bar chart showing annual customer churn rate by industry: Retail 24%, SaaS 6%, Healthcare 8%, Financial Services 11%, Manufacturing 19%.
+
+Give it a weak, generic title first: "Customer Churn Rate by Industry."
+
+Then, directly below it, build the exact same chart with a declarative title that makes an argument about what the data shows — something specific that tells the reader what the key insight is. Add a one-sentence subtitle that adds context. Add a small data source note at the bottom: "Source: Industry Benchmark Report, 2023."
+
+Use a dark theme. Highlight the most notable bar with an accent color.</pre>
+            </div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>5 — What to Avoid</h4>
+            <ul>
+              <li><strong>Truncated Y-axes</strong> — starting your Y-axis at something other than zero exaggerates differences. A 2% change looks like a 50% change. Always start at zero for bar charts.</li>
+              <li><strong>Dual Y-axes</strong> — two Y-axes on one chart makes it easy to suggest a relationship that may not exist by adjusting the scales. Use separate charts instead.</li>
+              <li><strong>3D charts</strong> — always. 3D distorts the visual perception of values. A bar that's "behind" another looks smaller even if it isn't.</li>
+              <li><strong>Pie charts with many slices</strong> — anything more than 4-5 slices becomes impossible to read. Group small values into "Other."</li>
+              <li><strong>Correlation as causation</strong> — two lines moving together doesn't mean one causes the other. Be careful with your titles and annotations.</li>
+              <li><strong>Too many chart types on one dashboard</strong> — using 6 different chart types feels creative but is cognitively exhausting. Limit yourself to 2-3 per dashboard.</li>
+            </ul>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Inspiration — What Good Looks Like</h4>
+            <p>These are the teams and publications setting the standard for data visualization. Study their work before you build.</p>
+            <ul>
+              <li><strong>The Pudding</strong> (pudding.cool) — long-form data essays with custom, beautiful visuals</li>
+              <li><strong>NYT Graphics</strong> — consistently excellent, especially their election and science coverage</li>
+              <li><strong>Our World in Data</strong> (ourworldindata.org) — clean, rigorous, always includes context and sources</li>
+              <li><strong>The Economist</strong> — masters of the small multiple and the annotated chart</li>
+              <li><strong>Information is Beautiful</strong> (informationisbeautiful.net) — creative and conceptually rich</li>
+              <li><strong>Flowing Data</strong> (flowingdata.com) — Nathan Yau's tutorials and examples, great for learning technique</li>
+            </ul>
+          </div>
+
+          <div class="deliverable">
+            <div class="deliverable-label">Module 2 Deliverable</div>
+            <ul>
+              <li>Tutorial 1 complete: three chart types side-by-side, you can articulate why one works best for this data</li>
+              <li>Tutorial 2 complete: default vs. purposeful color palette, side-by-side</li>
+              <li>Tutorial 3 complete: cluttered vs. clean version of the same chart</li>
+              <li>Tutorial 4 complete: generic vs. declarative title, with axis labels and data source note</li>
+              <li>You can name at least three things to remove from a chart to improve it</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 3 -->
+      <div class="module" id="module-3-foundations">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">03</span>
           <span class="module-title">Dashboard Foundations</span>
           <span class="module-chip chip-setup">Foundations</span>
           <span class="module-toggle">+</span>
@@ -453,10 +655,12 @@ Build me a clean, dark-themed HTML dashboard with:
         </div>
       </div>
 
-      <!-- Module 3 -->
-      <div class="module" id="module-3">
+      <div class="assignment-divider"><span>Assignment 3</span></div>
+
+      <!-- Module 4 -->
+      <div class="module" id="module-4-project1">
         <button class="module-header" aria-expanded="false">
-          <span class="module-num">03</span>
+          <span class="module-num">04</span>
           <span class="module-title">Project 1 — Sales &amp; Budget Tracker</span>
           <span class="module-chip chip-project">Project</span>
           <span class="module-toggle">+</span>
@@ -552,10 +756,10 @@ Everything else should stay the same.</pre>
         </div>
       </div>
 
-      <!-- Module 3.5 -->
-      <div class="module" id="module-35">
+      <!-- Module 4.5 -->
+      <div class="module" id="module-45">
         <button class="module-header" aria-expanded="false">
-          <span class="module-num">03.5</span>
+          <span class="module-num">04.5</span>
           <span class="module-title">Build Your Dashboard Spec</span>
           <span class="module-chip chip-spec">Spec</span>
           <span class="module-toggle">+</span>
@@ -624,10 +828,12 @@ I want to see how the spec translates visually before I commit to it. Keep every
         </div>
       </div>
 
-      <!-- Module 4 -->
-      <div class="module" id="module-4">
+      <div class="assignment-divider"><span>Assignment 4</span></div>
+
+      <!-- Module 5 -->
+      <div class="module" id="module-5-narrative">
         <button class="module-header" aria-expanded="false">
-          <span class="module-num">04</span>
+          <span class="module-num">05</span>
           <span class="module-title">Project 2 — Data Narrative Report</span>
           <span class="module-chip chip-narrative">Narrative</span>
           <span class="module-toggle">+</span>
@@ -734,10 +940,12 @@ Write in first person, clear journalistic style. This should sound like somethin
         </div>
       </div>
 
-      <!-- Module 5 -->
-      <div class="module" id="module-5">
+      <div class="assignment-divider"><span>Assignment 5</span></div>
+
+      <!-- Module 6 -->
+      <div class="module" id="module-6-interactive">
         <button class="module-header" aria-expanded="false">
-          <span class="module-num">05</span>
+          <span class="module-num">06</span>
           <span class="module-title">Project 3 — Interactive Dashboard</span>
           <span class="module-chip chip-interactive">Interactive</span>
           <span class="module-toggle">+</span>
@@ -826,10 +1034,12 @@ The active tab should be clearly highlighted. Switching tabs should be instant (
         </div>
       </div>
 
-      <!-- Module 6 -->
-      <div class="module" id="module-6">
+      <div class="assignment-divider"><span>Assignment 6 — Capstone</span></div>
+
+      <!-- Module 7 -->
+      <div class="module" id="module-7-capstone">
         <button class="module-header" aria-expanded="false">
-          <span class="module-num">06</span>
+          <span class="module-num">07</span>
           <span class="module-title">Capstone — Your Project</span>
           <span class="module-chip chip-capstone">Capstone</span>
           <span class="module-toggle">+</span>
@@ -931,10 +1141,10 @@ Write in first person. Make it sound like a data professional wrote it, not a ho
         </div>
       </div>
 
-      <!-- Module 7 -->
-      <div class="module" id="module-7">
+      <!-- Module 8 -->
+      <div class="module" id="module-8-portfolio">
         <button class="module-header" aria-expanded="false">
-          <span class="module-num">07</span>
+          <span class="module-num">08</span>
           <span class="module-title">Portfolio &amp; What's Next</span>
           <span class="module-chip chip-intro">Wrap-up</span>
           <span class="module-toggle">+</span>
