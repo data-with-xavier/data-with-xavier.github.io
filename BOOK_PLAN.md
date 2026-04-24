@@ -2,8 +2,7 @@
 
 ## Concept
 
-**Title:** Pardon My SaaS
-**Subtitle:** Build Stunning Dashboards with AI — No Tableau Required
+**Title:** Pardon My SaaS: Building Dashboards with AI, Not Tableau
 **Author:** Xavier Conzet
 
 A practitioner's guide to replacing expensive, rigid SaaS BI tools with AI-assisted HTML dashboards. Bold, irreverent, and practical — the book makes an argument, then shows you how to act on it.
@@ -388,4 +387,4 @@ Publish on Leanpub with a "in progress" label. Leanpub readers understand and ex
 
 ## The Elevator Pitch
 
-*Pardon My SaaS is a practitioner's guide to building fully custom, AI-assisted data dashboards — without Tableau, Power BI, or any SaaS subscription. Paired with a free interactive course, it teaches analysts, students, and business professionals to describe what they want, let Claude Code build it, and publish it on GitHub Pages — for a fraction of the cost of traditional BI tools, with none of the lock-in.*
+*Pardon My SaaS: Building Dashboards with AI, Not Tableau is a practitioner's guide to building fully custom, AI-assisted data dashboards — without Tableau, Power BI, or any SaaS subscription. Paired with a free interactive course, it teaches analysts, students, and business professionals to describe what they want, let Claude Code build it, and publish it on GitHub Pages — for a fraction of the cost of traditional BI tools, with none of the lock-in.*
