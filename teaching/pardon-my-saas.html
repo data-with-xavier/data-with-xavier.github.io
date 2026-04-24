@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pardon My SaaS – Xavier Conzet</title>
+  <meta name="description" content="Build stunning dashboards with AI — no Tableau required. A project-based course for BUAN 610 Data Narratives at the University of St. Thomas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* ── Course Hero ── */
+    .course-hero { padding: 80px 0 56px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .course-kicker { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--brand-2); margin-bottom: 14px; }
+    .course-title { font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.08; margin: 0 0 18px; }
+    .course-subtitle { font-size: 1.15rem; color: var(--muted); max-width: 560px; line-height: 1.6; margin-bottom: 36px; }
+    .course-stats { display: flex; gap: 36px; flex-wrap: wrap; margin-bottom: 32px; }
+    .stat { display: flex; flex-direction: column; gap: 3px; }
+    .stat-num { font-size: 1.7rem; font-weight: 800; color: var(--brand); }
+    .stat-label { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+    .prereq-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid rgba(52,211,153,.3); border-radius: 20px; font-size: .8rem; color: #34d399; background: rgba(52,211,153,.06); }
+
+    /* ── Section headings ── */
+    .section-label { font-size: .72rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+
+    /* ── What you'll build ── */
+    .builds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-bottom: 64px; }
+    .build-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+    .build-tag { font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; padding: 3px 9px; border-radius: 12px; display: inline-block; margin-bottom: 10px; }
+    .build-tag.dashboard { background: rgba(139,92,246,.15); color: var(--brand); }
+    .build-tag.narrative { background: rgba(251,191,36,.15); color: #fbbf24; }
+    .build-tag.interactive { background: rgba(239,68,68,.15); color: #f87171; }
+    .build-tag.capstone { background: rgba(52,211,153,.15); color: #34d399; }
+    .build-card h4 { font-size: .9rem; font-weight: 600; margin: 0 0 6px; }
+    .build-card p { font-size: .8rem; color: var(--muted); margin: 0; line-height: 1.5; }
+
+    /* ── Module Accordion ── */
+    .modules-section { margin-bottom: 80px; }
+    .module { border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; overflow: hidden; background: var(--card); transition: border-color .2s; }
+    .module:hover { border-color: rgba(139,92,246,.4); }
+    .module.open { border-color: var(--brand); }
+    .module-header { width: 100%; background: none; border: none; cursor: pointer; padding: 18px 22px; display: flex; align-items: center; gap: 14px; text-align: left; color: var(--text); transition: background .15s; }
+    .module-header:hover { background: rgba(255,255,255,.02); }
+    .module-num { font-size: .7rem; font-weight: 700; color: var(--brand); min-width: 26px; font-variant-numeric: tabular-nums; }
+    .module-title { flex: 1; font-size: .95rem; font-weight: 600; }
+    .module-chip { font-size: .62rem; font-weight: 700; padding: 3px 9px; border-radius: 10px; text-transform: uppercase; letter-spacing: .06em; white-space: nowrap; }
+    .chip-intro { background: rgba(139,92,246,.12); color: var(--brand); }
+    .chip-setup { background: rgba(34,211,238,.12); color: var(--brand-2); }
+    .chip-project { background: rgba(52,211,153,.12); color: #34d399; }
+    .chip-spec { background: rgba(251,191,36,.12); color: #fbbf24; }
+    .chip-narrative { background: rgba(251,191,36,.18); color: #fbbf24; }
+    .chip-interactive { background: rgba(239,68,68,.12); color: #f87171; }
+    .chip-capstone { background: rgba(139,92,246,.2); color: var(--brand); }
+    .module-toggle { font-size: 1.3rem; font-weight: 300; color: var(--muted); transition: transform .25s, color .2s; min-width: 18px; text-align: center; line-height: 1; }
+    .module.open .module-toggle { transform: rotate(45deg); color: var(--brand); }
+    .module-body { display: none; padding: 0 22px 26px; border-top: 1px solid var(--border); }
+    .module.open .module-body { display: block; }
+    .module-intro { color: var(--muted); font-size: .9rem; line-height: 1.7; margin: 18px 0 22px; }
+
+    /* ── Lesson steps ── */
+    .lesson-step { margin-bottom: 22px; }
+    .lesson-step h4 { font-size: .88rem; font-weight: 600; color: var(--text); margin: 0 0 6px; }
+    .lesson-step p, .lesson-step li { color: var(--muted); font-size: .875rem; line-height: 1.65; margin: 0 0 6px; }
+    .lesson-step ul, .lesson-step ol { padding-left: 20px; margin: 6px 0; }
+    .lesson-step ol li { margin-bottom: 4px; }
+    .step-divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+    /* ── Prompt blocks ── */
+    .prompt-block { background: rgba(5,5,12,.6); border: 1px solid var(--border); border-left: 3px solid var(--brand); border-radius: 8px; margin: 14px 0; overflow: hidden; }
+    .prompt-header { display: flex; justify-content: space-between; align-items: center; padding: 7px 13px; background: rgba(139,92,246,.07); border-bottom: 1px solid var(--border); }
+    .prompt-label { font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--brand); }
+    .copy-btn { font-size: .65rem; font-weight: 600; padding: 3px 10px; border: 1px solid var(--brand); border-radius: 4px; background: transparent; color: var(--brand); cursor: pointer; transition: background .15s, color .15s; font-family: inherit; }
+    .copy-btn:hover { background: var(--brand); color: #fff; }
+    .copy-btn.copied { background: #34d399 !important; border-color: #34d399 !important; color: #fff !important; }
+    .prompt-text { padding: 13px; margin: 0; font-family: inherit; font-size: .82rem; line-height: 1.65; color: #c4c4d6; white-space: pre-wrap; word-break: break-word; }
+
+    /* ── Callouts ── */
+    .callout { border-radius: 8px; padding: 13px 17px; margin: 14px 0; font-size: .858rem; line-height: 1.65; }
+    .callout-tip { background: rgba(34,211,238,.05); border: 1px solid rgba(34,211,238,.2); color: var(--muted); }
+    .callout-tip strong { color: var(--brand-2); }
+    .callout-warn { background: rgba(251,191,36,.05); border: 1px solid rgba(251,191,36,.2); color: var(--muted); }
+    .callout-warn strong { color: #fbbf24; }
+
+    /* ── Deliverable ── */
+    .deliverable { background: rgba(52,211,153,.04); border: 1px solid rgba(52,211,153,.2); border-radius: 8px; padding: 15px 19px; margin-top: 22px; }
+    .deliverable-label { font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #34d399; margin-bottom: 9px; }
+    .deliverable ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .858rem; line-height: 1.8; }
+
+    /* ── Data download ── */
+    .data-download { display: inline-flex; align-items: center; gap: 8px; padding: 7px 15px; border: 1px solid var(--border); border-radius: 6px; color: var(--brand-2); font-size: .82rem; font-weight: 500; text-decoration: none; transition: border-color .15s, background .15s; margin-bottom: 18px; }
+    .data-download:hover { border-color: var(--brand-2); background: rgba(34,211,238,.05); }
+    .data-download svg { flex-shrink: 0; }
+
+    /* ── Cheat sheet ── */
+    .cheatsheet { margin-bottom: 80px; }
+    .cheat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-top: 20px; }
+    .cheat-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .cheat-card-head { padding: 10px 14px; background: rgba(139,92,246,.07); border-bottom: 1px solid var(--border); font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--brand); }
+    .cheat-card .prompt-text { font-size: .78rem; }
+  </style>
+</head>
+<body data-page="teaching">
+  <canvas id="bg" style="position:fixed;inset:0;z-index:0;opacity:.35;"></canvas>
+
+  <header>
+    <div class="container nav">
+      <div class="brand"><a href="../index.html">XAVIER CONZET</a></div>
+      <nav>
+        <a href="../projects.html" data-page-link="projects">Projects</a>
+        <a href="../teaching.html" data-page-link="teaching">Teaching</a>
+        <a href="../blog.html" data-page-link="blog">Writing</a>
+        <a href="#" class="contact-trigger">Contact</a>
+        <a href="https://www.linkedin.com/in/xavierconzet/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="cta" href="../assets/Xavier_Conzet_Resume.docx" download>Download Résumé</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ── Hero ── -->
+    <section class="course-hero">
+      <p class="course-kicker">BUAN 610 · Data Narratives · University of St. Thomas</p>
+      <h1 class="course-title">Pardon My SaaS</h1>
+      <p class="course-subtitle">Build stunning, fully custom dashboards with AI — no Tableau, no Power BI, no expensive subscriptions required.</p>
+      <div class="course-stats">
+        <div class="stat"><span class="stat-num">7</span><span class="stat-label">Modules</span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">Projects</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Data Files</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">Prior Experience Needed</span></div>
+      </div>
+      <div class="prereq-badge">✓ You need a Claude Pro account. That's it.</div>
+    </section>
+
+    <!-- ── What you'll build ── -->
+    <section style="margin-bottom:56px;">
+      <p class="section-label">What you'll build</p>
+      <div class="builds-grid">
+        <div class="build-card">
+          <span class="build-tag dashboard">Dashboard</span>
+          <h4>Sales &amp; Budget Tracker</h4>
+          <p>Multi-region revenue dashboard with filters, KPI cards, and trend lines.</p>
+        </div>
+        <div class="build-card">
+          <span class="build-tag narrative">Narrative</span>
+          <h4>Data Journalism Piece</h4>
+          <p>A WSJ-style editorial with embedded charts that argue a point with data.</p>
+        </div>
+        <div class="build-card">
+          <span class="build-tag interactive">Interactive</span>
+          <h4>Sports Analytics Hub</h4>
+          <p>Tabbed dashboard with live filters, scatter plots, and a sortable player table.</p>
+        </div>
+        <div class="build-card">
+          <span class="build-tag capstone">Capstone</span>
+          <h4>Your Own Project</h4>
+          <p>Your dataset, your topic, your format. The centerpiece of your portfolio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Modules ── -->
+    <section class="modules-section">
+      <p class="section-label">Course Modules</p>
+
+      <!-- Module 0 -->
+      <div class="module" id="module-0">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">00</span>
+          <span class="module-title">Why Pardon My SaaS?</span>
+          <span class="module-chip chip-intro">Intro</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">Before we write a single line of code, let's talk about why you're here — and why the tools your company probably uses are working against you.</p>
+
+          <div class="lesson-step">
+            <h4>The SaaS Tax</h4>
+            <p>Tableau Desktop runs $840/year per user. Power BI Pro is $120/year but requires a Microsoft 365 ecosystem. Looker? Enterprise pricing — call for a quote (which means <em>very</em> expensive). Every year, companies pay these "SaaS taxes" for tools that lock your work into proprietary formats, limit your design choices, and slow you down the moment you want to do something outside their feature set.</p>
+            <p>The lock-in is the real cost. Your Tableau workbooks can't run without Tableau. Your Power BI dashboards live in Microsoft's cloud. You're renting access to your own work.</p>
+          </div>
+
+          <div class="lesson-step">
+            <h4>The AI Alternative</h4>
+            <p>HTML is the language of the web. It's free, runs everywhere, and looks exactly how you design it. The catch has always been: you need to know how to write it. That's where Claude changes everything.</p>
+            <p>You describe what you want. Claude writes the code. You refine it by describing what to change. No syntax memorization. No Stack Overflow spirals. Just a conversation that produces something you can publish.</p>
+            <p>This isn't "AI does everything while you watch." You are the analyst, the designer, the storyteller. Claude is the developer who executes your vision faster than any team could.</p>
+          </div>
+
+          <div class="lesson-step">
+            <h4>What "Pardon My SaaS" Means</h4>
+            <p>It means you're done apologizing for not knowing Tableau. It means you're building something better, on your own terms, that you actually own. By the end of this course, you'll have a portfolio of live, published dashboards — not screenshots from someone else's platform.</p>
+          </div>
+
+          <div class="lesson-step">
+            <h4>What You'll Build</h4>
+            <ul>
+              <li>A <strong>portfolio home page</strong> live on the internet with your name on it</li>
+              <li>A <strong>Sales &amp; Budget Tracker</strong> — your first real dashboard</li>
+              <li>A <strong>personal dashboard spec</strong> that makes every future project faster</li>
+              <li>A <strong>data journalism piece</strong> — prose + charts, WSJ-style</li>
+              <li>An <strong>interactive sports analytics dashboard</strong> with filters and tabs</li>
+              <li>A <strong>capstone project</strong> of your choosing — the centerpiece of your portfolio</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 1 -->
+      <div class="module" id="module-1">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">01</span>
+          <span class="module-title">Your Toolkit — Starting from Zero</span>
+          <span class="module-chip chip-setup">Setup</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">No prior experience assumed. By the end of this module, your portfolio will be live on the internet and you'll have had your first real conversation with Claude Code.</p>
+
+          <div class="lesson-step">
+            <h4>Step 1 — Create a GitHub Account</h4>
+            <ol>
+              <li>Go to <strong>github.com</strong> and click <em>Sign up</em></li>
+              <li>Choose a username you'd be comfortable putting on a resume — your name or initials work well (e.g., <code>jsmith-analytics</code>)</li>
+              <li>Verify your email and complete setup</li>
+            </ol>
+            <div class="callout callout-tip"><strong>Tip:</strong> Your GitHub username becomes part of your portfolio URL: <code>https://[username].github.io</code>. Choose something professional.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 2 — Create Your Portfolio Repository</h4>
+            <ol>
+              <li>Click the <strong>+</strong> icon → <em>New repository</em></li>
+              <li>Name it exactly: <code>[your-username].github.io</code> (replace with your actual username)</li>
+              <li>Set it to <strong>Public</strong></li>
+              <li>Check <em>Add a README file</em></li>
+              <li>Click <em>Create repository</em></li>
+            </ol>
+            <div class="callout callout-warn"><strong>Important:</strong> The repo name must match your username exactly, including capitalization. <code>jsmith.github.io</code> works. <code>JSmith.github.io</code> does not.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 3 — Enable GitHub Pages</h4>
+            <ol>
+              <li>Inside your new repo, click <strong>Settings</strong></li>
+              <li>In the left sidebar, click <strong>Pages</strong></li>
+              <li>Under <em>Source</em>, select <em>Deploy from a branch</em></li>
+              <li>Set Branch to <strong>main</strong>, folder to <strong>/ (root)</strong></li>
+              <li>Click <em>Save</em></li>
+            </ol>
+            <p>Within a minute or two, your site will be live at <code>https://[username].github.io</code>. It'll just show your README for now — we'll fix that next.</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 4 — Install Claude Code</h4>
+            <ol>
+              <li>Install <strong>Node.js</strong> from <strong>nodejs.org</strong> (download the LTS version)</li>
+              <li>Open <strong>Terminal</strong> (Mac) or <strong>Command Prompt</strong> (Windows)</li>
+              <li>Run: <code>npm install -g @anthropic-ai/claude-code</code></li>
+              <li>Run: <code>claude</code> and follow the login prompts using your Claude Pro account</li>
+            </ol>
+            <div class="callout callout-tip"><strong>Tip:</strong> Claude Code runs inside your Terminal/Command Prompt. You'll type messages to it and it'll respond — and write files directly to your computer. Think of it as a conversation where Claude can actually <em>do</em> things, not just answer questions.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 5 — Build Your Portfolio Home Page</h4>
+            <p>Navigate to your repo folder in Terminal (<code>cd path/to/your-username.github.io</code>), then run <code>claude</code> and use this prompt:</p>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Portfolio Home Page</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">I'm building a personal portfolio website that will host my data dashboards and projects. Please create an index.html file with these requirements:
+
+- Clean, modern dark theme (dark navy background, light text, one accent color of your choosing)
+- My name prominently in the header: [YOUR FULL NAME]
+- A short bio: "Data analytics student at the University of St. Thomas. I build data dashboards and visualizations using AI tools."
+- A "My Work" section with 4 placeholder project cards (just empty cards with "Project coming soon" text for now)
+- Links to my GitHub (https://github.com/[your-username]) and LinkedIn ([your-linkedin-url])
+- Use Inter font from Google Fonts
+- Should look professional — something I'd be proud to show a recruiter
+
+Keep everything in one HTML file (HTML, CSS, and any JS all inline).</pre>
+            </div>
+
+            <p>Once Claude generates the file, commit it to your repo:</p>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Terminal Commands</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">git add index.html
+git commit -m "Add portfolio home page"
+git push</pre>
+            </div>
+            <p>Visit <code>https://[username].github.io</code> — your portfolio is live.</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Getting Unstuck — The Most Important Skill in This Course</h4>
+            <p>Claude will sometimes give you broken code. This is normal. Here's the loop that fixes it every time:</p>
+            <ol>
+              <li><strong>Open the HTML file in your browser</strong> — right-click on the file, choose <em>Open with</em> → your browser</li>
+              <li><strong>Right-click anywhere on the page → Inspect</strong> → click the <em>Console</em> tab</li>
+              <li><strong>Copy any red error messages</strong> you see</li>
+              <li><strong>Tell Claude exactly what's wrong</strong> — paste the error and describe what you see</li>
+            </ol>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — When Something Breaks</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">This code isn't working as expected. Here's what I see:
+
+[Describe what you see visually — e.g., "the page is blank" or "the chart doesn't appear"]
+
+Here's the error from the browser console:
+[Paste the error message]
+
+Please identify the problem and fix it.</pre>
+            </div>
+
+            <div class="callout callout-tip"><strong>The rule:</strong> Be specific. "Fix it" gives Claude nothing. "The bar chart labels are overlapping and the font size is too small — here's the console error: [error]" gives Claude everything it needs. The more specific your description, the better the fix.</div>
+          </div>
+
+          <div class="deliverable">
+            <div class="deliverable-label">Module 1 Deliverable</div>
+            <ul>
+              <li>GitHub account created with a professional username</li>
+              <li>Portfolio repo named <code>[username].github.io</code> is public</li>
+              <li>GitHub Pages is enabled and the site loads at your URL</li>
+              <li><code>index.html</code> is live with your name, bio, and placeholder project cards</li>
+              <li>Claude Code is installed and you've had your first conversation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 2 -->
+      <div class="module" id="module-2">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">02</span>
+          <span class="module-title">Dashboard Foundations</span>
+          <span class="module-chip chip-setup">Foundations</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">You don't need to learn HTML, CSS, or JavaScript to build great dashboards. But you do need to understand what they are — enough to describe what you want clearly and recognize when something is off.</p>
+
+          <div class="lesson-step">
+            <h4>What Is an HTML File?</h4>
+            <p>An HTML file is a single text file that any browser can render as a webpage. When we build dashboards, everything lives in one file: the structure (HTML), the styling (CSS), and the interactivity (JavaScript). You can open it locally by double-clicking it, or publish it to GitHub Pages and share the URL with anyone.</p>
+            <p>You don't write this file. Claude does. Your job is to <strong>describe what you want</strong> clearly enough that Claude can build it — and then to refine it until it's right.</p>
+          </div>
+
+          <div class="lesson-step">
+            <h4>What Is Chart.js?</h4>
+            <p>Chart.js is a free, open-source JavaScript library that creates beautiful, interactive charts. We use it by loading it from a CDN (content delivery network) — one line of code at the top of our HTML file, no installation required.</p>
+            <p>Claude knows Chart.js well. When you ask for a bar chart, line chart, doughnut, scatter plot, or radar chart, Claude will use Chart.js to build it.</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Your First Chart</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — First Chart</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build me a single HTML file with one bar chart using Chart.js (load it from a CDN). The chart shows monthly revenue for a fictional coffee shop:
+
+Jan: $12,400 | Feb: $10,800 | Mar: $14,200 | Apr: $15,600 | May: $18,900 | Jun: $22,300
+
+Requirements:
+- Dark background (#0d0d14 or similar)
+- Green bars (#34d399 or similar)
+- Chart title: "Monthly Revenue — The Daily Grind"
+- Clean, minimal design with a legend and axis labels
+- Everything in one self-contained HTML file</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Adding Layout and KPIs</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Layout Upgrade</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Now improve the layout. Add:
+- A left sidebar (about 220px wide) with the shop name "The Daily Grind" at the top
+- Three KPI cards in the sidebar: Total Revenue: $94,200 | Best Month: June | Monthly Avg: $15,700
+- The bar chart takes up the remaining right side of the screen
+- Keep the dark theme and green accent color</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Refining the Design</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Design Polish</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">The KPI cards feel plain. Please:
+1. Add subtle gradient backgrounds to each card
+2. Make the number values larger and bolder
+3. Add a thin colored top border to each card using the same green as the chart
+4. Add very slight rounded corners and a soft shadow to each card
+
+Also, the chart bars could be a bit wider. Can you adjust the Chart.js barPercentage and categoryPercentage to make them feel more substantial?</pre>
+            </div>
+            <div class="callout callout-tip"><strong>Notice the pattern:</strong> You described <em>specifically</em> what was wrong and what to change. "Make it look better" would give Claude nothing. "Add a colored top border matching the chart's green" tells Claude exactly what to do.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Working with Data — Two Approaches</h4>
+            <p><strong>Approach 1: Embed data in the HTML</strong> — Best for small, static datasets. Claude writes the data directly into the JavaScript as a variable. Simple, portable, works everywhere.</p>
+            <p><strong>Approach 2: Fetch from GitHub</strong> — Best for larger datasets or data you want to update easily. You upload the CSV to your GitHub repo, then the HTML fetches it via the raw URL. This is what we'll do in the projects.</p>
+            <div class="callout callout-warn"><strong>Why not just open a CSV locally?</strong> Browsers block local file access for security reasons. By hosting your data on GitHub and fetching it via URL, you bypass this entirely — and get version control for free.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Mini-Project: Personal Stats Dashboard</h4>
+            <p>Build a dashboard about something you actually track — workouts, books read, hours of sleep, money spent on coffee. Real data makes the work more interesting.</p>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Personal Stats Dashboard</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">I want to build a personal stats dashboard as my first practice project. Here's my data:
+
+[Replace this with your actual data — examples:]
+Books read per month (Jan–Jun): 2, 1, 3, 2, 4, 3
+Workout sessions per week (last 8 weeks): 4, 3, 5, 4, 6, 3, 5, 4
+Average daily steps (last 6 months): 7200, 6800, 8100, 7500, 9200, 8400
+
+Build me a clean, dark-themed HTML dashboard with:
+- A title with my name: "[YOUR NAME]'s 2024 Stats"
+- At least two chart types (e.g., bar and line)
+- A KPI row at the top with my best month, average, and total
+- Design it as something I'd be proud to show — portfolio-worthy from day one</pre>
+            </div>
+          </div>
+
+          <div class="deliverable">
+            <div class="deliverable-label">Module 2 Deliverable</div>
+            <ul>
+              <li>Coffee shop bar chart built and displayed correctly in browser</li>
+              <li>Design iterated at least twice using follow-up prompts</li>
+              <li>Personal stats dashboard built and saved</li>
+              <li>You can confidently open the browser console and identify errors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 3 -->
+      <div class="module" id="module-3">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">03</span>
+          <span class="module-title">Project 1 — Sales &amp; Budget Tracker</span>
+          <span class="module-chip chip-project">Project</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">Your first real project. You're building a dashboard for a fictional regional grocery chain — the kind of thing a junior analyst would actually be asked to build. No hand-holding this time; you drive.</p>
+
+          <a class="data-download" href="data/sales-data.csv" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download sales-data.csv
+          </a>
+
+          <div class="lesson-step">
+            <h4>The Brief</h4>
+            <p>You're a junior analyst at Northside Foods, a regional grocery chain. The regional VP wants a dashboard to track monthly performance across three regions: North, East, and West. She needs to see revenue vs. expenses, profit margin trends, and top-performing regions at a glance. The data covers 24 months (Jan 2022 – Dec 2023).</p>
+            <p><strong>Fields:</strong> Month, Region, Revenue, Expenses, Profit, Units_Sold</p>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 1 — Initial Build</h4>
+            <p>Open your CSV, look at the first few rows to understand the data, then use this prompt. Paste a sample of the data (the first 10 rows or so) directly into the prompt.</p>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Initial Dashboard Build</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">I'm building an executive dashboard for Northside Foods, a regional grocery chain. The dataset has these columns: Month (YYYY-MM format), Region (North/East/West), Revenue, Expenses, Profit, Units_Sold — covering 24 months across 3 regions.
+
+Build an HTML dashboard with:
+1. A header with the company name and subtitle "Regional Performance Dashboard"
+2. A KPI row (Total Revenue, Total Profit, Avg Profit Margin %, Best Region)
+3. A grouped bar chart: Revenue vs. Expenses by month for all regions combined
+4. A line chart: Profit Margin % over time, one line per region (3 lines total)
+5. A top-5 months table (ranked by profit) with Month, Region, Revenue, Profit columns
+6. A region filter dropdown that updates all three visuals when changed
+
+Dark theme, professional design. Use Chart.js via CDN.
+
+Here's a sample of the data (embed the full dataset from this structure):
+Month,Region,Revenue,Expenses,Profit,Units_Sold
+2022-01,North,142500,98200,44300,1842
+2022-01,East,118700,84100,34600,1531
+2022-01,West,97300,71400,25900,1256
+[continue with your full data...]</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 2 — Iterate on the Charts</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Chart Refinement</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">A few refinements:
+1. The grouped bar chart bars are too thin — increase barPercentage to 0.8 and categoryPercentage to 0.7
+2. Add value labels on top of each bar showing the amount in $K (e.g., "$142K")
+3. Move the chart legends below each chart instead of to the right
+4. On the line chart, add data point dots that are slightly larger than the default
+5. The top-5 table — add alternating row colors and make the header row bold with a slightly different background</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 3 — Fetch from GitHub Instead of Embedding</h4>
+            <p>Upload <code>sales-data.csv</code> to a <code>data/</code> folder in your portfolio repo. Then update the dashboard to fetch it instead of embedding the data inline.</p>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Switch to Fetched Data</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Currently the data is embedded in the JavaScript as a hardcoded array. I want to fetch it instead from a CSV file. The CSV is hosted at this URL:
+
+https://raw.githubusercontent.com/[your-username]/[your-username].github.io/main/data/sales-data.csv
+
+Please update the dashboard to:
+1. Fetch the CSV from that URL using the Fetch API on page load
+2. Parse it into the same data structure the charts currently use
+3. Show a loading state while the data is being fetched
+4. Handle the case where the fetch fails (show a simple error message)
+
+Everything else should stay the same.</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 4 — Publish and Link</h4>
+            <p>Save the file as <code>dashboards/project-1.html</code> in your repo. Commit and push. Then update your portfolio <code>index.html</code> to replace one of the placeholder cards with a real link to this dashboard.</p>
+          </div>
+
+          <div class="deliverable">
+            <div class="deliverable-label">Project 1 Deliverable</div>
+            <ul>
+              <li>Dashboard live at <code>https://[username].github.io/dashboards/project-1.html</code></li>
+              <li>All 3 visualizations render correctly with real data</li>
+              <li>Region filter dropdown updates all charts</li>
+              <li>Data is fetched from GitHub raw URL (not embedded)</li>
+              <li>Portfolio home page links to this project</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 3.5 -->
+      <div class="module" id="module-35">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">03.5</span>
+          <span class="module-title">Build Your Dashboard Spec</span>
+          <span class="module-chip chip-spec">Spec</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">After Project 1, you've felt what it's like to start from scratch. Every new Claude conversation starts cold — it doesn't know your color palette, your layout preferences, or your visual style. Your dashboard spec fixes that permanently.</p>
+
+          <div class="lesson-step">
+            <h4>What Is a Dashboard Spec?</h4>
+            <p>A <code>dashboard-spec.md</code> file that lives in your GitHub repo. It defines your personal design system: colors, fonts, layout preferences, chart style, and the overall mood of your work. You paste it at the start of every Claude session, and Claude uses it as the foundation for everything it builds.</p>
+            <p>The result: your dashboards will look like <em>yours</em> — consistent, branded, intentional — instead of whatever style Claude defaults to.</p>
+          </div>
+
+          <a class="data-download" href="data/dashboard-spec-template.md" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download dashboard-spec-template.md
+          </a>
+
+          <div class="lesson-step">
+            <h4>Step 1 — Discover Your Style with Claude</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Generate Your Spec</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">I want to create a personal dashboard design spec that I'll paste into every future Claude conversation as context. I want my dashboards to have a consistent, recognizable style.
+
+Please ask me a series of questions to understand my design preferences — things like:
+- Colors or palettes I'm drawn to (ask for examples if helpful)
+- Layouts I find appealing (minimal sidebar? full-screen? card-heavy?)
+- The mood or personality I want my work to convey (corporate and clean? bold and data-forward? editorial and calm?)
+- Chart styles I prefer (dense vs. spacious, gridlines vs. none, etc.)
+
+After I answer, generate a concise dashboard-spec.md file I can save and reuse. It should include: hex color codes for my palette, font choices, layout preferences, chart preferences, and a short "prompt prefix" I can copy-paste at the start of future sessions.</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 2 — Preview Your Style</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Style Preview</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Here is my dashboard spec:
+[Paste your completed spec here]
+
+Using this spec, build me a simple style preview page — not a real dashboard, just a visual test. Include:
+- A header with my name as a title
+- Three KPI cards with placeholder numbers
+- One sample bar chart with placeholder data
+- One sample line chart with placeholder data
+
+I want to see how the spec translates visually before I commit to it. Keep everything in one HTML file.</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 3 — Save and Commit</h4>
+            <p>Save your finalized spec as <code>dashboard-spec.md</code> in the root of your GitHub repo. From now on, every Claude session starts with: <em>"Here is my dashboard spec: [paste spec]. Please use this for all styling decisions."</em></p>
+            <div class="callout callout-tip"><strong>Living document:</strong> Your spec will evolve. After each project, update it if you discovered preferences you didn't know you had. Version control means you can always go back.</div>
+          </div>
+
+          <div class="deliverable">
+            <div class="deliverable-label">Module 3.5 Deliverable</div>
+            <ul>
+              <li><code>dashboard-spec.md</code> committed to your repo</li>
+              <li>Style preview page generated and reviewed</li>
+              <li>Spec prompt prefix saved somewhere you can easily paste it</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 4 -->
+      <div class="module" id="module-4">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">04</span>
+          <span class="module-title">Project 2 — Data Narrative Report</span>
+          <span class="module-chip chip-narrative">Narrative</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">A dashboard lets users explore data. A narrative tells them what you found and why it matters. This project builds the second skill — and it ties directly to what "Data Narratives" as a field is actually about.</p>
+
+          <a class="data-download" href="data/narrative-data.csv" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download narrative-data.csv
+          </a>
+
+          <div class="lesson-step">
+            <h4>The Brief</h4>
+            <p>The dataset covers US public and private college tuition alongside median household income from 1980 to 2023. Your job: make an argument about the relationship between these two numbers. Is college becoming more or less affordable? Who is being priced out? What does the data actually say?</p>
+            <p>The deliverable is a long-form HTML page that looks like a published editorial — a headline, prose paragraphs, charts embedded as evidence, and a conclusion. Think WSJ, NYT, or The Pudding.</p>
+            <p><strong>Fields:</strong> Year, Tuition_Public_4yr, Tuition_Private_4yr, Median_HH_Income, Tuition_Public_Pct_Income, Tuition_Private_Pct_Income</p>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 1 — Form Your Thesis First</h4>
+            <p>Before you ask Claude to write anything, explore the data and form an opinion. What's the most striking number? What surprised you? What do you want the reader to walk away believing?</p>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Data Exploration</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Here is a dataset on US college tuition and median household income from 1980 to 2023:
+
+[Paste the CSV data here]
+
+Fields: Year, Tuition_Public_4yr (average public 4-year tuition), Tuition_Private_4yr (average private 4-year tuition), Median_HH_Income, Tuition_Public_Pct_Income (public tuition as % of median HH income), Tuition_Private_Pct_Income
+
+Please analyze this data and tell me:
+1. The 3 most striking trends or data points
+2. What arguments I could make with this data (give me 3 different angles)
+3. Which angle has the strongest visual story — the one where charts would be most compelling</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 2 — Build the Article Shell</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Narrative HTML Shell</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Here is my dashboard spec: [paste your spec]
+
+I'm building a data journalism piece, not a traditional dashboard. It should look like a long-form article — similar to NYT or WSJ data stories. Here is my thesis: [your thesis from Step 1]
+
+Build an HTML shell with:
+- A full-width hero section: bold headline, a one-sentence subheadline, my byline and date
+- A single-column reading layout, max-width 680px, centered
+- Comfortable typography: ~18px base size, 1.75 line-height, good paragraph spacing
+- Three chart placeholder boxes (label them Chart 1, Chart 2, Chart 3 — gray boxes with that text)
+- Introductory paragraph (the "lede") as a placeholder: [LEDE PARAGRAPH HERE]
+- A concluding section placeholder at the bottom
+
+The article text area can have a slightly lighter background than the page to improve readability. Use my dashboard spec for all color and font decisions.</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 3 — Add the Charts</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Embed Charts</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Now replace the three chart placeholders with real Chart.js charts. Use the data I'll paste below. All charts should match my dashboard spec colors.
+
+Chart 1 (replace placeholder 1): A dual-axis line chart. Left axis: average public 4-year tuition (in $). Right axis: median household income (in $). Both shown from 1980-2023. Title: "Tuition Has Outpaced Income for 40 Years"
+
+Chart 2 (replace placeholder 2): A bar chart showing public tuition as a percentage of median household income, by decade (1980s avg, 1990s avg, 2000s avg, 2010s avg, 2020s avg). Calculate the decade averages from the data. Title: "The Affordability Gap by Decade"
+
+Chart 3 (replace placeholder 3): A line chart showing both public and private tuition as % of median income over time (two lines). Title: "The Growing Price of a Degree"
+
+Here is the full dataset: [paste the CSV data]
+
+Make the charts full-width within the article column.</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 4 — Write the Prose</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Article Prose</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Help me write the text for my data journalism piece. My thesis is: [your thesis].
+
+Write the following sections:
+1. The lede (opening paragraph): Start with a specific, striking data point from the dataset. Make it concrete — a year, a number, a before/after comparison. Hook the reader in 2-3 sentences.
+2. A transition paragraph before Chart 1 that sets up what the reader is about to see
+3. A transition paragraph between Chart 1 and Chart 2 that deepens the argument
+4. A transition between Chart 2 and Chart 3 that pivots to the key insight
+5. A concluding paragraph that reinforces the thesis and ends with a question or call to action
+
+Write in first person, clear journalistic style. This should sound like something published, not a homework assignment.</pre>
+            </div>
+          </div>
+
+          <div class="deliverable">
+            <div class="deliverable-label">Project 2 Deliverable</div>
+            <ul>
+              <li>Page reads like a published article — prose + charts woven together</li>
+              <li>Clear thesis that the data supports</li>
+              <li>At least 3 embedded Chart.js charts</li>
+              <li>Typography makes it comfortable to read on screen</li>
+              <li>Live at <code>https://[username].github.io/narratives/college-costs.html</code></li>
+              <li>Portfolio home page updated with a link to this piece</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 5 -->
+      <div class="module" id="module-5">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">05</span>
+          <span class="module-title">Project 3 — Interactive Dashboard</span>
+          <span class="module-chip chip-interactive">Interactive</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">Your first two projects were mostly static — data baked in, charts that don't change. This one adds real interactivity: filters, tabs, and live updates. It's also the most technically complex prompt you'll write — a good test of everything you've learned.</p>
+
+          <a class="data-download" href="data/sports-data.csv" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download sports-data.csv
+          </a>
+
+          <div class="lesson-step">
+            <h4>The Brief</h4>
+            <p>Build a sports analytics dashboard for a fictional basketball league. Coaches and scouts need to explore player performance across multiple dimensions. The dataset includes 75 players across 5 teams, 3 positions, and 3 seasons.</p>
+            <p><strong>Fields:</strong> Player, Team, Position, Season, Games, Points, Assists, Rebounds, Steals, Blocks, FG_Pct</p>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 1 — Build with Filters from the Start</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Interactive Dashboard</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Here is my dashboard spec: [paste your spec]
+
+Build an interactive HTML basketball analytics dashboard. The dataset has these fields: Player, Team, Position, Season, Games, Points, Assists, Rebounds, Steals, Blocks, FG_Pct.
+
+Requirements:
+1. A header: "League Analytics Hub" with the current filter state shown (e.g., "Showing: All Teams · All Positions · 2023-24")
+2. A filter bar with three dropdowns: Team (All + 5 teams), Position (All + PG/SG/SF/PF/C), Season (All + 3 seasons)
+3. A KPI row that updates with filters: Avg Points, Avg Assists, Avg Rebounds, Top Performer (highest points player)
+4. A scatter plot: Points (x-axis) vs. Assists (y-axis). Each dot = one player. Color dots by Position. Hovering shows the player name and team.
+5. A sortable data table below the chart showing all filtered players with all their stats. Clicking a column header sorts by that column.
+6. When any filter changes, ALL elements (KPIs, chart, table) update instantly.
+
+Use Chart.js for the scatter plot. Embed the full dataset from the CSV (I'll paste it below).
+
+Here is the data: [paste the full CSV contents]</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 2 — Add Tab Navigation</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Add Tabs</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Add a tabbed navigation system with three views:
+
+Tab 1 "Overview" — the current layout (filters + KPIs + scatter + table)
+
+Tab 2 "Team Comparison" — two side-by-side grouped bar charts:
+  - Chart A: Average Points per team (one bar per team)
+  - Chart B: Average Rebounds per team
+  Both should respect the Season filter but ignore Team filter
+
+Tab 3 "Player Spotlight" — a search input where I type a player name and:
+  - A radar chart appears showing their stats normalized 0-100 relative to the league (Points, Assists, Rebounds, Steals, Blocks, FG%)
+  - A card below shows their full stats for each season they played
+
+The active tab should be clearly highlighted. Switching tabs should be instant (no page reload).</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 3 — Polish</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Final Polish</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Final polish pass:
+1. Add smooth CSS transitions when the scatter plot updates (dots fade out and fade in rather than jumping)
+2. Add a "Clear Filters" button next to the dropdowns that resets all three filters to "All"
+3. When I click a dot on the scatter plot, highlight that player's row in the data table (scroll it into view and add a highlight color)
+4. Add a small badge next to the top performer's name in the KPI row showing their team abbreviation
+5. Check for any console errors and fix them</pre>
+            </div>
+          </div>
+
+          <div class="deliverable">
+            <div class="deliverable-label">Project 3 Deliverable</div>
+            <ul>
+              <li>All three filters work and update every element on the page</li>
+              <li>All three tabs are functional (Overview, Team Comparison, Player Spotlight)</li>
+              <li>Scatter plot dot click highlights corresponding table row</li>
+              <li>No errors in the browser console</li>
+              <li>Live at <code>https://[username].github.io/dashboards/project-3.html</code></li>
+              <li>Portfolio home page updated</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 6 -->
+      <div class="module" id="module-6">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">06</span>
+          <span class="module-title">Capstone — Your Project</span>
+          <span class="module-chip chip-capstone">Capstone</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">This is the centerpiece of your portfolio. You choose the topic, the dataset, and the format. The only rule: it should be something you care about — something you'd actually want to show an employer or bring up in an interview.</p>
+
+          <div class="lesson-step">
+            <h4>Step 1 — Find Your Dataset</h4>
+            <p>Good sources for free, interesting data:</p>
+            <ul>
+              <li><strong>data.gov</strong> — US government open data (health, transportation, economics, environment)</li>
+              <li><strong>kaggle.com/datasets</strong> — community-contributed datasets on almost any topic</li>
+              <li><strong>Our World in Data</strong> (ourworldindata.org) — global trends, clean and well-documented</li>
+              <li><strong>Sports Reference</strong> (sports-reference.com) — deep sports stats</li>
+              <li><strong>Your own data</strong> — Spotify listening history, fitness app exports, personal finance exports</li>
+            </ul>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 2 — Evaluate Before You Commit</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Dataset Evaluation</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">I'm considering this dataset for my capstone project. Here's a description and a sample:
+
+Topic: [describe the dataset]
+Source: [where it's from]
+Fields: [list the columns]
+Sample rows: [paste 5-10 rows]
+
+Please help me evaluate it:
+1. What interesting stories or arguments could I make with this data?
+2. Give me 3 different angles or theses I could pursue
+3. What visualizations would work best for each angle?
+4. Are there any limitations or gaps I should be aware of before I commit?
+5. Which format makes most sense — traditional dashboard, narrative article, or hybrid?</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 3 — Write Your Brief</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Project Brief</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Here is my dashboard spec: [paste spec]
+
+I'm building my capstone data project. Here's my plan:
+- Topic: [topic]
+- Dataset: [description + paste sample]
+- Format: [dashboard / narrative / hybrid]
+- Target audience: [who would read or use this]
+- Thesis or key question: [what you're trying to show or argue]
+
+Based on this, please draft a "project brief" — a short planning document that includes:
+1. Project title and one-sentence description
+2. The 3-5 visualizations I'll build and why each one supports the thesis
+3. The narrative arc or dashboard sections in order
+4. Any data cleaning or transformation I'll need to do
+5. Suggested file name and URL path for GitHub Pages
+
+I'll review and refine this brief before I start building.</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 4 — Build and Publish</h4>
+            <p>Use your brief to guide the build. Apply everything you've learned: your dashboard spec, the prompt iteration loop, the browser console for debugging, and fetched data from your GitHub repo.</p>
+            <p>When it's done, write a README:</p>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Write Your README</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Write a README.md for my capstone project. Context:
+
+Project title: [title]
+What I built: [description]
+Dataset: [source and description]
+Key finding or argument: [what the data shows]
+Live URL: https://[username].github.io/[path]
+
+The README should include:
+- A short description of what this project is
+- The data source with a link
+- Key findings or the main argument (2-3 bullet points)
+- A link to the live project
+- A "Tools Used" section: HTML/CSS/JavaScript, Chart.js, Claude Code
+
+Write in first person. Make it sound like a data professional wrote it, not a homework submission.</pre>
+            </div>
+          </div>
+
+          <div class="deliverable">
+            <div class="deliverable-label">Capstone Deliverable</div>
+            <ul>
+              <li>Live on GitHub Pages with a clean, shareable URL</li>
+              <li>Matches your dashboard spec — visually consistent with your other work</li>
+              <li><code>README.md</code> in the project folder explaining what, why, and what you found</li>
+              <li>Portfolio home page features this project as the primary card</li>
+              <li>You can confidently talk through the project, the data, and what you built</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 7 -->
+      <div class="module" id="module-7">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">07</span>
+          <span class="module-title">Portfolio &amp; What's Next</span>
+          <span class="module-chip chip-intro">Wrap-up</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">You've built the work. Now make it findable, presentable, and employer-ready. This module is about presentation, not building.</p>
+
+          <div class="lesson-step">
+            <h4>Polish Your Portfolio Home Page</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Portfolio Update</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Here is my dashboard spec: [paste spec]
+
+Update my portfolio index.html. I now have these completed projects:
+1. Sales & Budget Tracker (Dashboard) — https://[username].github.io/dashboards/project-1.html — Shows regional revenue, profit margins, and KPIs for a grocery chain
+2. College Cost & Income (Narrative) — https://[username].github.io/narratives/college-costs.html — A data journalism piece arguing [your thesis]
+3. Sports Analytics Hub (Interactive Dashboard) — https://[username].github.io/dashboards/project-3.html — Player performance explorer with filters and tabs
+4. [Your Capstone Title] ([format]) — https://[username].github.io/[path] — [one sentence]
+
+For each project, create a card in the "My Work" section with:
+- Project title and format tag (Dashboard / Narrative / Interactive / Capstone)
+- One sentence description
+- 2-3 skill tags (e.g., "Chart.js" "Data Storytelling" "Claude Code")
+- A "View Project →" link
+
+Make the capstone card the most prominent one — largest or featured at the top. Use my dashboard spec for all styling.</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Embedding in Another Website</h4>
+            <p>If you ever want to embed one of your dashboards inside a larger website (a company site, a CMS, a blog), use an iframe:</p>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Embed Code</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">&lt;iframe
+  src="https://[username].github.io/dashboards/project-1.html"
+  width="100%"
+  height="700px"
+  frameborder="0"
+  style="border-radius: 8px; border: 1px solid #ccc;"&gt;
+&lt;/iframe&gt;</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>What's Next — Where Do You Go from Here?</h4>
+            <ul>
+              <li><strong>Cursor</strong> — An AI-powered code editor that's excellent for larger projects with multiple files. Great next step if you want to build more complex apps.</li>
+              <li><strong>Python + Streamlit</strong> — If you want server-side data processing, real-time database connections, or more powerful chart libraries. Adds backend capability.</li>
+              <li><strong>Observable Framework</strong> — Reactive notebook approach, exceptional for data journalism and exploratory analysis. Used by major newsrooms.</li>
+              <li><strong>React + Recharts / Nivo</strong> — For production web applications where the dashboard is part of a larger product.</li>
+            </ul>
+            <div class="callout callout-tip"><strong>The skill you built here transfers everywhere.</strong> Knowing how to describe what you want precisely, iterate on AI output, debug with the browser console, and publish via GitHub — that workflow applies to any tool you pick up next.</div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /modules -->
+
+    <!-- ── Prompt Cheat Sheet ── -->
+    <section class="cheatsheet">
+      <p class="section-label">Prompt Cheat Sheet</p>
+      <p class="muted" style="font-size:.875rem;margin-bottom:20px;">Copy these patterns at the start of any Claude session. Customize the details.</p>
+
+      <div class="cheat-grid">
+        <div class="cheat-card">
+          <div class="cheat-card-head">Start Every Session</div>
+          <pre class="prompt-text">Here is my dashboard spec: [paste your dashboard-spec.md]
+
+Now, here is what I'd like to build today: [describe your project]</pre>
+        </div>
+        <div class="cheat-card">
+          <div class="cheat-card-head">Fix Broken Code</div>
+          <pre class="prompt-text">This code isn't working. Here's what I see visually: [describe it]. Here's the browser console error: [paste error]. Please identify and fix the issue.</pre>
+        </div>
+        <div class="cheat-card">
+          <div class="cheat-card-head">Refine a Design</div>
+          <pre class="prompt-text">The current design has these issues:
+1. [Specific thing that's wrong]
+2. [Another specific thing]
+
+Please fix these without changing anything else.</pre>
+        </div>
+        <div class="cheat-card">
+          <div class="cheat-card-head">Switch to Fetched Data</div>
+          <pre class="prompt-text">The data is currently embedded in the JavaScript. Please update it to fetch from this URL instead: [GitHub raw URL]
+
+Show a loading state while fetching, and handle fetch errors gracefully.</pre>
+        </div>
+        <div class="cheat-card">
+          <div class="cheat-card-head">Add Interactivity</div>
+          <pre class="prompt-text">Add a [dropdown / toggle / filter] that lets users filter by [field]. When the filter changes, update [chart names] and the KPI row to reflect only the filtered data.</pre>
+        </div>
+        <div class="cheat-card">
+          <div class="cheat-card-head">Explore a Dataset</div>
+          <pre class="prompt-text">Here is a dataset: [paste sample]. What are the 3 most interesting stories in this data? What visualizations would tell each story best?</pre>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+        <span>© <span id="year"></span> Xavier Conzet</span>
+        <div style="display:flex;gap:12px;">
+          <a href="https://www.linkedin.com/in/xavierconzet/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/data-with-xavier" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://public.tableau.com/app/profile/xavier.conzet4100" target="_blank" rel="noopener">Tableau</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="contactModal" class="contact-modal">
+    <div class="contact-modal-box card">
+      <button class="contact-close" id="contactClose">✕</button>
+      <h3 style="margin:0 0 20px;">Get in Touch</h3>
+      <div class="contact-items">
+        <a href="mailto:xavierwconzet@gmail.com">xavierwconzet@gmail.com</a>
+        <a href="mailto:xavier.conzet@stthomas.edu">xavier.conzet@stthomas.edu</a>
+        <a href="tel:6514979088">651-497-9088</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script>
+    // Accordion
+    document.querySelectorAll('.module-header').forEach(function(header) {
+      header.addEventListener('click', function() {
+        var module = this.closest('.module');
+        var isOpen = module.classList.contains('open');
+        document.querySelectorAll('.module').forEach(function(m) {
+          m.classList.remove('open');
+          m.querySelector('.module-header').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          module.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Copy buttons
+    document.querySelectorAll('.copy-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var text = this.closest('.prompt-block').querySelector('.prompt-text').textContent;
+        var self = this;
+        navigator.clipboard.writeText(text).then(function() {
+          self.textContent = 'Copied!';
+          self.classList.add('copied');
+          setTimeout(function() {
+            self.textContent = 'Copy';
+            self.classList.remove('copied');
+          }, 2000);
+        }).catch(function() {
+          // Fallback for older browsers
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          self.textContent = 'Copied!';
+          self.classList.add('copied');
+          setTimeout(function() {
+            self.textContent = 'Copy';
+            self.classList.remove('copied');
+          }, 2000);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
