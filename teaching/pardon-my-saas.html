@@ -51,6 +51,7 @@
     .chip-spec { background: rgba(251,191,36,.12); color: #fbbf24; }
     .chip-narrative { background: rgba(251,191,36,.18); color: #fbbf24; }
     .chip-interactive { background: rgba(239,68,68,.12); color: #f87171; }
+    .chip-skills { background: rgba(168,85,247,.15); color: #c084fc; }
     .chip-capstone { background: rgba(139,92,246,.2); color: var(--brand); }
     .module-toggle { font-size: 1.3rem; font-weight: 300; color: var(--muted); transition: transform .25s, color .2s; min-width: 18px; text-align: center; line-height: 1; }
     .module.open .module-toggle { transform: rotate(45deg); color: var(--brand); }
@@ -370,6 +371,237 @@ Please identify the problem and fix it.</pre>
               <li><code>index.html</code> is live with your name, bio, and placeholder project cards</li>
               <li>Claude Desktop is installed and logged in with your Claude Pro account</li>
               <li>Claude Code is installed and you've had your first conversation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 01.5 -->
+      <div class="module" id="module-15">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">01.5</span>
+          <span class="module-title">How to Work with Claude</span>
+          <span class="module-chip chip-skills">AI Skills</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">Having Claude installed is step one. Knowing how to work with it is what separates students who build great dashboards from students who get frustrated and give up. This module is about the skill behind the tool.</p>
+
+          <div class="lesson-step">
+            <h4>Two Tools, Two Jobs</h4>
+            <p>Claude Desktop and Claude Code both run Claude — but they're built for completely different kinds of work. Using the wrong one for the job is like using a hammer when you need a scalpel.</p>
+
+            <table style="width:100%;border-collapse:collapse;font-size:.9rem;margin:16px 0;">
+              <thead>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <th style="text-align:left;padding:8px 12px;color:var(--muted);font-weight:600;"></th>
+                  <th style="text-align:left;padding:8px 12px;color:var(--brand);font-weight:700;">Claude Desktop</th>
+                  <th style="text-align:left;padding:8px 12px;color:var(--brand-2);font-weight:700;">Claude Code</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <td style="padding:8px 12px;color:var(--muted);">What it is</td>
+                  <td style="padding:8px 12px;">Conversational app</td>
+                  <td style="padding:8px 12px;">Agentic CLI tool</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <td style="padding:8px 12px;color:var(--muted);">What it does</td>
+                  <td style="padding:8px 12px;">Talks with you</td>
+                  <td style="padding:8px 12px;">Writes and edits files on your computer</td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                  <td style="padding:8px 12px;color:var(--muted);">Output</td>
+                  <td style="padding:8px 12px;">Text, ideas, explanations</td>
+                  <td style="padding:8px 12px;">Actual files saved to your project</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 12px;color:var(--muted);">Best for</td>
+                  <td style="padding:8px 12px;">Thinking, planning, writing, non-code assignments</td>
+                  <td style="padding:8px 12px;">Building dashboards, writing HTML, fixing code</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p><strong>The rule:</strong> If the output is a file, use Claude Code. If the output is an idea, an explanation, or text you'll use somewhere else, use Claude Desktop.</p>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;">
+              <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:14px;">
+                <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:10px;">Use Claude Desktop for...</div>
+                <ul style="margin:0;padding-left:18px;font-size:.875rem;line-height:1.8;">
+                  <li>"Help me understand what story this dataset tells"</li>
+                  <li>"Suggest three chart types I could use for this data"</li>
+                  <li>"Help me write the narrative section of my report"</li>
+                  <li>"Explain what a p-value is in plain English"</li>
+                  <li>Any non-dashboard course assignment</li>
+                </ul>
+              </div>
+              <div style="background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.2);border-radius:10px;padding:14px;">
+                <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-2);margin-bottom:10px;">Use Claude Code for...</div>
+                <ul style="margin:0;padding-left:18px;font-size:.875rem;line-height:1.8;">
+                  <li>"Build me a bar chart from this data"</li>
+                  <li>"Add a filter dropdown to my dashboard"</li>
+                  <li>"Fix the overlapping labels in my chart"</li>
+                  <li>"Change the color scheme to match my spec"</li>
+                  <li>Anything that produces an HTML file</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>How Context Works — and Why It Matters</h4>
+            <p>Every Claude conversation starts completely fresh. Claude has no memory of previous sessions. When you start a new chat, it doesn't know what you built yesterday, what colors you prefer, or what your portfolio looks like.</p>
+            <p>This trips up a lot of new users. They open a new Claude Code session, type "add a filter to my dashboard," and wonder why Claude seems confused. It's not confused — it just has no idea what dashboard you're talking about.</p>
+
+            <div class="callout callout-warn"><strong>Important:</strong> Starting a new Claude session mid-project without context is like calling a contractor and saying "finish what you started" — except they have no memory of ever meeting you. Always re-orient Claude at the start of each session.</div>
+
+            <p><strong>What to do about it:</strong></p>
+            <ul>
+              <li>Start new Claude Code sessions by asking Claude to read your existing files first: <em>"Read my index.html, then I'll tell you what to add."</em></li>
+              <li>The Dashboard Spec you'll build in Module 04.5 exists specifically to solve this — you'll paste it at the start of every new build session so Claude immediately knows your style and preferences</li>
+              <li>Keep your project folder organized — Claude Code can read any file in your project, so clean structure means cleaner context</li>
+            </ul>
+
+            <p><strong>Context window limits:</strong> There's also a ceiling on how much Claude can hold in a single conversation. Very long sessions can cause Claude to "lose track" of things said early on. When a session gets long and results start feeling off, starting a fresh session with a clear re-brief is often faster than continuing.</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Writing Prompts That Actually Work</h4>
+            <p>The biggest difference between students who get great results and students who get mediocre results isn't intelligence or technical background — it's prompt quality. Claude is only as good as what you give it to work with.</p>
+
+            <p><strong>A good prompt has four parts:</strong></p>
+            <ol>
+              <li><strong>Context</strong> — What is this? What have you already built?</li>
+              <li><strong>Goal</strong> — What do you want to happen?</li>
+              <li><strong>Constraints</strong> — Colors, layout, style, what <em>not</em> to change</li>
+              <li><strong>Reference</strong> — Examples, data, or error messages Claude needs to see</li>
+            </ol>
+
+            <p style="margin-top:18px;">Not every prompt needs all four — but the more of them you include, the better the output.</p>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0;">
+              <div style="background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:14px;">
+                <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f87171;margin-bottom:10px;">Weak prompts</div>
+                <div style="font-size:.875rem;line-height:2;">
+                  <div style="font-family:monospace;background:rgba(0,0,0,.3);padding:6px 10px;border-radius:6px;margin-bottom:8px;">"Make the chart better"</div>
+                  <div style="font-family:monospace;background:rgba(0,0,0,.3);padding:6px 10px;border-radius:6px;margin-bottom:8px;">"Add some interactivity"</div>
+                  <div style="font-family:monospace;background:rgba(0,0,0,.3);padding:6px 10px;border-radius:6px;">"Fix it"</div>
+                </div>
+              </div>
+              <div style="background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.2);border-radius:10px;padding:14px;">
+                <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#34d399;margin-bottom:10px;">Strong prompts</div>
+                <div style="font-size:.875rem;line-height:1.7;">
+                  <div style="font-family:monospace;background:rgba(0,0,0,.3);padding:6px 10px;border-radius:6px;margin-bottom:8px;">"The bar chart labels are overlapping when there are more than 6 bars. Rotate the labels 45° and add 20px bottom padding."</div>
+                  <div style="font-family:monospace;background:rgba(0,0,0,.3);padding:6px 10px;border-radius:6px;margin-bottom:8px;">"Add a dropdown filter that lets users filter by region (North, South, East, West). Keep the existing color scheme."</div>
+                  <div style="font-family:monospace;background:rgba(0,0,0,.3);padding:6px 10px;border-radius:6px;">"The page is blank. Console error: [error]. The chart worked before I added the filter — I think the issue is in the data filtering function."</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="callout callout-tip"><strong>The specificity rule:</strong> If your prompt could describe a hundred different outcomes, it will produce a random one. If it can only describe one outcome, it will produce that one. Writing a prompt in a notes app first, reading it back, and asking "does Claude have everything it needs?" is worth 30 seconds every time.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Plan Mode — Your Most Valuable Habit</h4>
+            <p>Plan mode is a feature in Claude Code that makes Claude describe what it intends to do <em>before</em> it writes a single line of code. Instead of immediately generating output, it lays out its approach and waits for your approval.</p>
+
+            <p><strong>Why this matters:</strong> Claude Pro has usage limits. Every message uses some of that limit. If Claude misunderstands a complex request and writes 200 lines of wrong code, you've burned usage on something you have to undo and redo. Plan mode catches misunderstandings before they become expensive mistakes.</p>
+
+            <p>To activate it, start your prompt with:</p>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Activate Plan Mode</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Before you write any code, make a plan. Describe what you're going to build and how, then wait for my approval before starting.</pre>
+            </div>
+
+            <p>Claude will respond with something like:</p>
+            <div style="background:rgba(168,85,247,.08);border-left:3px solid #c084fc;padding:14px 18px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.9rem;line-height:1.7;">
+              <em>"Here's my plan:<br>
+              1. Add a &lt;select&gt; dropdown above the chart<br>
+              2. Populate it with the four region options<br>
+              3. Add an event listener that fires when the selection changes<br>
+              4. Filter the data array and re-render the chart<br><br>
+              Does this look right before I start?"</em>
+            </div>
+            <p>Now you can catch the misunderstanding <em>before</em> it's written. You can say "actually, also add an 'All Regions' option as the default" and Claude adjusts its plan — instead of you discovering the omission after it's already built.</p>
+
+            <p><strong>Use plan mode when:</strong></p>
+            <ul>
+              <li>You're adding a significant new feature to an existing dashboard</li>
+              <li>The task involves multiple changes at once</li>
+              <li>You're not 100% sure Claude understands what you're asking</li>
+              <li>You want to make sure it won't break what's already working</li>
+            </ul>
+            <p><strong>Skip plan mode for:</strong> simple, single-purpose changes where the request is unambiguous ("change the chart title to 'Q3 Revenue'").</p>
+
+            <div class="callout callout-tip"><strong>Pro tip:</strong> You can also trigger plan mode directly in Claude Code by typing <code>/plan</code> before your prompt. Same effect — Claude shows its plan and waits for a thumbs up before touching your files.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>The Iteration Loop</h4>
+            <p>Building with Claude isn't a one-shot operation. It's a loop. The sooner you internalize this, the less frustrated you'll be when the first output isn't quite right — because it almost never is, and that's completely fine.</p>
+
+            <div style="display:flex;align-items:center;justify-content:center;gap:0;margin:24px 0;flex-wrap:wrap;">
+              <div style="background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);border-radius:10px;padding:10px 16px;font-weight:700;font-size:.85rem;text-align:center;">Describe</div>
+              <div style="color:var(--muted);font-size:1.2rem;padding:0 6px;">→</div>
+              <div style="background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.25);border-radius:10px;padding:10px 16px;font-weight:700;font-size:.85rem;text-align:center;color:#c084fc;">Plan <span style="font-weight:400;font-size:.75rem;">(recommended)</span></div>
+              <div style="color:var(--muted);font-size:1.2rem;padding:0 6px;">→</div>
+              <div style="background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.25);border-radius:10px;padding:10px 16px;font-weight:700;font-size:.85rem;text-align:center;color:var(--brand-2);">Build</div>
+              <div style="color:var(--muted);font-size:1.2rem;padding:0 6px;">→</div>
+              <div style="background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);border-radius:10px;padding:10px 16px;font-weight:700;font-size:.85rem;text-align:center;color:#34d399;">Review</div>
+              <div style="color:var(--muted);font-size:1.2rem;padding:0 6px;">→</div>
+              <div style="background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:10px;padding:10px 16px;font-weight:700;font-size:.85rem;text-align:center;color:#fbbf24;">Refine</div>
+              <div style="color:var(--muted);font-size:1.2rem;padding:0 6px;">↺</div>
+            </div>
+
+            <ol>
+              <li><strong>Describe</strong> — Tell Claude what you want. Be specific (see above).</li>
+              <li><strong>Plan</strong> — For complex tasks, ask Claude to plan before building. Catch misunderstandings early.</li>
+              <li><strong>Build</strong> — Claude writes the code. Open the file with Live Server in your browser.</li>
+              <li><strong>Review</strong> — Does it look right? Does it work? What's off?</li>
+              <li><strong>Refine</strong> — Describe exactly what needs to change. Be specific. Go back to step 1.</li>
+            </ol>
+
+            <div class="callout callout-warn"><strong>The most common mistake:</strong> Trying to describe everything in one giant prompt. Don't. Build the structure first, then add data, then style, then interactivity. Each step is its own loop. A dashboard built in five focused iterations will be better than one built with one sprawling prompt.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Protecting Your Usage</h4>
+            <p>Claude Pro has usage limits that reset on a rolling basis. Most students have more than enough for this course if they're deliberate. Here's how to use your limit wisely:</p>
+
+            <ul style="line-height:2;">
+              <li><strong>Think before you send.</strong> Write your prompt in a notes app first, read it back, and ask yourself: does Claude have everything it needs? A 30-second pause before sending is worth it.</li>
+              <li><strong>Use plan mode for complex tasks.</strong> A planning exchange costs far less than rebuilding something that went wrong.</li>
+              <li><strong>Batch related changes.</strong> Instead of three separate messages ("make the title bigger" → "now bold" → "now purple"), send one: <em>"Make the title larger, bold, and color #8b5cf6."</em></li>
+              <li><strong>Start fresh for new projects.</strong> Long, wandering conversations produce worse results and use more of your limit. A clean session with a focused brief is faster.</li>
+              <li><strong>Commit to GitHub when something works.</strong> Before making more changes, commit what's working. If something breaks, you can always roll back instead of asking Claude to undo it.</li>
+            </ul>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Starting a New Build Session</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Read my [filename].html file. I'm going to describe some changes I want to make, and before you write any code I want you to confirm you understand the current state of the file and my goal.
+
+My goal for this session: [describe what you want to accomplish]</pre>
+            </div>
+          </div>
+
+          <div class="deliverable">
+            <div class="deliverable-label">Module 1.5 Deliverable</div>
+            <ul>
+              <li>You can explain when to use Claude Desktop vs. Claude Code without looking it up</li>
+              <li>You've used plan mode at least once and reviewed Claude's plan before approving it</li>
+              <li>You've iterated on a prompt at least twice — describing what was wrong and getting an improved result</li>
             </ul>
           </div>
         </div>
