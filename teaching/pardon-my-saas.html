@@ -514,7 +514,140 @@ Use a dark theme. Highlight the most notable bar with an accent color.</pre>
           <hr class="step-divider">
 
           <div class="lesson-step">
-            <h4>5 — What to Avoid</h4>
+            <h4>5 — Lie Factor (Tufte)</h4>
+            <p>Tufte's Lie Factor measures how honest a visualization is:</p>
+            <p style="text-align:center;font-family:monospace;background:rgba(139,92,246,.08);border:1px solid var(--border);border-radius:6px;padding:10px;font-size:.9rem;color:var(--text);">Lie Factor = size of effect shown in graphic ÷ size of effect in data</p>
+            <p>A Lie Factor of 1.0 is perfectly honest. Greater than 1.0 means the chart exaggerates the difference. The most common way this happens is a <strong>truncated y-axis</strong> — starting your bar chart at something other than zero so that small differences look enormous.</p>
+            <p>For example: if revenue grew from $980k to $1,000k (a 2% increase), but the y-axis runs from $975k to $1,005k, the bar appears to be 5× taller — a Lie Factor of roughly 5. The chart isn't technically wrong, but it's visually deceptive.</p>
+            <div class="callout callout-warn"><strong>This happens constantly in media and corporate presentations.</strong> When you see a bar chart in the wild, always check where the y-axis starts. If it doesn't start at zero, ask yourself why — and what impression it creates.</div>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Tutorial 5A — Build a Misleading Chart</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build an HTML file with two side-by-side bar charts showing the exact same data: quarterly revenue for four competitors (Company A: $31.2M, Company B: $30.8M, Company C: $31.0M, Company D: $30.6M).
+
+Chart 1 — "The Honest Version": Y-axis starts at $0. Bars look nearly identical in height.
+
+Chart 2 — "The Deceptive Version": Y-axis starts at $30.4M and ends at $31.4M. Use the same data — only the axis changes.
+
+Label each chart clearly. Use a dark theme, Chart.js via CDN. Make both charts the same size and place them side by side so the contrast is obvious.</pre>
+            </div>
+            <p style="color:var(--muted);font-size:.875rem;margin-top:6px;"><strong>After building it:</strong> Calculate the Lie Factor for Chart 2. In the honest version, Company A's bar is how much taller than Company D's? In the deceptive version, how much taller does it look? That ratio is the Lie Factor. Write it down.</p>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Tutorial 5B — Dual Axis Deception</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build an HTML file with two dual-axis line charts, same data, different axis scaling.
+
+Data: Monthly ice cream sales (left axis) and monthly sunscreen sales (right axis) for Jan–Jun.
+Ice cream: 1200, 1400, 1800, 2200, 2600, 2800
+Sunscreen: 3400, 3600, 4100, 4800, 5400, 5900
+
+Chart 1 — "Scaled to deceive": Scale both axes so that the two lines nearly overlap — visually suggesting a tight correlation.
+
+Chart 2 — "Scaled honestly": Scale each axis naturally (starting from a meaningful minimum for each dataset). The lines will still trend together but the visual relationship looks less dramatic.
+
+Add a title to Chart 1: "Ice Cream Sales Drive Sunscreen Purchases?" and to Chart 2: "Two Products That Both Peak in Summer."
+
+Dark theme, Chart.js, side by side.</pre>
+            </div>
+            <p style="color:var(--muted);font-size:.875rem;margin-top:6px;"><strong>After building it:</strong> What changed between the two charts — the data, or the story the chart tells? Why is "Ice Cream Sales Drive Sunscreen Purchases?" a misleading title even if the lines look correlated?</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>6 — Small Multiples (Tufte)</h4>
+            <p>Small multiples are one of the most underused patterns in data visualization. The idea: instead of cramming multiple lines or series into a single chart (which creates visual noise), repeat the same chart structure in a grid — one panel per category.</p>
+            <p>The reader's eye learns the structure once and then scans across panels to compare patterns. It's dramatically easier to read than a chart with 6 overlapping lines.</p>
+            <div class="callout callout-tip"><strong>Rule of thumb:</strong> If you have more than 3–4 series on a single chart and they're all important, small multiples is probably the right call.</div>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Tutorial 6A — Spaghetti vs. Small Multiples</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build an HTML file comparing two approaches to the same data: monthly revenue for 5 sales reps (Jan–Jun).
+
+Rep data:
+- Alice: 42, 48, 51, 55, 58, 63
+- Ben: 38, 35, 40, 37, 42, 39
+- Carmen: 55, 58, 62, 67, 71, 78
+- David: 29, 31, 28, 33, 30, 35
+- Elena: 47, 52, 49, 56, 61, 65
+
+Chart 1 — "Spaghetti Chart": All 5 reps as lines on a single chart with 5 different colors and a legend. This is the typical approach.
+
+Chart 2 — "Small Multiples": A 2×3 grid of small charts (one per rep), each with the same y-axis scale (0–90), same x-axis (Jan–Jun). Each panel has the rep's name as the title. No legend needed.
+
+Make both charts the same overall height. Dark theme, Chart.js, label them clearly.</pre>
+            </div>
+            <p style="color:var(--muted);font-size:.875rem;margin-top:6px;"><strong>After building it:</strong> In the spaghetti chart, how quickly can you identify who's trending up vs. flat? In the small multiples, how long does it take? Which makes it easier to compare Ben and David? Which makes it easier to see Carmen's trajectory?</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>7 — Bad Visuals Lab</h4>
+            <p>Build these deliberately terrible charts. For each one, write 2–3 sentences explaining specifically what makes it bad and what principle it violates. This is the exercise — not the charts, but the critique.</p>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Bad Visual 1 — The 3D Exploding Pie</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build the worst possible pie chart in HTML using Chart.js. Show annual budget allocation across 9 categories: Salaries 34%, Marketing 18%, R&D 14%, Operations 12%, IT 8%, Legal 5%, Facilities 4%, Travel 3%, Other 2%.
+
+Make it as bad as possible:
+- Use a 3D-style effect (simulate with CSS transform or gradients)
+- Use rainbow colors (a different bright color for every slice)
+- "Explode" the largest slice outward
+- Add a busy pattern/texture to the chart background
+- Put the legend on the right with tiny text
+- Title it "2024 Budget" (just two words, tells you nothing)
+
+Dark page background is fine, but make the chart itself maximally cluttered.</pre>
+            </div>
+            <p style="color:var(--muted);font-size:.875rem;margin-top:6px;"><strong>Your critique:</strong> List every specific thing wrong with this chart. Which slices are hardest to compare? What does the 3D effect do to your perception of the angles? What would you replace this with and why?</p>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Bad Visual 2 — The Chartjunk Masterpiece</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build a bar chart showing monthly website traffic (Jan: 12400, Feb: 10800, Mar: 14200, Apr: 15600, May: 18900, Jun: 22300) and make it as visually noisy as possible while keeping the data technically correct:
+
+- Add a busy gradient background image behind the chart area (use CSS to simulate — diagonal stripes or a radial gradient in bright colors)
+- Make the gridlines thick and dark
+- Add a thick border around the entire chart
+- Add drop shadows to every bar
+- Use 3 different font sizes on the same chart
+- Add a large watermark-style text behind the bars ("CONFIDENTIAL" or "DRAFT")
+- Add data labels on top of each bar AND on the y-axis (redundant)
+- Add a decorative icon or emoji next to the chart title
+
+Title: "Monthly Traffic Numbers for the First Half of the Current Fiscal Year 2024 (January Through June)"</pre>
+            </div>
+            <p style="color:var(--muted);font-size:.875rem;margin-top:6px;"><strong>Your critique:</strong> Calculate a rough data-ink ratio — what percentage of the visual elements actually represent data? List everything you would remove. What should the title actually say?</p>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Bad Visual 3 — The Rainbow Spaghetti</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build a line chart with 8 countries' GDP growth rates (%) from 2018–2023. Make it as hard to read as possible.
+
+Data (approximate):
+- USA: 3.0, 2.3, -3.4, 5.9, 2.1, 2.5
+- China: 6.7, 6.0, 2.2, 8.4, 3.0, 5.2
+- Germany: 1.5, 0.6, -4.6, 2.9, 1.8, -0.3
+- Japan: 0.6, -0.4, -4.3, 2.1, 1.0, 1.9
+- UK: 1.7, 1.6, -11.0, 7.4, 4.0, 0.1
+- Brazil: 1.8, 1.2, -3.3, 4.6, 2.9, 2.9
+- India: 6.4, 3.7, -6.6, 8.7, 7.0, 7.2
+- France: 1.8, 1.5, -7.9, 6.8, 2.5, 0.9
+
+Requirements for maximum badness:
+- Use 8 completely different bright rainbow colors
+- Put the legend in a box on the right side (tiny text, 8 items)
+- Do NOT label the lines directly
+- Add data point dots at every year for every country
+- Make the y-axis range from -15 to +12 with gridlines every 1%
+- Title: "GDP"</pre>
+            </div>
+            <p style="color:var(--muted);font-size:.875rem;margin-top:6px;"><strong>Your critique:</strong> How many seconds does it take to find the USA line? What would small multiples look like for this data? What's the maximum number of lines you'd put on a single chart, and when would you switch to small multiples instead?</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Quick Reference — What to Avoid</h4>
             <ul>
               <li><strong>Truncated Y-axes</strong> — starting your Y-axis at something other than zero exaggerates differences. A 2% change looks like a 50% change. Always start at zero for bar charts.</li>
               <li><strong>Dual Y-axes</strong> — two Y-axes on one chart makes it easy to suggest a relationship that may not exist by adjusting the scales. Use separate charts instead.</li>
@@ -543,11 +676,14 @@ Use a dark theme. Highlight the most notable bar with an accent color.</pre>
           <div class="deliverable">
             <div class="deliverable-label">Module 2 Deliverable</div>
             <ul>
-              <li>Tutorial 1 complete: three chart types side-by-side, you can articulate why one works best for this data</li>
-              <li>Tutorial 2 complete: default vs. purposeful color palette, side-by-side</li>
-              <li>Tutorial 3 complete: cluttered vs. clean version of the same chart</li>
-              <li>Tutorial 4 complete: generic vs. declarative title, with axis labels and data source note</li>
-              <li>You can name at least three things to remove from a chart to improve it</li>
+              <li>Tutorial 1: three chart types side-by-side — you can articulate why one works best for this data</li>
+              <li>Tutorial 2: default vs. purposeful color palette, side-by-side</li>
+              <li>Tutorial 3: cluttered vs. clean version of the same chart</li>
+              <li>Tutorial 4: generic vs. declarative title, with axis labels and data source note</li>
+              <li>Tutorial 5A: honest vs. truncated axis — Lie Factor calculated and written down</li>
+              <li>Tutorial 5B: dual-axis deception — you can explain why the correlation is misleading</li>
+              <li>Tutorial 6A: spaghetti chart vs. small multiples — you can articulate when to use each</li>
+              <li>Bad Visuals Lab: all three bad charts built, each with a written 2–3 sentence critique</li>
             </ul>
           </div>
         </div>
