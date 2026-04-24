@@ -387,4 +387,4 @@ Publish on Leanpub with a "in progress" label. Leanpub readers understand and ex
 
 ## The Elevator Pitch
 
-*Pardon My SaaS: Building Dashboards with AI, Not Tableau is a practitioner's guide to building fully custom, AI-assisted data dashboards — without Tableau, Power BI, or any SaaS subscription. Paired with a free interactive course, it teaches analysts, students, and business professionals to describe what they want, let Claude Code build it, and publish it on GitHub Pages — for a fraction of the cost of traditional BI tools, with none of the lock-in.*
+*Pardon My SaaS: Building Dashboards with AI, Not Tableau is a practitioner's guide to building fully custom, AI-assisted data dashboards — without Tableau, Power BI, or any SaaS BI subscription (okay, fine, you need Claude). Paired with a free interactive course, it teaches analysts, students, and business professionals to describe what they want, let Claude Code build it, and publish it on GitHub Pages — for a fraction of the cost of traditional BI tools, with none of the lock-in.*
