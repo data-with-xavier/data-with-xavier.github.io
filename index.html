@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Xavier Conzet – Analytics Engineer</title>
+  <meta name="description" content="Analytics developer portfolio of Xavier Conzet." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Use your existing site styles and JS -->
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body data-page="home">
+  <!-- Subtle particle background (driven by js/main.js) -->
+  <canvas id="bg" style="position:fixed;inset:0;z-index:0;opacity:.35;"></canvas>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header>
+    <div class="container nav">
+      <div class="brand"><a href="index.html">XAVIER CONZET</a></div>
+      <nav>
+        <a href="projects.html" data-page-link="projects">Projects</a>
+        <a href="teaching.html" data-page-link="teaching">Teaching</a>
+        <a href="blog.html" data-page-link="blog">Writing</a>
+        <a href="#" class="contact-trigger">Contact</a>
+        <a href="https://www.linkedin.com/in/xavierconzet/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="cta" href="assets/Xavier_Conzet_Resume.docx" download>Download Résumé</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+      <div class="kicker">Analytics Engineer • Data Storyteller • Educator</div>
+      <h1>Analytics is the Vehicle, Not a Destination</h1>
+    </section>
+
+    <section id="about" style="padding-top:0;">
+      <h2 class="section-title">About Me</h2>
+      <div class="about card">
+        <div class="avatar">XC<img src="assets/headshot.jpg" alt="Xavier Conzet" onerror="this.style.display=’none’"></div>
+        <div>
+          <p>I’m Xavier Conzet — an analytics engineer who’s spent his career chasing one question: why do some analytics efforts actually change how organizations operate, while others just produce reports nobody reads?</p>
+          <p>At the University of St. Thomas, I’m a Corporate Fellow teaching data visualization and storytelling. My course covers the fundamentals — the right chart, the right structure, the right visual — but the deeper focus is on what most programs skip: how to build a narrative from data that earns trust and moves people to action. The gap between "the data says X" and "so we’re going to do Y" is where most analytics work quietly dies. That’s what I teach people to close.</p>
+          <p>I’m also writing a book on what the analytics field is becoming — what employers actually need, what the job looks like today versus five years ago, and what it genuinely takes to build a career in it. Most people entering the field are working off an outdated map. I want to give them a better one.</p>
+          <p>If you want to talk data, trade ideas, or explore working together — I’d love to connect.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" style="padding-top:8px;">
+      <div class="grid">
+        <article class="card" style="grid-column:span 6;">
+          <div class="kicker" style="margin-bottom:10px;">Featured Project</div>
+          <h3 style="margin:0 0 6px;">Incremental ETL Pipeline</h3>
+          <p class="muted">SQL · Python · Alteryx · Scheduling</p>
+          <p>Rebuilt a legacy Alteryx full-refresh into an incremental SQL procedure orchestrated by Python.</p>
+          <ul>
+            <li>Runtime: 95 min → 23 min (76% reduction)</li>
+            <li>Storage cut by 40% via partitioning</li>
+            <li>Fail-safe alerts & retries added</li>
+          </ul>
+          <div style="margin-top:14px;"><a class="btn" href="projects.html">View All Projects</a></div>
+        </article>
+        <div class="card" style="grid-column:span 6;">
+          <div class="kicker" style="margin-bottom:10px;">Book in Progress</div>
+          <h3 style="margin:0 0 4px;">Your Resume Isn't The Problem. (You Are)</h3>
+          <p class="muted" style="margin:0 0 8px;">What Aspiring Analysts Get Wrong About Getting Hired</p>
+          <p>AI can write the SQL and build the dashboard. What it can't do is think — and that's exactly what hiring managers are evaluating.</p>
+          <div style="margin-top:14px;"><a class="btn" href="blog.html">Learn More</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+        <span>© <span id="year"></span> Xavier Conzet</span>
+        <div style="display:flex;gap:12px;">
+          <a href="https://www.linkedin.com/in/xavierconzet/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/data-with-xavier" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://public.tableau.com/app/profile/xavier.conzet4100" target="_blank" rel="noopener">Tableau</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Your site JS (theme toggle, particles, etc.) -->
+  <div id="contactModal" class="contact-modal">
+    <div class="contact-modal-box card">
+      <button class="contact-close" id="contactClose">✕</button>
+      <h3 style="margin:0 0 20px;">Get in Touch</h3>
+      <div class="contact-items">
+        <a href="mailto:xavierwconzet@gmail.com">xavierwconzet@gmail.com</a>
+        <a href="mailto:xavier.conzet@stthomas.edu">xavier.conzet@stthomas.edu</a>
+        <a href="tel:6514979088">651-497-9088</a>
+      </div>
+    </div>
+  </div>
+  <script src="./js/main.js"></script>
+</body>
+</html>

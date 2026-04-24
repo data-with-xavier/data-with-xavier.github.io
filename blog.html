@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Writing – Xavier Conzet</title>
+  <meta name="description" content="Articles and writing by Xavier Conzet on analytics, data storytelling, and leadership." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body data-page="blog">
+  <canvas id="bg" style="position:fixed;inset:0;z-index:0;opacity:.35;"></canvas>
+  <header>
+    <div class="container nav">
+      <div class="brand"><a href="index.html">XAVIER CONZET</a></div>
+      <nav>
+        <a href="projects.html" data-page-link="projects">Projects</a>
+        <a href="teaching.html" data-page-link="teaching">Teaching</a>
+        <a href="blog.html" data-page-link="blog">Writing</a>
+        <a href="#" class="contact-trigger">Contact</a>
+        <a href="https://www.linkedin.com/in/xavierconzet/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="cta" href="assets/Xavier_Conzet_Resume.docx" download>Download Résumé</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+
+    <section id="blog">
+      <h2 class="section-title">Writing</h2>
+      <div class="grid">
+        <div class="card" style="grid-column:span 12;display:flex;gap:32px;align-items:flex-start;">
+          <img src="assets/book-cover.png" alt="Your Resume Isn't The Problem (You Are)" style="width:260px;flex-shrink:0;border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,.6);">
+          <div>
+            <h3 style="margin:0 0 4px;">Your Resume Isn't The Problem. (You Are)</h3>
+            <p class="muted" style="margin:0 0 12px;">What Aspiring Analysts Get Wrong About Getting Hired</p>
+            <p>You did what you were told. You learned the tools. You built the projects. You applied everywhere. And nothing happened.</p>
+            <p>The version of analytics you prepared for no longer exists. AI generates SQL, exploratory analysis, and dashboards in seconds. What AI cannot do is think — ask the right questions, frame the real problem, communicate a clear "so what" to someone about to act on it. That's what hiring managers are actually evaluating.</p>
+            <p>This book is built around ten things that separate analysts who get hired from those who don't. Not tools. Not certifications. The ten things that signal you understand the job, can handle the ambiguity, and are worth the risk of an offer.</p>
+            <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;">
+              <a class="btn contact-trigger" href="#">Get Notified</a>
+              <a class="btn" href="https://www.linkedin.com/in/xavierconzet/recent-activity/articles/" target="_blank" rel="noopener">Articles on LinkedIn →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+        <span>© <span id="year"></span> Xavier Conzet</span>
+        <div style="display:flex;gap:12px;">
+          <a href="https://www.linkedin.com/in/xavierconzet/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/data-with-xavier" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://public.tableau.com/app/profile/xavier.conzet4100" target="_blank" rel="noopener">Tableau</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div id="contactModal" class="contact-modal">
+    <div class="contact-modal-box card">
+      <button class="contact-close" id="contactClose">✕</button>
+      <h3 style="margin:0 0 20px;">Get in Touch</h3>
+      <div class="contact-items">
+        <a href="mailto:xavierwconzet@gmail.com">xavierwconzet@gmail.com</a>
+        <a href="mailto:xavier.conzet@stthomas.edu">xavier.conzet@stthomas.edu</a>
+        <a href="tel:6514979088">651-497-9088</a>
+      </div>
+    </div>
+  </div>
+  <script src="./js/main.js"></script>
+</body>
+</html>
