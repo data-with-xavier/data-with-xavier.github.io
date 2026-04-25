@@ -289,7 +289,54 @@
           <hr class="step-divider">
 
           <div class="lesson-step">
-            <h4>Step 5 — Set Up VS Code</h4>
+            <h4>Step 5 — Clone Your Repo to Your Computer</h4>
+            <p>GitHub is where your code lives online. To let Claude Code build and edit files, you need a local copy on your computer. This is called cloning.</p>
+            <ol>
+              <li>Open <strong>Terminal</strong> (Mac) or <strong>Command Prompt</strong> (Windows)</li>
+              <li>Run: <code>git clone https://github.com/[your-username]/[your-username].github.io</code></li>
+              <li>Navigate into the folder: <code>cd [your-username].github.io</code></li>
+            </ol>
+            <p>You now have a local copy of your repo. This folder is your workspace for the entire course — every file Claude Code creates or edits will live here.</p>
+            <div class="callout callout-warn"><strong>Git may ask you to authenticate.</strong> This is your first real chance to use Claude Desktop as a co-pilot. If git asks for credentials, throws an error, or anything feels unclear — open Claude Desktop, describe exactly what you see, and ask it to walk you through the fix. This is precisely what it's for.</div>
+            <div class="callout callout-tip"><strong>Always work from this folder.</strong> When you start a Claude Code session, navigate here first (<code>cd [your-username].github.io</code>), then run <code>claude</code>. Claude Code needs to be running inside your project folder to read and write your files.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 6 — Add Your First HTML File</h4>
+            <p>GitHub Pages looks for a file called <code>index.html</code> to serve as your homepage. The README.md that exists right now won't become a styled webpage — you need an actual HTML file. Let's have Claude Code create one.</p>
+            <ol>
+              <li>From inside your project folder, run <code>claude</code> to start a Claude Code session</li>
+              <li>Use this prompt:</li>
+            </ol>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Create Starter Homepage</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Create a simple index.html file for my portfolio homepage. Keep it clean and minimal — just my name as a heading, a one-sentence placeholder bio, and a note that says "Portfolio coming soon." Use a dark background with white text. No external libraries or frameworks.</pre>
+            </div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 7 — Push Your Changes to GitHub</h4>
+            <p>Creating a file on your computer doesn't automatically update your live site. You need to push it to GitHub. This is a three-step process you'll repeat every time you want your changes to go live.</p>
+            <ol>
+              <li>In your Terminal, run:<br><br>
+                <code>git add index.html</code><br>
+                <code>git commit -m "Add starter homepage"</code><br>
+                <code>git push</code>
+              </li>
+              <li>Wait about 60 seconds, then visit <code>https://[your-username].github.io</code> — your page is live.</li>
+            </ol>
+            <div class="callout callout-tip"><strong>Shortcut:</strong> You can skip the terminal and just ask Claude Code to handle it: <em>"Commit and push all my changes with the message: Add starter homepage."</em> Claude Code can run git commands — you never have to leave the conversation.</div>
+            <div class="callout callout-warn"><strong>If git push asks for a password or throws an error</strong>, open Claude Desktop and describe what you see. GitHub authentication setup varies by computer — Claude can walk you through it in minutes.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 8 — Set Up VS Code</h4>
             <p>VS Code is the code editor you'll use to view, organize, and manage your project files. Claude Code writes the code — VS Code is where you see it, navigate it, and keep everything tidy.</p>
             <ol>
               <li>Download <strong>Visual Studio Code</strong> from <a href="https://code.visualstudio.com" target="_blank" rel="noopener"><strong>code.visualstudio.com</strong></a> (free)</li>
@@ -298,7 +345,7 @@
             </ol>
             <p><strong>Why Live Server matters:</strong> When you double-click an HTML file to open it, the browser uses a <code>file://</code> URL which blocks certain features (including fetching data files). Live Server runs a tiny local web server, opening your file at <code>http://localhost:5500</code> instead — everything works, and the page auto-refreshes every time you save a file.</p>
             <p>To use it: right-click any HTML file in VS Code's sidebar → <em>Open with Live Server</em>. Your browser opens and stays in sync as you work.</p>
-            <div class="callout callout-tip"><strong>Your workflow from here:</strong> Claude Code writes files to your project folder → VS Code shows you the file tree and lets you navigate → Live Server previews it in the browser → you describe changes back to Claude → repeat.</div>
+            <div class="callout callout-tip"><strong>Your workflow from here:</strong> Claude Code writes files to your project folder → VS Code shows you the file tree → Live Server previews it in the browser → you describe changes back to Claude → repeat.</div>
           </div>
 
           <hr class="step-divider">
@@ -334,8 +381,10 @@ Please identify the problem and fix it.</pre>
               <li>Claude Desktop is installed and logged in with your Claude Pro account</li>
               <li>Claude Code is installed and authenticated — you've run <code>claude</code> in Terminal at least once</li>
               <li>GitHub account created with a professional username</li>
-              <li>Portfolio repo named <code>[username].github.io</code> is public</li>
-              <li>GitHub Pages is enabled and the site loads at your URL</li>
+              <li>Portfolio repo named <code>[username].github.io</code> is public and cloned to your computer</li>
+              <li>An <code>index.html</code> file exists in your repo — created by Claude Code</li>
+              <li>Changes have been pushed to GitHub and the page is live at your URL</li>
+              <li>GitHub Pages is enabled and serving your <code>index.html</code></li>
               <li>VS Code is installed with Live Server extension — you can preview HTML files locally</li>
             </ul>
           </div>
@@ -413,6 +462,37 @@ Please identify the problem and fix it.</pre>
                 </ul>
               </div>
             </div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>The Build Loop — Claude Code + Browser Side by Side</h4>
+            <p>The fastest way to build is to keep two windows open at all times: <strong>Claude Code in your terminal</strong> and <strong>your dashboard in the browser</strong> via Live Server. Here's why this matters.</p>
+            <p>When Claude Code saves a file, Live Server detects the change and auto-refreshes your browser instantly. You describe a change → Claude writes it → you see it in the browser — without switching apps or manually reloading. That tight loop is what makes iteration feel fast instead of frustrating.</p>
+
+            <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:16px 20px;margin:16px 0;">
+              <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:12px;">The Loop</div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:.875rem;flex-wrap:wrap;">
+                <span style="background:rgba(139,92,246,.15);padding:5px 12px;border-radius:6px;">Describe the change to Claude</span>
+                <span style="color:var(--muted);">→</span>
+                <span style="background:rgba(139,92,246,.15);padding:5px 12px;border-radius:6px;">Claude writes &amp; saves the file</span>
+                <span style="color:var(--muted);">→</span>
+                <span style="background:rgba(139,92,246,.15);padding:5px 12px;border-radius:6px;">Browser auto-refreshes</span>
+                <span style="color:var(--muted);">→</span>
+                <span style="background:rgba(139,92,246,.15);padding:5px 12px;border-radius:6px;">You see it immediately</span>
+                <span style="color:var(--muted);">→</span>
+                <span style="background:rgba(139,92,246,.15);padding:5px 12px;border-radius:6px;">Repeat</span>
+              </div>
+            </div>
+
+            <p><strong>How to set it up:</strong></p>
+            <ol>
+              <li>In VS Code, right-click your HTML file → <em>Open with Live Server</em> — your browser opens and stays live</li>
+              <li>In your terminal, navigate to your project folder and run <code>claude</code></li>
+              <li>Arrange your windows so Claude Code and the browser are visible at the same time — side by side, or on separate monitors</li>
+            </ol>
+            <div class="callout callout-tip"><strong>This is the professional workflow.</strong> Every change is visible in seconds. You're not guessing what the dashboard looks like — you're watching it take shape in real time. Students who set this up on day one build faster and get less frustrated than those who don't.</div>
           </div>
 
           <hr class="step-divider">
