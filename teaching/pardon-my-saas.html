@@ -234,7 +234,7 @@
               <li>Log in with your Claude Pro account</li>
             </ol>
 
-            <p style="margin-top:14px;"><strong>Claude Code</strong> — the agentic CLI tool. Use this when building dashboards — it writes and edits files directly on your computer, inside your project folder. This is your primary tool for all dashboard projects in this course.</p>
+            <p style="margin-top:14px;"><strong>Claude Code</strong> — the agentic CLI tool. Use this when building dashboards — it writes and edits files directly on your computer, inside your repo folder. This is your primary tool for all dashboard projects in this course.</p>
             <ol>
               <li>Install <strong>Node.js</strong> from <a href="https://nodejs.org" target="_blank" rel="noopener"><strong>nodejs.org</strong></a> (download the LTS version)</li>
               <li>Open <strong>Terminal</strong> (Mac) or <strong>Command Prompt</strong> (Windows)</li>
@@ -298,7 +298,7 @@
             </ol>
             <p>You now have a local copy of your repo. This folder is your workspace for the entire course — every file Claude Code creates or edits will live here.</p>
             <div class="callout callout-warn"><strong>Git may ask you to authenticate.</strong> This is your first real chance to use Claude Desktop as a co-pilot. If git asks for credentials, throws an error, or anything feels unclear — open Claude Desktop, describe exactly what you see, and ask it to walk you through the fix. This is precisely what it's for.</div>
-            <div class="callout callout-tip"><strong>Always work from this folder.</strong> When you start a Claude Code session, navigate here first (<code>cd [your-username].github.io</code>), then run <code>claude</code>. Claude Code needs to be running inside your project folder to read and write your files.</div>
+            <div class="callout callout-tip"><strong>Always work from this folder.</strong> When you start a Claude Code session, navigate here first (<code>cd [your-username].github.io</code>), then run <code>claude</code>. Claude Code needs to be running inside your repo folder to read and write your files.</div>
           </div>
 
           <hr class="step-divider">
@@ -307,9 +307,11 @@
             <h4>Step 6 — Add Your First HTML File</h4>
             <p>GitHub Pages looks for a file called <code>index.html</code> to serve as your homepage. The README.md that exists right now won't become a styled webpage — you need an actual HTML file. Let's have Claude Code create one.</p>
             <ol>
-              <li>From inside your project folder, run <code>claude</code> to start a Claude Code session</li>
+              <li>From inside your repo folder, run <code>claude</code> to start a Claude Code session</li>
+              <li>Claude Code will ask you to trust this workspace — this is a one-time permission that tells Claude Code it's allowed to read and write files in this folder. Select <strong>Yes, proceed</strong> (or similar) to continue.</li>
               <li>Use this prompt:</li>
             </ol>
+            <div class="callout callout-warn"><strong>If the trust prompt looks unfamiliar or you're not sure what to select</strong>, take a screenshot or copy the exact text you see and paste it into Claude Desktop. It will tell you exactly what to do.</div>
             <div class="prompt-block">
               <div class="prompt-header"><span class="prompt-label">Prompt — Create Starter Homepage</span><button class="copy-btn">Copy</button></div>
               <pre class="prompt-text">Create a simple index.html file for my portfolio homepage. Keep it clean and minimal — just my name as a heading, a one-sentence placeholder bio, and a note that says "Portfolio coming soon." Use a dark background with white text. No external libraries or frameworks.</pre>
@@ -345,7 +347,7 @@
             </ol>
             <p><strong>Why Live Server matters:</strong> When you double-click an HTML file to open it, the browser uses a <code>file://</code> URL which blocks certain features (including fetching data files). Live Server runs a tiny local web server, opening your file at <code>http://localhost:5500</code> instead — everything works, and the page auto-refreshes every time you save a file.</p>
             <p>To use it: right-click any HTML file in VS Code's sidebar → <em>Open with Live Server</em>. Your browser opens and stays in sync as you work.</p>
-            <div class="callout callout-tip"><strong>Your workflow from here:</strong> Claude Code writes files to your project folder → VS Code shows you the file tree → Live Server previews it in the browser → you describe changes back to Claude → repeat.</div>
+            <div class="callout callout-tip"><strong>Your workflow from here:</strong> Claude Code writes files to your repo folder → VS Code shows you the file tree → Live Server previews it in the browser → you describe changes back to Claude → repeat.</div>
           </div>
 
           <hr class="step-divider">
@@ -489,7 +491,7 @@ Please identify the problem and fix it.</pre>
             <p><strong>How to set it up:</strong></p>
             <ol>
               <li>In VS Code, right-click your HTML file → <em>Open with Live Server</em> — your browser opens and stays live</li>
-              <li>In your terminal, navigate to your project folder and run <code>claude</code></li>
+              <li>In your terminal, navigate to your repo folder and run <code>claude</code></li>
               <li>Arrange your windows so Claude Code and the browser are visible at the same time — side by side, or on separate monitors</li>
             </ol>
             <div class="callout callout-tip"><strong>This is the professional workflow.</strong> Every change is visible in seconds. You're not guessing what the dashboard looks like — you're watching it take shape in real time. Students who set this up on day one build faster and get less frustrated than those who don't.</div>
@@ -508,7 +510,7 @@ Please identify the problem and fix it.</pre>
             <ul>
               <li>Start new Claude Code sessions by asking Claude to read your existing files first: <em>"Read my index.html, then I'll tell you what to add."</em></li>
               <li>The <code>/dash</code> skill you'll build in Module 04.5 exists specifically to solve this — you'll invoke <code>/dash</code> at the start of every new build session so Claude immediately knows your style and walks you through planning before writing a line of code</li>
-              <li>Keep your project folder organized — Claude Code can read any file in your project, so clean structure means cleaner context</li>
+              <li>Keep your repo folder organized — Claude Code can read any file in your project, so clean structure means cleaner context</li>
             </ul>
 
             <p><strong>Context window limits:</strong> There's also a ceiling on how much Claude can hold in a single conversation. Very long sessions can cause Claude to "lose track" of things said early on. When a session gets long and results start feeling off, starting a fresh session with a clear re-brief is often faster than continuing.</p>
@@ -688,7 +690,7 @@ Describe your plan in numbered steps. Do not write any code yet.</pre>
               <div class="prompt-header"><span class="prompt-label">Prompt 3 — Approve the Plan</span><button class="copy-btn">Copy</button></div>
               <pre class="prompt-text">Looks good. Go ahead and build it.</pre>
             </div>
-            <p>Claude will generate <code>index.html</code> in your project folder. Open it with Live Server in VS Code and review it.</p>
+            <p>Claude will generate <code>index.html</code> in your repo folder. Open it with Live Server in VS Code and review it.</p>
 
             <p style="margin-top:16px;"><strong>Step 4 — Personalize it (practice the iteration loop)</strong></p>
             <p>The structure is there — now make it yours. Replace the placeholders with your actual information. Notice that you're describing specific changes, not re-explaining the whole page.</p>
@@ -1645,7 +1647,7 @@ Write in first person. Make it sound like a data professional wrote it, not a ho
             <ul>
               <li>Live on GitHub Pages with a clean, shareable URL</li>
               <li>Matches your dashboard spec — visually consistent with your other work</li>
-              <li><code>README.md</code> in the project folder explaining what, why, and what you found</li>
+              <li><code>README.md</code> in the repo folder explaining what, why, and what you found</li>
               <li>Portfolio home page features this project as the primary card</li>
               <li>You can confidently talk through the project, the data, and what you built</li>
             </ul>
