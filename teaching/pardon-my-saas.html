@@ -293,12 +293,17 @@
             <p>GitHub is where your code lives online. To let Claude Code build and edit files, you need a local copy on your computer. This is called cloning.</p>
             <ol>
               <li>Open <strong>Terminal</strong> (Mac) or <strong>Command Prompt</strong> (Windows)</li>
-              <li>Run: <code>git clone https://github.com/[your-username]/[your-username].github.io</code></li>
-              <li>Navigate into the folder: <code>cd [your-username].github.io</code></li>
+              <li>Navigate to your Desktop so the folder is easy to find later:<br><br>
+                <strong>Mac:</strong> <code>cd ~/Desktop</code><br>
+                <strong>Windows:</strong> <code>cd %USERPROFILE%\Desktop</code>
+              </li>
+              <li>Clone your repo:<br><br>
+                <code>git clone https://github.com/[your-username]/[your-username].github.io</code><br><br>
+                This creates a folder on your Desktop named <code>[your-username].github.io</code>.
+              </li>
             </ol>
-            <p>You now have a local copy of your repo. This folder is your workspace for the entire course — every file Claude Code creates or edits will live here.</p>
+            <p>You now have a local copy of your repo on your Desktop. This is your workspace for the entire course — every file Claude Code creates or edits will live here.</p>
             <div class="callout callout-warn"><strong>Git may ask you to authenticate.</strong> This is your first real chance to use Claude Desktop as a co-pilot. If git asks for credentials, throws an error, or anything feels unclear — open Claude Desktop, describe exactly what you see, and ask it to walk you through the fix. This is precisely what it's for.</div>
-            <div class="callout callout-tip"><strong>Always work from this folder.</strong> When you start a Claude Code session, navigate here first (<code>cd [your-username].github.io</code>), then run <code>claude</code>. Claude Code needs to be running inside your repo folder to read and write your files.</div>
           </div>
 
           <hr class="step-divider">
@@ -309,9 +314,10 @@
             <p>First, you need to open your terminal and navigate to your repo folder — the same way you did when you installed Claude Code.</p>
             <ol>
               <li>Open <strong>Terminal</strong> (Mac) or <strong>Command Prompt</strong> (Windows)</li>
-              <li>Navigate into your repo folder by typing:<br><br>
-                <code>cd [your-username].github.io</code><br><br>
-                Replace <code>[your-username]</code> with your actual GitHub username. This moves your terminal into the folder you cloned in Step 5.
+              <li>Navigate into your repo folder. Since you cloned it to your Desktop in Step 5:<br><br>
+                <strong>Mac:</strong> <code>cd ~/Desktop/[your-username].github.io</code><br>
+                <strong>Windows:</strong> <code>cd %USERPROFILE%\Desktop\[your-username].github.io</code><br><br>
+                Replace <code>[your-username]</code> with your actual GitHub username.
               </li>
               <li>Run <code>claude</code> to start a Claude Code session inside that folder</li>
               <li>Claude Code will ask you to <strong>trust this workspace</strong> — this is a one-time permission that tells Claude Code it's allowed to read and write files in this folder. Select <strong>Yes, proceed</strong> (or similar) to continue.</li>
