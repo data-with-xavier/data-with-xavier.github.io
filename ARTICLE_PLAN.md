@@ -56,7 +56,7 @@ The goal of this section isn't to hedge — it's to show you've thought further 
 ### Section 4 — What Winning Orgs Are Doing
 Make this feel observed, not theoretical. Concrete enough that a reader can picture it happening.
 
-The best operators aren't asking "which BI tool should we switch to?" They're asking that question about their entire SaaS portfolio. And they're doing it intentionally — not reactively, not trying to replace everything at once. Specifically:
+The best operators aren't asking "which BI tool should we switch to?" They're asking "do we actually need this?" — and they're applying that question to their entire SaaS portfolio. And they're doing it intentionally — not reactively, not trying to replace everything at once. Specifically:
 
 - They're rebuilding narrow, high-cost workflows internally instead of defaulting to platforms
 - They're piloting internal tools before signing multi-year contracts
