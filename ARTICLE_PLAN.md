@@ -7,7 +7,7 @@
 Analytics practitioners and business leaders — both audiences, same article. The practitioner reads it and thinks about lock-in and portability. The business leader reads it and thinks about budget.
 
 ## Core Argument
-The BI tools dominating analytics budgets were built to solve a problem that no longer exists. The barrier was always code — AI eliminated it. Organizations still paying the SaaS tax aren't just spending money, they're renting access to their own work while the orgs that figured this out are building faster, owning their output, and keeping the money.
+The BI tools dominating analytics budgets were built to solve a problem that no longer exists. Custom, in-house solutions were once economically out of reach — building them required an entire team, and that math only worked for the largest organizations. AI collapsed that cost structure. One skilled person can now produce what used to require a team, in less time. Organizations still paying the SaaS tax aren't just spending money, they're renting access to their own work while the orgs that figured this out are building faster, owning their output, and keeping the money.
 
 ## Tone
 Pointed but not preachy. Confident, specific, a little provocative. Not telling people they're idiots for using Tableau — telling them the world changed and most people haven't noticed yet.
