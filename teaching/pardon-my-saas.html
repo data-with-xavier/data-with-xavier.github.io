@@ -99,12 +99,6 @@
     .assignment-divider::before, .assignment-divider::after { content:''; flex:1; height:1px; background:var(--border); }
     .assignment-divider::before { max-width:0; }
 
-    /* ── Cheat sheet ── */
-    .cheatsheet { margin-bottom: 80px; }
-    .cheat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-top: 20px; }
-    .cheat-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-    .cheat-card-head { padding: 10px 14px; background: rgba(139,92,246,.07); border-bottom: 1px solid var(--border); font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--brand); }
-    .cheat-card .prompt-text { font-size: .78rem; }
   </style>
 </head>
 <body data-page="teaching">
@@ -1637,44 +1631,6 @@ Make the capstone card the most prominent one — largest or featured at the top
 
     </section><!-- /modules -->
 
-    <!-- ── Prompt Cheat Sheet ── -->
-    <section class="cheatsheet">
-      <p class="section-label">Prompt Cheat Sheet</p>
-      <p class="muted" style="font-size:.875rem;margin-bottom:20px;">Copy these patterns at the start of any Claude session. Customize the details.</p>
-
-      <div class="cheat-grid">
-        <div class="cheat-card">
-          <div class="cheat-card-head">Start Every Session</div>
-          <pre class="prompt-text">/dash</pre>
-        </div>
-        <div class="cheat-card">
-          <div class="cheat-card-head">Fix Broken Code</div>
-          <pre class="prompt-text">This code isn't working. Here's what I see visually: [describe it]. Here's the browser console error: [paste error]. Please identify and fix the issue.</pre>
-        </div>
-        <div class="cheat-card">
-          <div class="cheat-card-head">Refine a Design</div>
-          <pre class="prompt-text">The current design has these issues:
-1. [Specific thing that's wrong]
-2. [Another specific thing]
-
-Please fix these without changing anything else.</pre>
-        </div>
-        <div class="cheat-card">
-          <div class="cheat-card-head">Switch to Fetched Data</div>
-          <pre class="prompt-text">The data is currently embedded in the JavaScript. Please update it to fetch from this URL instead: [GitHub raw URL]
-
-Show a loading state while fetching, and handle fetch errors gracefully.</pre>
-        </div>
-        <div class="cheat-card">
-          <div class="cheat-card-head">Add Interactivity</div>
-          <pre class="prompt-text">Add a [dropdown / toggle / filter] that lets users filter by [field]. When the filter changes, update [chart names] and the KPI row to reflect only the filtered data.</pre>
-        </div>
-        <div class="cheat-card">
-          <div class="cheat-card-head">Explore a Dataset</div>
-          <pre class="prompt-text">Here is a dataset: [paste sample]. What are the 3 most interesting stories in this data? What visualizations would tell each story best?</pre>
-        </div>
-      </div>
-    </section>
 
   </main>
 
