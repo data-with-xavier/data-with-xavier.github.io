@@ -43,7 +43,9 @@ Not a blanket "cancel all your subscriptions" take. SaaS still makes sense when:
 Naming the context where SaaS wins makes the broader argument more credible, not less.
 
 ### Section 4 — What Winning Orgs Are Doing
-They're not switching BI tools. They're questioning the category. The shift isn't Tableau → Power BI. It's Tableau → *do we actually need this?* And it's not just BI — it's any internal tool with a recurring cost attached to a problem that one person with AI could now solve in an afternoon. The lower-hanging fruit is often not replacing an entire BI infrastructure — it's building the custom internal tool nobody could justify building before: a weekly sales summary, a KPI tracker, a one-page ops dashboard. Start there. The infrastructure question follows.
+The best operators aren't asking "which BI tool should we switch to?" They're asking that question about their entire SaaS portfolio — and they're doing it intentionally, not reactively. They're not trying to blindly replace everything. They're being deliberate about what their actual needs are, what can genuinely be accomplished right now, and where the math has shifted enough to act. But they are moving in this direction. The question is no longer "can we afford to build this ourselves?" It's "can we justify continuing to rent it?"
+
+The shift is already happening. Most organizations just haven't named it yet.
 
 ### Section 5 — Call to Action
 Link to Pardon My SaaS. Frame it as proof of concept — free material showing exactly what's possible when you stop paying the tax. One course, no prior experience needed, live GitHub portfolio at the end.
