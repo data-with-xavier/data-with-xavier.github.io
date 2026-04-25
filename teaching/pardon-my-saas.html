@@ -306,12 +306,18 @@
           <div class="lesson-step">
             <h4>Step 6 — Add Your First HTML File</h4>
             <p>GitHub Pages looks for a file called <code>index.html</code> to serve as your homepage. The README.md that exists right now won't become a styled webpage — you need an actual HTML file. Let's have Claude Code create one.</p>
+            <p>First, you need to open your terminal and navigate to your repo folder — the same way you did when you installed Claude Code.</p>
             <ol>
-              <li>From inside your repo folder, run <code>claude</code> to start a Claude Code session</li>
-              <li>Claude Code will ask you to trust this workspace — this is a one-time permission that tells Claude Code it's allowed to read and write files in this folder. Select <strong>Yes, proceed</strong> (or similar) to continue.</li>
-              <li>Use this prompt:</li>
+              <li>Open <strong>Terminal</strong> (Mac) or <strong>Command Prompt</strong> (Windows)</li>
+              <li>Navigate into your repo folder by typing:<br><br>
+                <code>cd [your-username].github.io</code><br><br>
+                Replace <code>[your-username]</code> with your actual GitHub username. This moves your terminal into the folder you cloned in Step 5.
+              </li>
+              <li>Run <code>claude</code> to start a Claude Code session inside that folder</li>
+              <li>Claude Code will ask you to <strong>trust this workspace</strong> — this is a one-time permission that tells Claude Code it's allowed to read and write files in this folder. Select <strong>Yes, proceed</strong> (or similar) to continue.</li>
+              <li>Once Claude Code is running, use this prompt:</li>
             </ol>
-            <div class="callout callout-warn"><strong>If the trust prompt looks unfamiliar or you're not sure what to select</strong>, take a screenshot or copy the exact text you see and paste it into Claude Desktop. It will tell you exactly what to do.</div>
+            <div class="callout callout-warn"><strong>Not sure where your repo folder is, or getting an error?</strong> Open Claude Desktop and describe exactly what you see — paste any error messages and tell it what step you're on. It will walk you through it.</div>
             <div class="prompt-block">
               <div class="prompt-header"><span class="prompt-label">Prompt — Create Starter Homepage</span><button class="copy-btn">Copy</button></div>
               <pre class="prompt-text">Create a simple index.html file for my portfolio homepage. Keep it clean and minimal — just my name as a heading, a one-sentence placeholder bio, and a note that says "Portfolio coming soon." Use a dark background with white text. No external libraries or frameworks.</pre>
