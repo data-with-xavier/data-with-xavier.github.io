@@ -33,14 +33,22 @@ BI tools were built to democratize visualization in a world where custom, in-hou
 
 AI collapsed that cost structure. One skilled person can now produce what used to require an entire team, in less time. The economic argument for SaaS — that it was cheaper than building — no longer holds. The moat is gone.
 
-### Section 3 — The Honest Caveats (credibility)
-Not a blanket "cancel all your subscriptions" take. SaaS still makes sense when:
-- Enterprise-grade access control is non-negotiable
-- Data infrastructure is centralized and governed
-- You need embedded analytics at scale
-- IT doesn't want to touch anything custom
+### Section 3 — The Real Objections (and honest answers)
+A seasoned leader reading this will immediately ask four questions. Name them before they do.
 
-Naming the context where SaaS wins makes the broader argument more credible, not less.
+**"Who maintains it?"**
+You do. That's not a dismissal — it's a trade-off. You own the maintenance, but you also own the ability to change it without filing a support ticket or waiting on someone else's product roadmap. The question isn't whether maintenance exists. It's whether the cost of owning it is higher than the cost of renting it indefinitely.
+
+**"What about governance?"**
+This is the most legitimate objection — and the one where SaaS still wins in specific contexts. Row-level security at scale, audit trails, regulatory compliance, 500+ users with strict access control requirements — these are real SaaS advantages. Name them specifically. Generic enterprise disclaimers don't signal experience. Specific ones do.
+
+**"What happens when that one skilled person leaves?"**
+This is where AI actually changes the answer. Code that AI helped write is more readable, better documented, and easier for the next person to pick up than legacy custom builds ever were. The bus factor is lower than it used to be. Not zero — but the objection is weaker than it sounds.
+
+**"What about reliability at scale?"**
+Legitimate for large enterprise. Less relevant for the mid-market, which is the more honest target for this argument anyway. Be clear about who this applies to.
+
+The goal of this section isn't to hedge — it's to show you've thought further than the objection. Acknowledge what's real, answer what's answerable, and be specific about where SaaS still wins.
 
 ### Section 4 — What Winning Orgs Are Doing
 The best operators aren't asking "which BI tool should we switch to?" They're asking that question about their entire SaaS portfolio — and they're doing it intentionally, not reactively. They're not trying to blindly replace everything. They're being deliberate about what their actual needs are, what can genuinely be accomplished right now, and where the math has shifted enough to act. But they are moving in this direction. The question is no longer "can we afford to build this ourselves?" It's "can we justify continuing to rent it?"
