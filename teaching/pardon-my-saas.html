@@ -429,7 +429,7 @@ Please identify the problem and fix it.</pre>
             <p><strong>What to do about it:</strong></p>
             <ul>
               <li>Start new Claude Code sessions by asking Claude to read your existing files first: <em>"Read my index.html, then I'll tell you what to add."</em></li>
-              <li>The Dashboard Spec you'll build in Module 04.5 exists specifically to solve this — you'll invoke <code>/spec</code> at the start of every new build session so Claude immediately knows your style and preferences</li>
+              <li>The <code>/dash</code> skill you'll build in Module 04.5 exists specifically to solve this — you'll invoke <code>/dash</code> at the start of every new build session so Claude immediately knows your style and walks you through planning before writing a line of code</li>
               <li>Keep your project folder organized — Claude Code can read any file in your project, so clean structure means cleaner context</li>
             </ul>
 
@@ -1193,9 +1193,9 @@ Everything else should stay the same.</pre>
           <p class="module-intro">After Project 1, you've felt what it's like to start from scratch. Every new Claude conversation starts cold — it doesn't know your color palette, your layout preferences, or your visual style. Your dashboard spec fixes that permanently.</p>
 
           <div class="lesson-step">
-            <h4>What Is a Dashboard Spec?</h4>
-            <p>A <code>.md</code> file saved as <code>.claude/commands/spec.md</code> in your GitHub repo. It defines your personal design system: colors, fonts, layout preferences, chart style, and the overall mood of your work. Claude Code automatically turns any file in <code>.claude/commands/</code> into a slash command — so <code>spec.md</code> becomes <code>/spec</code>. Type it at the start of any session and your full design context loads instantly.</p>
-            <p>The result: your dashboards will look like <em>yours</em> — consistent, branded, intentional — instead of whatever style Claude defaults to.</p>
+            <h4>What Is the /dash Skill?</h4>
+            <p>A <code>.md</code> file saved as <code>.claude/commands/dash.md</code> in your GitHub repo. It has two parts: your personal design spec (colors, fonts, layout, chart style) and a planning protocol — instructions that tell Claude to ask you the right questions before writing any code. Claude Code automatically turns any file in <code>.claude/commands/</code> into a slash command, so <code>dash.md</code> becomes <code>/dash</code>.</p>
+            <p>Type <code>/dash</code> at the start of a build session and Claude loads your spec, then walks you through planning: what's the goal, who's the audience, what does the data look like? Only after you answer does it produce a build brief and wait for your go-ahead. No copy-pasting. No starting cold. No building the wrong thing.</p>
           </div>
 
           <a class="data-download" href="data/dashboard-spec-template.md" download>
@@ -1204,29 +1204,41 @@ Everything else should stay the same.</pre>
           </a>
 
           <div class="lesson-step">
-            <h4>Step 1 — Discover Your Style with Claude</h4>
+            <h4>Step 1 — Generate Your /dash Skill</h4>
             <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Prompt — Generate Your Spec</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">I want to create a personal dashboard design spec that I'll paste into every future Claude conversation as context. I want my dashboards to have a consistent, recognizable style.
+              <div class="prompt-header"><span class="prompt-label">Prompt — Generate Your /dash Skill</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">I want to create a Claude Code slash command skill file called dash.md. When I type /dash at the start of a session, I want Claude to load my personal design spec and then walk me through planning a dashboard before writing any code.
 
-Please ask me a series of questions to understand my design preferences — things like:
+First, ask me the questions you need to build my design spec:
 - Colors or palettes I'm drawn to (ask for examples if helpful)
 - Layouts I find appealing (minimal sidebar? full-screen? card-heavy?)
 - The mood or personality I want my work to convey (corporate and clean? bold and data-forward? editorial and calm?)
 - Chart styles I prefer (dense vs. spacious, gridlines vs. none, etc.)
 
-After I answer, generate a concise dashboard-spec.md file I can save and reuse. It should include: hex color codes for my palette, font choices, layout preferences, chart preferences, and a short "prompt prefix" I can copy-paste at the start of future sessions.</pre>
+After I answer, generate a complete dash.md file with two sections:
+
+## My Design Spec
+Hex color palette, font choice, layout preferences, chart style — everything Claude needs to match my visual identity.
+
+## Planning Protocol
+Instructions telling Claude to ask these questions before writing any code when /dash is invoked:
+1. What is the goal of this dashboard and who will read it?
+2. What data do you have? (ask me to describe it or paste a sample)
+3. What are the 2–3 key questions this dashboard needs to answer?
+
+Then: recommend chart types with a one-line justification for each, propose a layout skeleton, and write a one-sentence build brief. Wait for my approval before writing any code.</pre>
             </div>
           </div>
 
           <div class="lesson-step">
             <h4>Step 2 — Preview Your Style</h4>
+            <p>Paste the contents of your <code>dash.md</code> below. This is a visual test only — tell Claude to use the design spec section and skip the planning protocol for now.</p>
             <div class="prompt-block">
               <div class="prompt-header"><span class="prompt-label">Prompt — Style Preview</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">Here is my dashboard spec:
-[Paste your completed spec here]
+              <pre class="prompt-text">Here is my dash.md skill file:
+[Paste your completed dash.md here]
 
-Using this spec, build me a simple style preview page — not a real dashboard, just a visual test. Include:
+Use only the "My Design Spec" section above — ignore the Planning Protocol for this prompt. Build me a simple style preview page: not a real dashboard, just a visual test. Include:
 - A header with my name as a title
 - Three KPI cards with placeholder numbers
 - One sample bar chart with placeholder data
@@ -1238,16 +1250,16 @@ I want to see how the spec translates visually before I commit to it. Keep every
 
           <div class="lesson-step">
             <h4>Step 3 — Save and Commit</h4>
-            <p>Save your finalized spec as <code>.claude/commands/spec.md</code> inside your repo — create the <code>.claude/commands/</code> folder if it doesn't exist. Claude Code watches that folder and registers every <code>.md</code> file there as a slash command. Once committed, <code>spec.md</code> becomes <code>/spec</code>. From now on, start every Claude Code session with <code>/spec</code> — no pasting, no forgetting.</p>
+            <p>Save your finalized file as <code>.claude/commands/dash.md</code> inside your repo — create the <code>.claude/commands/</code> folder if it doesn't exist. Claude Code watches that folder and registers every <code>.md</code> file there as a slash command. Once committed, <code>dash.md</code> becomes <code>/dash</code>. From now on, start every Claude Code build session with <code>/dash</code> — your spec loads, planning begins, and nothing gets built until you've thought it through.</p>
             <div class="callout callout-tip"><strong>Living document:</strong> Your spec will evolve. After each project, update it if you discovered preferences you didn't know you had. Version control means you can always go back.</div>
           </div>
 
           <div class="deliverable">
             <div class="deliverable-label">Module 3.5 Deliverable</div>
             <ul>
-              <li><code>.claude/commands/spec.md</code> committed to your repo — <code>/spec</code> works in Claude Code</li>
+              <li><code>.claude/commands/dash.md</code> committed to your repo — <code>/dash</code> works in Claude Code</li>
               <li>Style preview page generated and reviewed</li>
-              <li>You've confirmed <code>/spec</code> loads your spec in a new Claude Code session</li>
+              <li>You've confirmed <code>/dash</code> starts a planning session in Claude Code</li>
             </ul>
           </div>
         </div>
@@ -1298,7 +1310,7 @@ Please analyze this data and tell me:
 
           <div class="lesson-step">
             <h4>Step 2 — Build the Article Shell</h4>
-            <div class="callout callout-tip"><strong>Before sending this prompt:</strong> Type <code>/spec</code> in Claude Code to load your design context for this session.</div>
+            <div class="callout callout-tip"><strong>Before sending this prompt:</strong> Type <code>/dash</code> in Claude Code to load your design context and kick off a planning session.</div>
             <div class="prompt-block">
               <div class="prompt-header"><span class="prompt-label">Prompt — Narrative HTML Shell</span><button class="copy-btn">Copy</button></div>
               <pre class="prompt-text">I'm building a data journalism piece, not a traditional dashboard. It should look like a long-form article — similar to NYT or WSJ data stories. Here is my thesis: [your thesis from Step 1]
@@ -1390,7 +1402,7 @@ Write in first person, clear journalistic style. This should sound like somethin
 
           <div class="lesson-step">
             <h4>Step 1 — Build with Filters from the Start</h4>
-            <div class="callout callout-tip"><strong>Before sending this prompt:</strong> Type <code>/spec</code> in Claude Code to load your design context for this session.</div>
+            <div class="callout callout-tip"><strong>Before sending this prompt:</strong> Type <code>/dash</code> in Claude Code to load your design context and kick off a planning session.</div>
             <div class="prompt-block">
               <div class="prompt-header"><span class="prompt-label">Prompt — Interactive Dashboard</span><button class="copy-btn">Copy</button></div>
               <pre class="prompt-text">Build an interactive HTML basketball analytics dashboard. The dataset has these fields: Player, Team, Position, Season, Games, Points, Assists, Rebounds, Steals, Blocks, FG_Pct.
@@ -1504,7 +1516,7 @@ Please help me evaluate it:
 
           <div class="lesson-step">
             <h4>Step 3 — Write Your Brief</h4>
-            <div class="callout callout-tip"><strong>Before sending this prompt:</strong> Type <code>/spec</code> in Claude Code to load your design context for this session.</div>
+            <div class="callout callout-tip"><strong>Before sending this prompt:</strong> Type <code>/dash</code> in Claude Code to load your design context and kick off a planning session.</div>
             <div class="prompt-block">
               <div class="prompt-header"><span class="prompt-label">Prompt — Project Brief</span><button class="copy-btn">Copy</button></div>
               <pre class="prompt-text">I'm building my capstone data project. Here's my plan:
@@ -1576,7 +1588,7 @@ Write in first person. Make it sound like a data professional wrote it, not a ho
 
           <div class="lesson-step">
             <h4>Polish Your Portfolio Home Page</h4>
-            <div class="callout callout-tip"><strong>Before sending this prompt:</strong> Type <code>/spec</code> in Claude Code to load your design context for this session.</div>
+            <div class="callout callout-tip"><strong>Before sending this prompt:</strong> Type <code>/dash</code> in Claude Code to load your design context and kick off a planning session.</div>
             <div class="prompt-block">
               <div class="prompt-header"><span class="prompt-label">Prompt — Portfolio Update</span><button class="copy-btn">Copy</button></div>
               <pre class="prompt-text">Update my portfolio index.html. I now have these completed projects:
@@ -1633,9 +1645,7 @@ Make the capstone card the most prominent one — largest or featured at the top
       <div class="cheat-grid">
         <div class="cheat-card">
           <div class="cheat-card-head">Start Every Session</div>
-          <pre class="prompt-text">/spec
-
-Now, here is what I'd like to build today: [describe your project]</pre>
+          <pre class="prompt-text">/dash</pre>
         </div>
         <div class="cheat-card">
           <div class="cheat-card-head">Fix Broken Code</div>
