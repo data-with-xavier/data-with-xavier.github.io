@@ -22,16 +22,19 @@ Long-form LinkedIn article (~1,000–1,200 words).
 ## Structure
 
 ### Hook
-Open with a number that stings.
+Open with a number that stings — keep it reductive, that's the point. Add the nuance in the body.
 > "Your team is paying $840 per seat, per year, to make bar charts inside someone else's platform. That math made sense in 2012."
 
+Then land the real villain early:
+> "Most organizations aren't paying for SaaS because they've evaluated the alternatives. They're paying because the original decision was made under a different cost structure — and never revisited."
+
 ### Section 1 — What the SaaS Tax Actually Is
-Not just the license cost. The real cost is lock-in. Your Tableau workbooks don't run without Tableau. Your Looker dashboards live in Google's cloud. Your Power BI reports need Microsoft's ecosystem. But zoom out — this isn't just a BI problem. It's any recurring software cost that exists because building the alternative used to require a team. Most organizations have several of these. BI tools are a particularly clean example — the value proposition was always narrow and explicit (visualization and reporting), and AI attacks that use case directly. But depending on the org, the biggest line item could be anything: CRM, HR platforms, project management suites. The principle is the same. You're not buying tools. You're renting access to your own work.
+Not just the license cost. The real cost is lock-in. Your Tableau workbooks don't run without Tableau. Your Looker dashboards live in Google's cloud. Your Power BI reports need Microsoft's ecosystem. But zoom out — this isn't just a BI problem. It's any recurring software cost that exists because building the alternative used to require a team. Most organizations have several of these. BI tools are a particularly clean example — the value proposition was always narrow and explicit (visualization and reporting), and AI attacks that use case directly. But depending on the org, the biggest line item could be anything: CRM, HR platforms, project management suites. The principle is the same. You're not buying tools. You're renting access to your own work — under assumptions that may no longer be true.
 
 ### Section 2 — What Changed
 BI tools were built to democratize visualization in a world where custom, in-house solutions were economically out of reach for most organizations. Building something custom meant hiring a team of developers — and that math only worked for the largest orgs with the deepest budgets. Everyone else paid the SaaS tax because the alternative was too expensive.
 
-AI collapsed that cost structure. One skilled person can now produce what used to require an entire team, in less time. The economic argument for SaaS — that it was cheaper than building — no longer holds. The moat is gone.
+AI changed that cost structure. One skilled person can now produce what used to require an entire team, in less time. SaaS used to be the default because building was out of reach. That's no longer universally true. The organizations that have recognized this are moving — carefully and intentionally — in a different direction.
 
 ### Section 3 — The Real Objections (and honest answers)
 A seasoned leader reading this will immediately ask four questions. Name them before they do.
@@ -43,7 +46,7 @@ You do. That's not a dismissal — it's a trade-off. You own the maintenance, bu
 This is the most legitimate objection — and the one where SaaS still wins in specific contexts. Row-level security at scale, audit trails, regulatory compliance, 500+ users with strict access control requirements — these are real SaaS advantages. Name them specifically. Generic enterprise disclaimers don't signal experience. Specific ones do.
 
 **"What happens when that one skilled person leaves?"**
-This is where AI actually changes the answer. Code that AI helped write is more readable, better documented, and easier for the next person to pick up than legacy custom builds ever were. The bus factor is lower than it used to be. Not zero — but the objection is weaker than it sounds.
+AI lowers the barrier to producing readable, documented, maintainable code — but only if the person using it knows what good looks like. That's not a given. But it does mean the bus factor objection is weaker than it used to be, and getting weaker. Not zero — but not the conversation-ender it once was. (Note: this thread connects directly to the course and the book — knowing what good looks like is exactly what you teach.)
 
 **"What about reliability at scale?"**
 Legitimate for large enterprise. Less relevant for the mid-market, which is the more honest target for this argument anyway. Be clear about who this applies to.
@@ -51,7 +54,16 @@ Legitimate for large enterprise. Less relevant for the mid-market, which is the 
 The goal of this section isn't to hedge — it's to show you've thought further than the objection. Acknowledge what's real, answer what's answerable, and be specific about where SaaS still wins.
 
 ### Section 4 — What Winning Orgs Are Doing
-The best operators aren't asking "which BI tool should we switch to?" They're asking that question about their entire SaaS portfolio — and they're doing it intentionally, not reactively. They're not trying to blindly replace everything. They're being deliberate about what their actual needs are, what can genuinely be accomplished right now, and where the math has shifted enough to act. But they are moving in this direction. The question is no longer "can we afford to build this ourselves?" It's "can we justify continuing to rent it?"
+Make this feel observed, not theoretical. Concrete enough that a reader can picture it happening.
+
+The best operators aren't asking "which BI tool should we switch to?" They're asking that question about their entire SaaS portfolio. And they're doing it intentionally — not reactively, not trying to replace everything at once. Specifically:
+
+- They're rebuilding narrow, high-cost workflows internally instead of defaulting to platforms
+- They're piloting internal tools before signing multi-year contracts
+- They're treating SaaS as a scaling solution — not a starting point
+- They're asking "can we justify continuing to rent this?" before every renewal
+
+The question is no longer "can we afford to build this ourselves?" It's "can we justify not asking that question?"
 
 The shift is already happening. Most organizations just haven't named it yet.
 
