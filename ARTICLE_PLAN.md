@@ -62,6 +62,9 @@ The best operators aren't asking "which BI tool should we switch to?" They're as
 - They're piloting internal tools before signing multi-year contracts
 - They're treating SaaS as a scaling solution — not a starting point
 - They're asking "can we justify continuing to rent this?" before every renewal
+- They're building the specific internal piece a cheaper SaaS tool was missing — which unlocks a simpler, less expensive solution that was previously insufficient on its own
+
+The goal isn't always full replacement. Sometimes it's using a targeted internal build to make a cheaper tool viable — which changes the economics without requiring an infrastructure overhaul.
 
 The question is no longer "can we afford to build this ourselves?" It's "can we justify not asking that question?"
 
