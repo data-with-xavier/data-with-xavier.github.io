@@ -7,7 +7,9 @@
 Analytics practitioners and business leaders — both audiences, same article. The practitioner reads it and thinks about lock-in and portability. The business leader reads it and thinks about budget.
 
 ## Core Argument
-The BI tools dominating analytics budgets were built to solve a problem that no longer exists. Custom, in-house solutions were once economically out of reach — building them required an entire team, and that math only worked for the largest organizations. AI collapsed that cost structure. One skilled person can now produce what used to require a team, in less time. Organizations still paying the SaaS tax aren't just spending money, they're renting access to their own work while the orgs that figured this out are building faster, owning their output, and keeping the money.
+Any recurring SaaS cost that exists primarily because building the alternative used to require a team is now worth questioning. BI tools are the most visible and expensive example — but the principle applies anywhere organizations are paying a subscription for something AI now makes buildable by one skilled person in a fraction of the time. Custom, in-house solutions were once economically out of reach. AI collapsed that cost structure. Organizations still paying the SaaS tax aren't just spending money, they're renting access to their own work while the orgs that figured this out are building faster, owning their output, and keeping the money.
+
+BI is the lead example. The article is about the broader shift.
 
 ## Tone
 Pointed but not preachy. Confident, specific, a little provocative. Not telling people they're idiots for using Tableau — telling them the world changed and most people haven't noticed yet.
@@ -24,7 +26,7 @@ Open with a number that stings.
 > "Your team is paying $840 per seat, per year, to make bar charts inside someone else's platform. That math made sense in 2012."
 
 ### Section 1 — What the SaaS Tax Actually Is
-Not just the license cost. The real cost is lock-in. Your Tableau workbooks don't run without Tableau. Your Looker dashboards live in Google's cloud. Your Power BI reports need Microsoft's ecosystem. You're not buying a tool. You're renting access to your own work.
+Not just the license cost. The real cost is lock-in. Your Tableau workbooks don't run without Tableau. Your Looker dashboards live in Google's cloud. Your Power BI reports need Microsoft's ecosystem. But zoom out — this isn't just a BI problem. It's any recurring software cost that exists because building the alternative used to require a team. Most organizations have several of these. BI tools are just the most expensive and most visible. You're not buying tools. You're renting access to your own work.
 
 ### Section 2 — What Changed
 BI tools were built to democratize visualization in a world where custom, in-house solutions were economically out of reach for most organizations. Building something custom meant hiring a team of developers — and that math only worked for the largest orgs with the deepest budgets. Everyone else paid the SaaS tax because the alternative was too expensive.
@@ -41,7 +43,7 @@ Not a blanket "cancel all your subscriptions" take. SaaS still makes sense when:
 Naming the context where SaaS wins makes the broader argument more credible, not less.
 
 ### Section 4 — What Winning Orgs Are Doing
-They're not switching BI tools. They're questioning the category. The shift isn't Tableau → Power BI. It's Tableau → *do we actually need this?* Teams building with AI are shipping custom dashboards faster than their Tableau counterparts are getting through the approval queue.
+They're not switching BI tools. They're questioning the category. The shift isn't Tableau → Power BI. It's Tableau → *do we actually need this?* And it's not just BI — it's any internal tool with a recurring cost attached to a problem that one person with AI could now solve in an afternoon. The lower-hanging fruit is often not replacing an entire BI infrastructure — it's building the custom internal tool nobody could justify building before: a weekly sales summary, a KPI tracker, a one-page ops dashboard. Start there. The infrastructure question follows.
 
 ### Section 5 — Call to Action
 Link to Pardon My SaaS. Frame it as proof of concept — free material showing exactly what's possible when you stop paying the tax. One course, no prior experience needed, live GitHub portfolio at the end.
