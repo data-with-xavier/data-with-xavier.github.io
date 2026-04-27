@@ -1672,10 +1672,6 @@ Make the capstone card the most prominent one — largest or featured at the top
         if (!isOpen) {
           module.classList.add('open');
           this.setAttribute('aria-expanded', 'true');
-          setTimeout(function() {
-            var top = module.getBoundingClientRect().top + window.scrollY - 80;
-            window.scrollTo({ top: top, behavior: 'smooth' });
-          }, 50);
         }
       });
     });
