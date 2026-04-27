@@ -88,10 +88,6 @@
     .deliverable-label { font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #34d399; margin-bottom: 9px; }
     .deliverable ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .858rem; line-height: 1.8; }
 
-    /* ── Inline links ── */
-    .lesson-step a { color: var(--brand-2); text-decoration: none; }
-    .lesson-step a:hover { text-decoration: underline; }
-
     /* ── Data download ── */
     .data-download { display: inline-flex; align-items: center; gap: 8px; padding: 7px 15px; border: 1px solid var(--border); border-radius: 6px; color: var(--brand-2); font-size: .82rem; font-weight: 500; text-decoration: none; transition: border-color .15s, background .15s; margin-bottom: 18px; }
     .data-download:hover { border-color: var(--brand-2); background: rgba(34,211,238,.05); }
@@ -225,33 +221,9 @@
           <p class="module-intro">No prior experience assumed. By the end of this module, your portfolio will be live on the internet and you'll have had your first real conversation with Claude Code.</p>
 
           <div class="lesson-step">
-            <h4>Step 1 — Install Claude Desktop and Claude Code</h4>
-            <p>You'll use two different Claude tools throughout this course. Install both now — once Claude Desktop is running, you can use it to get help with any of the remaining setup steps.</p>
-
-            <p><strong>Claude Desktop</strong> — the conversational app. Use this for brainstorming, writing help, exploring a dataset, understanding an error in plain English, or any other course assignment that doesn't involve writing code files.</p>
+            <h4>Step 1 — Create a GitHub Account</h4>
             <ol>
-              <li>Download <strong>Claude Desktop</strong> from <a href="https://claude.ai/download" target="_blank" rel="noopener"><strong>claude.ai/download</strong></a></li>
-              <li>Log in with your Claude Pro account</li>
-            </ol>
-
-            <p style="margin-top:14px;"><strong>Claude Code</strong> — the agentic CLI tool. Use this when building dashboards — it writes and edits files directly on your computer, inside your repo folder. This is your primary tool for all dashboard projects in this course.</p>
-            <ol>
-              <li>Install <strong>Node.js</strong> from <a href="https://nodejs.org" target="_blank" rel="noopener"><strong>nodejs.org</strong></a> (download the LTS version)</li>
-              <li>Open <strong>Terminal</strong> (Mac) or <strong>Command Prompt</strong> (Windows)</li>
-              <li>Run: <code>npm install -g @anthropic-ai/claude-code</code></li>
-              <li>Run: <code>claude</code> and follow the login prompts — use the same Claude Pro account</li>
-            </ol>
-
-            <div class="callout callout-tip"><strong>When to use which:</strong> Think of Claude Desktop as your thinking partner and Claude Code as your builder. "Help me understand what story this data tells" → Desktop. "Build me a bar chart from this data" → Code.</div>
-            <div class="callout callout-tip"><strong>Claude is now your co-pilot for setup.</strong> Stuck on any step below? Open Claude Desktop and describe what you're trying to do — it can walk you through GitHub, VS Code, or anything else step by step.</div>
-          </div>
-
-          <hr class="step-divider">
-
-          <div class="lesson-step">
-            <h4>Step 2 — Create a GitHub Account</h4>
-            <ol>
-              <li>Go to <a href="https://github.com" target="_blank" rel="noopener"><strong>github.com</strong></a> and click <em>Sign up</em></li>
+              <li>Go to <strong>github.com</strong> and click <em>Sign up</em></li>
               <li>Choose a username you'd be comfortable putting on a resume — your name or initials work well (e.g., <code>jsmith-analytics</code>)</li>
               <li>Verify your email and complete setup</li>
             </ol>
@@ -261,7 +233,7 @@
           <hr class="step-divider">
 
           <div class="lesson-step">
-            <h4>Step 3 — Create Your Portfolio Repository</h4>
+            <h4>Step 2 — Create Your Portfolio Repository</h4>
             <ol>
               <li>Click the <strong>+</strong> icon → <em>New repository</em></li>
               <li>Name it exactly: <code>[your-username].github.io</code> (replace with your actual username)</li>
@@ -275,7 +247,7 @@
           <hr class="step-divider">
 
           <div class="lesson-step">
-            <h4>Step 4 — Enable GitHub Pages</h4>
+            <h4>Step 3 — Enable GitHub Pages</h4>
             <ol>
               <li>Inside your new repo, click <strong>Settings</strong></li>
               <li>In the left sidebar, click <strong>Pages</strong></li>
@@ -289,90 +261,48 @@
           <hr class="step-divider">
 
           <div class="lesson-step">
-            <h4>Step 5 — Clone Your Repo to Your Computer</h4>
-            <p>GitHub is where your code lives online. To let Claude Code build and edit files, you need a local copy on your computer. This is called cloning.</p>
+            <h4>Step 4 — Install Claude Desktop and Claude Code</h4>
+            <p>You'll use two different Claude tools throughout this course. Install both now.</p>
+
+            <p><strong>Claude Desktop</strong> — the conversational app. Use this for brainstorming, writing help, exploring a dataset, understanding an error in plain English, or any other course assignment that doesn't involve writing code files.</p>
             <ol>
+              <li>Download <strong>Claude Desktop</strong> from <strong>claude.ai/download</strong></li>
+              <li>Log in with your Claude Pro account</li>
+            </ol>
+
+            <p style="margin-top:14px;"><strong>Claude Code</strong> — the agentic CLI tool. Use this when building dashboards — it writes and edits files directly on your computer, inside your project folder. This is your primary tool for all dashboard projects in this course.</p>
+            <ol>
+              <li>Install <strong>Node.js</strong> from <strong>nodejs.org</strong> (download the LTS version)</li>
               <li>Open <strong>Terminal</strong> (Mac) or <strong>Command Prompt</strong> (Windows)</li>
-              <li>Navigate to your Desktop so the folder is easy to find later:<br><br>
-                <strong>Mac:</strong> <code>cd ~/Desktop</code><br>
-                <strong>Windows:</strong> <code>cd %USERPROFILE%\Desktop</code>
-              </li>
-              <li>Clone your repo:<br><br>
-                <code>git clone https://github.com/[your-username]/[your-username].github.io</code><br><br>
-                This creates a folder on your Desktop named <code>[your-username].github.io</code>.
-              </li>
+              <li>Run: <code>npm install -g @anthropic-ai/claude-code</code></li>
+              <li>Run: <code>claude</code> and follow the login prompts — use the same Claude Pro account</li>
             </ol>
-            <p>You now have a local copy of your repo on your Desktop. This is your workspace for the entire course — every file Claude Code creates or edits will live here.</p>
-            <div class="callout callout-warn"><strong>Git may ask you to authenticate.</strong> This is your first real chance to use Claude Desktop as a co-pilot. If git asks for credentials, throws an error, or anything feels unclear — open Claude Desktop, describe exactly what you see, and ask it to walk you through the fix. This is precisely what it's for.</div>
+
+            <div class="callout callout-tip"><strong>When to use which:</strong> Think of Claude Desktop as your thinking partner and Claude Code as your builder. "Help me understand what story this data tells" → Desktop. "Build me a bar chart from this data" → Code.</div>
           </div>
 
           <hr class="step-divider">
 
           <div class="lesson-step">
-            <h4>Step 6 — Add Your First HTML File</h4>
-            <p>GitHub Pages looks for a file called <code>index.html</code> to serve as your homepage. The README.md that exists right now won't become a styled webpage — you need an actual HTML file. Let's have Claude Code create one.</p>
-            <p>First, you need to open your terminal and navigate to your repo folder — the same way you did when you installed Claude Code.</p>
-            <ol>
-              <li>Open <strong>Terminal</strong> (Mac) or <strong>Command Prompt</strong> (Windows)</li>
-              <li>Navigate into your repo folder. Since you cloned it to your Desktop in Step 5:<br><br>
-                <strong>Mac:</strong> <code>cd ~/Desktop/[your-username].github.io</code><br>
-                <strong>Windows:</strong> <code>cd %USERPROFILE%\Desktop\[your-username].github.io</code><br><br>
-                Replace <code>[your-username]</code> with your actual GitHub username.
-              </li>
-              <li>Run <code>claude</code> to start a Claude Code session inside that folder</li>
-              <li>Claude Code will ask you to <strong>trust this workspace</strong> — this is a one-time permission that tells Claude Code it's allowed to read and write files in this folder. Select <strong>Yes, proceed</strong> (or similar) to continue.</li>
-              <li>Once Claude Code is running, use this prompt:</li>
-            </ol>
-            <div class="callout callout-warn"><strong>Not sure where your repo folder is, or getting an error?</strong> Open Claude Desktop and describe exactly what you see — paste any error messages and tell it what step you're on. It will walk you through it.</div>
-            <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Prompt — Create Starter Homepage</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">Create a simple index.html file for my portfolio homepage. Keep it clean and minimal — just my name as a heading, a one-sentence placeholder bio, and a note that says "Portfolio coming soon." Use a dark background with white text. No external libraries or frameworks.</pre>
-            </div>
-          </div>
-
-          <hr class="step-divider">
-
-          <div class="lesson-step">
-            <h4>Step 7 — Push Your Changes to GitHub</h4>
-            <p>Creating a file on your computer doesn't automatically update your live site. You need to push it to GitHub. This is a three-step process you'll repeat every time you want your changes to go live.</p>
-            <ol>
-              <li>In your Terminal, run:<br><br>
-                <code>git add index.html</code><br>
-                <code>git commit -m "Add starter homepage"</code><br>
-                <code>git push</code>
-              </li>
-              <li>Wait about 60 seconds, then visit <code>https://[your-username].github.io</code> — your page is live.</li>
-            </ol>
-            <div class="callout callout-tip"><strong>Shortcut:</strong> You can skip the terminal and just ask Claude Code to handle it: <em>"Commit and push all my changes with the message: Add starter homepage."</em> Claude Code can run git commands — you never have to leave the conversation.</div>
-            <div class="callout callout-warn"><strong>If git push asks for a password or throws an error</strong>, open Claude Desktop and describe what you see. GitHub authentication setup varies by computer — Claude can walk you through it in minutes.</div>
-          </div>
-
-          <hr class="step-divider">
-
-          <div class="lesson-step">
-            <h4>Step 8 — Set Up VS Code</h4>
+            <h4>Step 5 — Set Up VS Code</h4>
             <p>VS Code is the code editor you'll use to view, organize, and manage your project files. Claude Code writes the code — VS Code is where you see it, navigate it, and keep everything tidy.</p>
             <ol>
-              <li>Download <strong>Visual Studio Code</strong> from <a href="https://code.visualstudio.com" target="_blank" rel="noopener"><strong>code.visualstudio.com</strong></a> (free)</li>
+              <li>Download <strong>Visual Studio Code</strong> from <strong>code.visualstudio.com</strong> (free)</li>
               <li>Open VS Code, then go to <strong>File → Open Folder</strong> and select your <code>[username].github.io</code> folder</li>
               <li>In the left sidebar, click the <strong>Extensions</strong> icon (four squares) and search for <strong>Live Server</strong> by Ritwick Dey — install it</li>
             </ol>
             <p><strong>Why Live Server matters:</strong> When you double-click an HTML file to open it, the browser uses a <code>file://</code> URL which blocks certain features (including fetching data files). Live Server runs a tiny local web server, opening your file at <code>http://localhost:5500</code> instead — everything works, and the page auto-refreshes every time you save a file.</p>
             <p>To use it: right-click any HTML file in VS Code's sidebar → <em>Open with Live Server</em>. Your browser opens and stays in sync as you work.</p>
-            <div class="callout callout-tip"><strong>Your workflow from here:</strong> Claude Code writes files to your repo folder → VS Code shows you the file tree → Live Server previews it in the browser → you describe changes back to Claude → repeat.</div>
+            <div class="callout callout-tip"><strong>Your workflow from here:</strong> Claude Code writes files to your project folder → VS Code shows you the file tree and lets you navigate → Live Server previews it in the browser → you describe changes back to Claude → repeat.</div>
           </div>
 
           <hr class="step-divider">
 
           <div class="lesson-step">
             <h4>Getting Unstuck — The Most Important Skill in This Course</h4>
-            <p>You will get stuck in this course. Repeatedly. That is not a sign that you're doing it wrong — it is the process. Setup issues, broken code, commands that don't behave the way you expect — these are not obstacles between you and learning. They <em>are</em> the learning.</p>
-            <p>Growth isn't comfortable. The students who get the most out of this course are not the ones who never struggle — they're the ones who learn to move through struggle faster. And that is a skill that will serve you for the rest of your career.</p>
-            <p><strong>Your primary tool for getting unstuck is Claude Desktop.</strong> Whatever you're stuck on — a terminal error, a git issue, a broken dashboard, a command you don't understand — open Claude Desktop, describe exactly what you're seeing, and ask for help. Paste error messages verbatim. Describe what you expected versus what you got. The more specific you are, the faster you get through it.</p>
-            <p>This isn't a workaround. This is how professionals work. Learning to articulate a problem clearly enough for an AI to help you solve it is one of the most valuable skills you can build right now.</p>
-
-            <p style="margin-top:20px;"><strong>When the specific problem is broken code in your browser</strong>, here's the loop:</p>
+            <p>Claude will sometimes give you broken code. This is normal. Here's the loop that fixes it every time:</p>
             <ol>
+              <li><strong>Open the HTML file in your browser</strong> — right-click on the file, choose <em>Open with</em> → your browser</li>
               <li><strong>Right-click anywhere on the page → Inspect</strong> → click the <em>Console</em> tab</li>
               <li><strong>Copy any red error messages</strong> you see</li>
               <li><strong>Tell Claude exactly what's wrong</strong> — paste the error and describe what you see</li>
@@ -390,20 +320,18 @@ Here's the error from the browser console:
 Please identify the problem and fix it.</pre>
             </div>
 
-            <div class="callout callout-tip"><strong>Be specific.</strong> "Fix it" gives Claude nothing. "The bar chart labels are overlapping and the font size is too small — here's the console error: [error]" gives Claude everything it needs. The more specific your description, the better and faster the fix.</div>
+            <div class="callout callout-tip"><strong>The rule:</strong> Be specific. "Fix it" gives Claude nothing. "The bar chart labels are overlapping and the font size is too small — here's the console error: [error]" gives Claude everything it needs. The more specific your description, the better the fix.</div>
           </div>
 
           <div class="deliverable">
             <div class="deliverable-label">Module 1 Deliverable</div>
             <ul>
+              <li>GitHub account created with a professional username</li>
+              <li>Portfolio repo named <code>[username].github.io</code> is public</li>
+              <li>GitHub Pages is enabled and the site loads at your URL</li>
+              <li>VS Code is installed with Live Server extension — you can preview HTML files locally</li>
               <li>Claude Desktop is installed and logged in with your Claude Pro account</li>
               <li>Claude Code is installed and authenticated — you've run <code>claude</code> in Terminal at least once</li>
-              <li>GitHub account created with a professional username</li>
-              <li>Portfolio repo named <code>[username].github.io</code> is public and cloned to your computer</li>
-              <li>An <code>index.html</code> file exists in your repo — created by Claude Code</li>
-              <li>Changes have been pushed to GitHub and the page is live at your URL</li>
-              <li>GitHub Pages is enabled and serving your <code>index.html</code></li>
-              <li>VS Code is installed with Live Server extension — you can preview HTML files locally</li>
             </ul>
           </div>
         </div>
@@ -485,38 +413,6 @@ Please identify the problem and fix it.</pre>
           <hr class="step-divider">
 
           <div class="lesson-step">
-            <h4>The Build Loop — Claude Code + Browser Side by Side</h4>
-            <p>The fastest way to build is to keep two windows open at all times: <strong>Claude Code in your terminal</strong> and <strong>your dashboard in the browser</strong> via Live Server. Here's why this matters.</p>
-            <p>When Claude Code saves a file, Live Server detects the change and auto-refreshes your browser instantly. You describe a change → Claude writes it → you see it in the browser — without switching apps or manually reloading. That tight loop is what makes iteration feel fast instead of frustrating.</p>
-
-            <div style="background:rgba(139,92,246,.07);border:1px solid rgba(139,92,246,.2);border-radius:10px;padding:16px 20px;margin:16px 0;">
-              <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:12px;">The Loop</div>
-              <div style="display:flex;align-items:center;gap:10px;font-size:.875rem;flex-wrap:wrap;">
-                <span style="background:rgba(139,92,246,.15);padding:5px 12px;border-radius:6px;">Describe the change to Claude</span>
-                <span style="color:var(--muted);">→</span>
-                <span style="background:rgba(139,92,246,.15);padding:5px 12px;border-radius:6px;">Claude writes &amp; saves the file</span>
-                <span style="color:var(--muted);">→</span>
-                <span style="background:rgba(139,92,246,.15);padding:5px 12px;border-radius:6px;">Browser auto-refreshes</span>
-                <span style="color:var(--muted);">→</span>
-                <span style="background:rgba(139,92,246,.15);padding:5px 12px;border-radius:6px;">You see it immediately</span>
-                <span style="color:var(--muted);">→</span>
-                <span style="background:rgba(139,92,246,.15);padding:5px 12px;border-radius:6px;">Repeat</span>
-              </div>
-            </div>
-
-            <p><strong>How to set it up:</strong></p>
-            <div class="callout callout-tip"><strong>Which HTML file?</strong> The <code>index.html</code> you created in Module 1 is already in your repo. That's the one. Right-click it in VS Code to open it with Live Server.</div>
-            <ol>
-              <li>In VS Code, right-click your <code>index.html</code> → <em>Open with Live Server</em> — your browser opens and stays live</li>
-              <li>In your terminal, navigate to your repo folder and run <code>claude</code></li>
-              <li>Arrange your windows so Claude Code and the browser are visible at the same time — side by side, or on separate monitors</li>
-            </ol>
-            <div class="callout callout-tip"><strong>This is the professional workflow.</strong> Every change is visible in seconds. You're not guessing what the dashboard looks like — you're watching it take shape in real time. Students who set this up on day one build faster and get less frustrated than those who don't.</div>
-          </div>
-
-          <hr class="step-divider">
-
-          <div class="lesson-step">
             <h4>How Context Works — and Why It Matters</h4>
             <p>Every Claude conversation starts completely fresh. Claude has no memory of previous sessions. When you start a new chat, it doesn't know what you built yesterday, what colors you prefer, or what your portfolio looks like.</p>
             <p>This trips up a lot of new users. They open a new Claude Code session, type "add a filter to my dashboard," and wonder why Claude seems confused. It's not confused — it just has no idea what dashboard you're talking about.</p>
@@ -527,7 +423,7 @@ Please identify the problem and fix it.</pre>
             <ul>
               <li>Start new Claude Code sessions by asking Claude to read your existing files first: <em>"Read my index.html, then I'll tell you what to add."</em></li>
               <li>The <code>/dash</code> skill you'll build in Module 04.5 exists specifically to solve this — you'll invoke <code>/dash</code> at the start of every new build session so Claude immediately knows your style and walks you through planning before writing a line of code</li>
-              <li>Keep your repo folder organized — Claude Code can read any file in your project, so clean structure means cleaner context</li>
+              <li>Keep your project folder organized — Claude Code can read any file in your project, so clean structure means cleaner context</li>
             </ul>
 
             <p><strong>Context window limits:</strong> There's also a ceiling on how much Claude can hold in a single conversation. Very long sessions can cause Claude to "lose track" of things said early on. When a session gets long and results start feeling off, starting a fresh session with a clear re-brief is often faster than continuing.</p>
@@ -707,7 +603,7 @@ Describe your plan in numbered steps. Do not write any code yet.</pre>
               <div class="prompt-header"><span class="prompt-label">Prompt 3 — Approve the Plan</span><button class="copy-btn">Copy</button></div>
               <pre class="prompt-text">Looks good. Go ahead and build it.</pre>
             </div>
-            <p>Claude will generate <code>index.html</code> in your repo folder. Open it with Live Server in VS Code and review it.</p>
+            <p>Claude will generate <code>index.html</code> in your project folder. Open it with Live Server in VS Code and review it.</p>
 
             <p style="margin-top:16px;"><strong>Step 4 — Personalize it (practice the iteration loop)</strong></p>
             <p>The structure is there — now make it yours. Replace the placeholders with your actual information. Notice that you're describing specific changes, not re-explaining the whole page.</p>
@@ -1583,8 +1479,8 @@ The active tab should be clearly highlighted. Switching tabs should be instant (
             <h4>Step 1 — Find Your Dataset</h4>
             <p>Good sources for free, interesting data:</p>
             <ul>
-              <li><a href="https://data.gov" target="_blank" rel="noopener"><strong>data.gov</strong></a> — US government open data (health, transportation, economics, environment)</li>
-              <li><a href="https://www.kaggle.com/datasets" target="_blank" rel="noopener"><strong>kaggle.com/datasets</strong></a> — community-contributed datasets on almost any topic</li>
+              <li><strong>data.gov</strong> — US government open data (health, transportation, economics, environment)</li>
+              <li><strong>kaggle.com/datasets</strong> — community-contributed datasets on almost any topic</li>
               <li><strong>Our World in Data</strong> (ourworldindata.org) — global trends, clean and well-documented</li>
               <li><strong>Sports Reference</strong> (sports-reference.com) — deep sports stats</li>
               <li><strong>Your own data</strong> — Spotify listening history, fitness app exports, personal finance exports</li>
@@ -1664,7 +1560,7 @@ Write in first person. Make it sound like a data professional wrote it, not a ho
             <ul>
               <li>Live on GitHub Pages with a clean, shareable URL</li>
               <li>Matches your dashboard spec — visually consistent with your other work</li>
-              <li><code>README.md</code> in the repo folder explaining what, why, and what you found</li>
+              <li><code>README.md</code> in the project folder explaining what, why, and what you found</li>
               <li>Portfolio home page features this project as the primary card</li>
               <li>You can confidently talk through the project, the data, and what you built</li>
             </ul>
@@ -1776,6 +1672,7 @@ Make the capstone card the most prominent one — largest or featured at the top
         if (!isOpen) {
           module.classList.add('open');
           this.setAttribute('aria-expanded', 'true');
+          setTimeout(function() { module.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
         }
       });
     });
