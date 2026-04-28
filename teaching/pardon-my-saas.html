@@ -1271,98 +1271,180 @@ I want to see how the spec translates visually before I commit to it. Keep every
         <div class="module-body">
           <p class="module-intro">A dashboard lets users explore data. A narrative tells them what you found and why it matters. This project builds the second skill — and it ties directly to what "Data Narratives" as a field is actually about.</p>
 
-          <a class="data-download" href="data/narrative-data.csv" download>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download narrative-data.csv
-          </a>
-
           <div class="lesson-step">
             <h4>The Brief</h4>
-            <p>The dataset covers US public and private college tuition alongside median household income from 1980 to 2023. Your job: make an argument about the relationship between these two numbers. Is college becoming more or less affordable? Who is being priced out? What does the data actually say?</p>
-            <p>The deliverable is a long-form HTML page that looks like a published editorial — a headline, prose paragraphs, charts embedded as evidence, and a conclusion. Think WSJ, NYT, or The Pudding.</p>
-            <p><strong>Fields:</strong> Year, Tuition_Public_4yr, Tuition_Private_4yr, Median_HH_Income, Tuition_Public_Pct_Income, Tuition_Private_Pct_Income</p>
+            <p>Pick a topic you actually care about. Find real data on it. Make an argument — and use charts as your evidence. The deliverable is a long-form HTML page that looks like a published editorial: a headline, prose paragraphs, charts embedded as evidence, and a conclusion. Think WSJ, NYT, or The Pudding.</p>
+            <p>The topic is yours to choose. The only requirements are that your data has numeric variables worth charting and that it supports a clear, arguable point. Sports, economics, public health, housing, climate — anything goes as long as the data holds up.</p>
+            <div class="callout callout-warn"><strong>Stuck on a topic?</strong> A backup dataset on US college tuition vs. median household income (1980–2023) is provided below. Use it if you can't find viable data of your own — but your own topic will always make a stronger portfolio piece.</div>
+            <a class="data-download" href="data/narrative-data.csv" download>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Backup dataset — narrative-data.csv (tuition vs. income, 1980–2023)
+            </a>
           </div>
 
           <div class="lesson-step">
-            <h4>Step 1 — Form Your Thesis First</h4>
-            <p>Before you ask Claude to write anything, explore the data and form an opinion. What's the most striking number? What surprised you? What do you want the reader to walk away believing?</p>
+            <h4>Step 1 — Pick Your Topic and Find Data</h4>
+            <p>Before anything else, choose a topic and find a dataset that can support an argument. Good data for this project has at least 20–30 rows, contains numeric columns you can chart over time or across categories, and has a clear angle worth arguing.</p>
+            <p><strong>Pick something you actually care about.</strong> I don't want to read 25 articles about quarterly sales performance. Tell me about a country you're curious about, a historical event you've always wondered about, a team you follow, a neighborhood that's changing, a musician's career arc, a decade you're obsessed with. The best pieces in this class come from students who picked something personal — and it shows. If your topic could be a slide in a McKinsey deck, pick a different topic.</p>
+            <p><strong>Where to find data:</strong></p>
+            <ul>
+              <li><strong>FRED</strong> (fred.stlouisfed.org) — economic and financial time series. Excellent for anything about wages, inflation, housing, or labor.</li>
+              <li><strong>data.gov</strong> — US federal datasets across health, education, infrastructure, and more.</li>
+              <li><strong>Kaggle</strong> (kaggle.com/datasets) — community-contributed datasets on nearly every topic. Filter by file type CSV and sort by usability score.</li>
+              <li><strong>Our World in Data</strong> (ourworldindata.org) — clean, well-documented datasets on global trends. Every chart has a download link.</li>
+              <li><strong>Sports Reference</strong> (sports-reference.com) — season and career statistics for major US sports going back decades.</li>
+            </ul>
+            <p>Download your chosen dataset as a CSV before moving to Step 2.</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 2 — Viability Check</h4>
+            <p>Before committing to a dataset, run it through Claude Desktop to confirm it can support a visual argument. This takes two minutes and saves hours of frustration.</p>
+            <div class="callout callout-tip"><strong>Use Claude Desktop for this step</strong> — you're thinking and exploring, not building files yet.</div>
             <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Prompt — Data Exploration</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">Here is a dataset on US college tuition and median household income from 1980 to 2023:
+              <div class="prompt-header"><span class="prompt-label">Prompt — Viability Check</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">I'm building a data journalism piece for a course. I've found a dataset I want to use. Before I commit to it, I need you to tell me if it's viable.
 
-[Paste the CSV data here]
+Here is the dataset (or a sample of it):
+[Paste CSV data or the first 20–30 rows]
 
-Fields: Year, Tuition_Public_4yr (average public 4-year tuition), Tuition_Private_4yr (average private 4-year tuition), Median_HH_Income, Tuition_Public_Pct_Income (public tuition as % of median HH income), Tuition_Private_Pct_Income
+Please tell me:
+1. Is there enough numeric data here to support at least 3 meaningful charts?
+2. What arguable points could I make with this data? Give me 3 different angles.
+3. Are there any red flags — missing values, too few rows, nothing worth charting?
+4. Which angle has the strongest visual story?
 
-Please analyze this data and tell me:
-1. The 3 most striking trends or data points
-2. What arguments I could make with this data (give me 3 different angles)
-3. Which angle has the strongest visual story — the one where charts would be most compelling</pre>
+Be honest. If this data isn't strong enough for the assignment, tell me that and suggest what I should look for instead.</pre>
             </div>
+            <p>If Claude flags problems, find a different dataset before continuing. If it gives you 3 solid angles, move on.</p>
           </div>
 
+          <hr class="step-divider">
+
           <div class="lesson-step">
-            <h4>Step 2 — Build the Article Shell</h4>
-            <div class="callout callout-tip"><strong>Before sending this prompt:</strong> Type <code>/dash</code> in Claude Code to load your design context and kick off a planning session.</div>
+            <h4>Step 3 — Form Your Thesis</h4>
+            <p>A narrative without a thesis is just a chart dump. Before you write a word of prose or build a single chart, commit to one specific, arguable claim. Use Claude Desktop to help sharpen it.</p>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Thesis Development</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">I'm building a data journalism piece on [your topic]. Based on our viability check, I'm leaning toward this angle: [the angle you chose].
+
+Help me turn that into a strong thesis statement. A good thesis for this project:
+- Makes a specific, arguable claim (not just "X has changed over time")
+- Can be supported with the charts I'll build
+- Would make a reader want to keep reading
+
+Give me 3 versions of a thesis — one cautious, one bold, one surprising. Then tell me which you'd choose and why.</pre>
+            </div>
+            <p>Pick the thesis you can defend with your data. Write it down — you'll reference it in every prompt from here on.</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 4 — Plan the Article</h4>
+            <p>This is where you switch to Claude Code — but you are <strong>not building yet</strong>. You're planning. Plan mode is required for this step. A narrative has more moving parts than a dashboard — structure, prose, charts, and typography all need to work together. Get the plan right before writing a line of code.</p>
+            <div class="callout callout-tip"><strong>Before sending this prompt:</strong> Type <code>/dash</code> in Claude Code to load your design context, then send the prompt below.</div>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Plan the Narrative</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Before you write any code, I need a plan. Do not start building until I approve it.
+
+I'm building a data journalism piece — a long-form HTML article, not a dashboard. It should look like a published editorial (WSJ / NYT style).
+
+My thesis: [your thesis from Step 3]
+My dataset: [describe your data — what it covers, date range, key fields]
+
+Plan the following and describe each in detail before touching any code:
+1. Page structure — hero, article column width, chart placement, conclusion
+2. Typography choices — font size, line height, spacing that makes long-form comfortable to read
+3. The 3 charts I'll need — what type, what data, what each one proves about my thesis
+4. How prose and charts will alternate — which sections come before and after each chart
+5. Any design decisions that differ from a standard dashboard (this is a reading experience, not an exploration tool)
+
+Describe your plan clearly, then wait for my approval before writing anything.</pre>
+            </div>
+            <div class="callout callout-warn"><strong>Do not approve a vague plan.</strong> If Claude's chart descriptions don't match your thesis, push back. If the structure skips a section you need, say so. The plan is your contract — changes after it's built cost more than changes to the plan.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 5 — Build the Article Shell</h4>
+            <p>Once the plan is approved, build the structure first — no real charts yet. Get the layout, typography, and placeholders right before adding data.</p>
             <div class="prompt-block">
               <div class="prompt-header"><span class="prompt-label">Prompt — Narrative HTML Shell</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">I'm building a data journalism piece, not a traditional dashboard. It should look like a long-form article — similar to NYT or WSJ data stories. Here is my thesis: [your thesis from Step 1]
+              <pre class="prompt-text">The plan is approved. Now build the HTML shell — structure and typography only, no real charts yet.
 
-Build an HTML shell with:
+My thesis: [your thesis]
+
+Build the shell with:
 - A full-width hero section: bold headline, a one-sentence subheadline, my byline and date
 - A single-column reading layout, max-width 680px, centered
 - Comfortable typography: ~18px base size, 1.75 line-height, good paragraph spacing
-- Three chart placeholder boxes (label them Chart 1, Chart 2, Chart 3 — gray boxes with that text)
-- Introductory paragraph (the "lede") as a placeholder: [LEDE PARAGRAPH HERE]
+- Three chart placeholder boxes (gray boxes labeled Chart 1, Chart 2, Chart 3)
+- A placeholder lede paragraph: [LEDE PARAGRAPH HERE]
 - A concluding section placeholder at the bottom
 
 The article text area can have a slightly lighter background than the page to improve readability. Use my dashboard spec for all color and font decisions.</pre>
             </div>
           </div>
 
+          <hr class="step-divider">
+
           <div class="lesson-step">
-            <h4>Step 3 — Add the Charts</h4>
+            <h4>Step 6 — Add the Charts</h4>
+            <p>With the shell approved in Live Server, replace each placeholder with a real Chart.js chart. Describe what each chart should prove — not just what it should show.</p>
             <div class="prompt-block">
               <div class="prompt-header"><span class="prompt-label">Prompt — Embed Charts</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">Now replace the three chart placeholders with real Chart.js charts. Use the data I'll paste below. All charts should match my dashboard spec colors.
+              <pre class="prompt-text">Now replace the three chart placeholders with real Chart.js charts. All charts should match my dashboard spec colors and be full-width within the article column.
 
-Chart 1 (replace placeholder 1): A dual-axis line chart. Left axis: average public 4-year tuition (in $). Right axis: median household income (in $). Both shown from 1980-2023. Title: "Tuition Has Outpaced Income for 40 Years"
+Chart 1 (replace placeholder 1): [Chart type] — [what data it shows] — Title: "[declarative title that states the finding, not just the axes]"
 
-Chart 2 (replace placeholder 2): A bar chart showing public tuition as a percentage of median household income, by decade (1980s avg, 1990s avg, 2000s avg, 2010s avg, 2020s avg). Calculate the decade averages from the data. Title: "The Affordability Gap by Decade"
+Chart 2 (replace placeholder 2): [Chart type] — [what data it shows] — Title: "[declarative title]"
 
-Chart 3 (replace placeholder 3): A line chart showing both public and private tuition as % of median income over time (two lines). Title: "The Growing Price of a Degree"
+Chart 3 (replace placeholder 3): [Chart type] — [what data it shows] — Title: "[declarative title]"
 
-Here is the full dataset: [paste the CSV data]
+Here is my dataset: [paste CSV data]
 
-Make the charts full-width within the article column.</pre>
+Important: chart titles should make a claim, not just describe the axes. "Revenue Has Grown 58% Since January" not "Monthly Revenue".</pre>
             </div>
           </div>
 
+          <hr class="step-divider">
+
           <div class="lesson-step">
-            <h4>Step 4 — Write the Prose</h4>
+            <h4>Step 7 — Write the Prose</h4>
+            <p>Use Claude Desktop for this step. You're writing, not building — keep it out of Claude Code.</p>
             <div class="prompt-block">
               <div class="prompt-header"><span class="prompt-label">Prompt — Article Prose</span><button class="copy-btn">Copy</button></div>
               <pre class="prompt-text">Help me write the text for my data journalism piece. My thesis is: [your thesis].
 
+My dataset covers: [brief description of what the data shows]
+
 Write the following sections:
-1. The lede (opening paragraph): Start with a specific, striking data point from the dataset. Make it concrete — a year, a number, a before/after comparison. Hook the reader in 2-3 sentences.
+1. The lede (opening paragraph): Start with a specific, striking data point. Make it concrete — a year, a number, a before/after comparison. Hook the reader in 2–3 sentences.
 2. A transition paragraph before Chart 1 that sets up what the reader is about to see
 3. A transition paragraph between Chart 1 and Chart 2 that deepens the argument
 4. A transition between Chart 2 and Chart 3 that pivots to the key insight
 5. A concluding paragraph that reinforces the thesis and ends with a question or call to action
 
-Write in first person, clear journalistic style. This should sound like something published, not a homework assignment.</pre>
+Write in a clear journalistic style. This should sound like something published, not a homework assignment.</pre>
             </div>
+            <p>Once you have the prose, go back to Claude Code and ask it to replace the placeholder text in your HTML with the final copy.</p>
           </div>
 
           <div class="deliverable">
             <div class="deliverable-label">Project 2 Deliverable</div>
             <ul>
+              <li>Topic and dataset of your own choosing — not the provided backup</li>
+              <li>Viability check completed before building</li>
+              <li>Plan approved before any code was written</li>
               <li>Page reads like a published article — prose + charts woven together</li>
               <li>Clear thesis that the data supports</li>
-              <li>At least 3 embedded Chart.js charts</li>
+              <li>At least 3 embedded Chart.js charts with declarative titles</li>
               <li>Typography makes it comfortable to read on screen</li>
-              <li>Live at <code>https://[username].github.io/narratives/college-costs.html</code></li>
+              <li>Live at <code>https://[username].github.io/narratives/[your-topic].html</code></li>
               <li>Portfolio home page updated with a link to this piece</li>
             </ul>
           </div>
