@@ -960,119 +960,6 @@ Requirements for maximum badness:
         </div>
       </div>
 
-      <!-- Module 3 -->
-      <div class="module" id="module-3-foundations">
-        <button class="module-header" aria-expanded="false">
-          <span class="module-num">03</span>
-          <span class="module-title">Dashboard Foundations</span>
-          <span class="module-chip chip-setup">Foundations</span>
-          <span class="module-toggle">+</span>
-        </button>
-        <div class="module-body">
-          <p class="module-intro">You don't need to learn HTML, CSS, or JavaScript to build great dashboards. But you do need to understand what they are — enough to describe what you want clearly and recognize when something is off.</p>
-
-          <div class="lesson-step">
-            <h4>What Is an HTML File?</h4>
-            <p>An HTML file is a single text file that any browser can render as a webpage. When we build dashboards, everything lives in one file: the structure (HTML), the styling (CSS), and the interactivity (JavaScript). You can open it locally by double-clicking it, or publish it to GitHub Pages and share the URL with anyone.</p>
-            <p>You don't write this file. Claude does. Your job is to <strong>describe what you want</strong> clearly enough that Claude can build it — and then to refine it until it's right.</p>
-          </div>
-
-          <div class="lesson-step">
-            <h4>What Is Chart.js?</h4>
-            <p>Chart.js is a free, open-source JavaScript library that creates beautiful, interactive charts. We use it by loading it from a CDN (content delivery network) — one line of code at the top of our HTML file, no installation required.</p>
-            <p>Claude knows Chart.js well. When you ask for a bar chart, line chart, doughnut, scatter plot, or radar chart, Claude will use Chart.js to build it.</p>
-          </div>
-
-          <hr class="step-divider">
-
-          <div class="lesson-step">
-            <h4>Your First Chart</h4>
-            <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Prompt — First Chart</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">Build me a single HTML file with one bar chart using Chart.js (load it from a CDN). The chart shows monthly revenue for a fictional coffee shop:
-
-Jan: $12,400 | Feb: $10,800 | Mar: $14,200 | Apr: $15,600 | May: $18,900 | Jun: $22,300
-
-Requirements:
-- Dark background (#0d0d14 or similar)
-- Green bars (#34d399 or similar)
-- Chart title: "Monthly Revenue — The Daily Grind"
-- Clean, minimal design with a legend and axis labels
-- Everything in one self-contained HTML file</pre>
-            </div>
-          </div>
-
-          <div class="lesson-step">
-            <h4>Adding Layout and KPIs</h4>
-            <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Prompt — Layout Upgrade</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">Now improve the layout. Add:
-- A left sidebar (about 220px wide) with the shop name "The Daily Grind" at the top
-- Three KPI cards in the sidebar: Total Revenue: $94,200 | Best Month: June | Monthly Avg: $15,700
-- The bar chart takes up the remaining right side of the screen
-- Keep the dark theme and green accent color</pre>
-            </div>
-          </div>
-
-          <div class="lesson-step">
-            <h4>Refining the Design</h4>
-            <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Prompt — Design Polish</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">The KPI cards feel plain. Please:
-1. Add subtle gradient backgrounds to each card
-2. Make the number values larger and bolder
-3. Add a thin colored top border to each card using the same green as the chart
-4. Add very slight rounded corners and a soft shadow to each card
-
-Also, the chart bars could be a bit wider. Can you adjust the Chart.js barPercentage and categoryPercentage to make them feel more substantial?</pre>
-            </div>
-            <div class="callout callout-tip"><strong>Notice the pattern:</strong> You described <em>specifically</em> what was wrong and what to change. "Make it look better" would give Claude nothing. "Add a colored top border matching the chart's green" tells Claude exactly what to do.</div>
-          </div>
-
-          <hr class="step-divider">
-
-          <div class="lesson-step">
-            <h4>Working with Data — Two Approaches</h4>
-            <p><strong>Approach 1: Embed data in the HTML</strong> — Best for small, static datasets. Claude writes the data directly into the JavaScript as a variable. Simple, portable, works everywhere.</p>
-            <p><strong>Approach 2: Fetch from GitHub</strong> — Best for larger datasets or data you want to update easily. You upload the CSV to your GitHub repo, then the HTML fetches it via the raw URL. This is what we'll do in the projects.</p>
-            <div class="callout callout-warn"><strong>Why not just open a CSV locally?</strong> Browsers block local file access for security reasons. By hosting your data on GitHub and fetching it via URL, you bypass this entirely — and get version control for free.</div>
-          </div>
-
-          <hr class="step-divider">
-
-          <div class="lesson-step">
-            <h4>Mini-Project: Personal Stats Dashboard</h4>
-            <p>Build a dashboard about something you actually track — workouts, books read, hours of sleep, money spent on coffee. Real data makes the work more interesting.</p>
-
-            <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Prompt — Personal Stats Dashboard</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">I want to build a personal stats dashboard as my first practice project. Here's my data:
-
-[Replace this with your actual data — examples:]
-Books read per month (Jan–Jun): 2, 1, 3, 2, 4, 3
-Workout sessions per week (last 8 weeks): 4, 3, 5, 4, 6, 3, 5, 4
-Average daily steps (last 6 months): 7200, 6800, 8100, 7500, 9200, 8400
-
-Build me a clean, dark-themed HTML dashboard with:
-- A title with my name: "[YOUR NAME]'s 2024 Stats"
-- At least two chart types (e.g., bar and line)
-- A KPI row at the top with my best month, average, and total
-- Design it as something I'd be proud to show — portfolio-worthy from day one</pre>
-            </div>
-          </div>
-
-          <div class="deliverable">
-            <div class="deliverable-label">Module 2 Deliverable</div>
-            <ul>
-              <li>Coffee shop bar chart built and displayed correctly in browser</li>
-              <li>Design iterated at least twice using follow-up prompts</li>
-              <li>Personal stats dashboard built and saved</li>
-              <li>You can confidently open the browser console and identify errors</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
       <div class="assignment-divider"><span>Assignment 3</span></div>
 
       <!-- Module 4 -->
@@ -1169,90 +1056,6 @@ Everything else should stay the same.</pre>
               <li>Region filter dropdown updates all charts</li>
               <li>Data is fetched from GitHub raw URL (not embedded)</li>
               <li>Portfolio home page links to this project</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Module 4.5 -->
-      <div class="module" id="module-45">
-        <button class="module-header" aria-expanded="false">
-          <span class="module-num">04.5</span>
-          <span class="module-title">Build Your Dashboard Spec</span>
-          <span class="module-chip chip-spec">Spec</span>
-          <span class="module-toggle">+</span>
-        </button>
-        <div class="module-body">
-          <p class="module-intro">After Project 1, you've felt what it's like to start from scratch. Every new Claude conversation starts cold — it doesn't know your color palette, your layout preferences, or your visual style. Your dashboard spec fixes that permanently.</p>
-
-          <div class="lesson-step">
-            <h4>What Is the /dash Skill?</h4>
-            <p>A <code>.md</code> file saved as <code>.claude/commands/dash.md</code> in your GitHub repo. It has two parts: your personal design spec (colors, fonts, layout, chart style) and a planning protocol — instructions that tell Claude to ask you the right questions before writing any code. Claude Code automatically turns any file in <code>.claude/commands/</code> into a slash command, so <code>dash.md</code> becomes <code>/dash</code>.</p>
-            <p>Type <code>/dash</code> at the start of a build session and Claude loads your spec, then walks you through planning: what's the goal, who's the audience, what does the data look like? Only after you answer does it produce a build brief and wait for your go-ahead. No copy-pasting. No starting cold. No building the wrong thing.</p>
-          </div>
-
-          <a class="data-download" href="data/dashboard-spec-template.md" download>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download dashboard-spec-template.md
-          </a>
-
-          <div class="lesson-step">
-            <h4>Step 1 — Generate Your /dash Skill</h4>
-            <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Prompt — Generate Your /dash Skill</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">I want to create a Claude Code slash command skill file called dash.md. When I type /dash at the start of a session, I want Claude to load my personal design spec and then walk me through planning a dashboard before writing any code.
-
-First, ask me the questions you need to build my design spec:
-- Colors or palettes I'm drawn to (ask for examples if helpful)
-- Layouts I find appealing (minimal sidebar? full-screen? card-heavy?)
-- The mood or personality I want my work to convey (corporate and clean? bold and data-forward? editorial and calm?)
-- Chart styles I prefer (dense vs. spacious, gridlines vs. none, etc.)
-
-After I answer, generate a complete dash.md file with two sections:
-
-## My Design Spec
-Hex color palette, font choice, layout preferences, chart style — everything Claude needs to match my visual identity.
-
-## Planning Protocol
-Instructions telling Claude to ask these questions before writing any code when /dash is invoked:
-1. What is the goal of this dashboard and who will read it?
-2. What data do you have? (ask me to describe it or paste a sample)
-3. What are the 2–3 key questions this dashboard needs to answer?
-
-Then: recommend chart types with a one-line justification for each, propose a layout skeleton, and write a one-sentence build brief. Wait for my approval before writing any code.</pre>
-            </div>
-          </div>
-
-          <div class="lesson-step">
-            <h4>Step 2 — Preview Your Style</h4>
-            <p>Paste the contents of your <code>dash.md</code> below. This is a visual test only — tell Claude to use the design spec section and skip the planning protocol for now.</p>
-            <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Prompt — Style Preview</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">Here is my dash.md skill file:
-[Paste your completed dash.md here]
-
-Use only the "My Design Spec" section above — ignore the Planning Protocol for this prompt. Build me a simple style preview page: not a real dashboard, just a visual test. Include:
-- A header with my name as a title
-- Three KPI cards with placeholder numbers
-- One sample bar chart with placeholder data
-- One sample line chart with placeholder data
-
-I want to see how the spec translates visually before I commit to it. Keep everything in one HTML file.</pre>
-            </div>
-          </div>
-
-          <div class="lesson-step">
-            <h4>Step 3 — Save and Commit</h4>
-            <p>Save your finalized file as <code>.claude/commands/dash.md</code> inside your repo — create the <code>.claude/commands/</code> folder if it doesn't exist. Claude Code watches that folder and registers every <code>.md</code> file there as a slash command. Once committed, <code>dash.md</code> becomes <code>/dash</code>. From now on, start every Claude Code build session with <code>/dash</code> — your spec loads, planning begins, and nothing gets built until you've thought it through.</p>
-            <div class="callout callout-tip"><strong>Living document:</strong> Your spec will evolve. After each project, update it if you discovered preferences you didn't know you had. Version control means you can always go back.</div>
-          </div>
-
-          <div class="deliverable">
-            <div class="deliverable-label">Module 3.5 Deliverable</div>
-            <ul>
-              <li><code>.claude/commands/dash.md</code> committed to your repo — <code>/dash</code> works in Claude Code</li>
-              <li>Style preview page generated and reviewed</li>
-              <li>You've confirmed <code>/dash</code> starts a planning session in Claude Code</li>
             </ul>
           </div>
         </div>
@@ -1446,6 +1249,203 @@ Write in a clear journalistic style. This should sound like something published,
               <li>Typography makes it comfortable to read on screen</li>
               <li>Live at <code>https://[username].github.io/narratives/[your-topic].html</code></li>
               <li>Portfolio home page updated with a link to this piece</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 3 -->
+      <div class="module" id="module-3-foundations">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">03</span>
+          <span class="module-title">Dashboard Foundations</span>
+          <span class="module-chip chip-setup">Foundations</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">You don't need to learn HTML, CSS, or JavaScript to build great dashboards. But you do need to understand what they are — enough to describe what you want clearly and recognize when something is off.</p>
+
+          <div class="lesson-step">
+            <h4>What Is an HTML File?</h4>
+            <p>An HTML file is a single text file that any browser can render as a webpage. When we build dashboards, everything lives in one file: the structure (HTML), the styling (CSS), and the interactivity (JavaScript). You can open it locally by double-clicking it, or publish it to GitHub Pages and share the URL with anyone.</p>
+            <p>You don't write this file. Claude does. Your job is to <strong>describe what you want</strong> clearly enough that Claude can build it — and then to refine it until it's right.</p>
+          </div>
+
+          <div class="lesson-step">
+            <h4>What Is Chart.js?</h4>
+            <p>Chart.js is a free, open-source JavaScript library that creates beautiful, interactive charts. We use it by loading it from a CDN (content delivery network) — one line of code at the top of our HTML file, no installation required.</p>
+            <p>Claude knows Chart.js well. When you ask for a bar chart, line chart, doughnut, scatter plot, or radar chart, Claude will use Chart.js to build it.</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Your First Chart</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — First Chart</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build me a single HTML file with one bar chart using Chart.js (load it from a CDN). The chart shows monthly revenue for a fictional coffee shop:
+
+Jan: $12,400 | Feb: $10,800 | Mar: $14,200 | Apr: $15,600 | May: $18,900 | Jun: $22,300
+
+Requirements:
+- Dark background (#0d0d14 or similar)
+- Green bars (#34d399 or similar)
+- Chart title: "Monthly Revenue — The Daily Grind"
+- Clean, minimal design with a legend and axis labels
+- Everything in one self-contained HTML file</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Adding Layout and KPIs</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Layout Upgrade</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Now improve the layout. Add:
+- A left sidebar (about 220px wide) with the shop name "The Daily Grind" at the top
+- Three KPI cards in the sidebar: Total Revenue: $94,200 | Best Month: June | Monthly Avg: $15,700
+- The bar chart takes up the remaining right side of the screen
+- Keep the dark theme and green accent color</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Refining the Design</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Design Polish</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">The KPI cards feel plain. Please:
+1. Add subtle gradient backgrounds to each card
+2. Make the number values larger and bolder
+3. Add a thin colored top border to each card using the same green as the chart
+4. Add very slight rounded corners and a soft shadow to each card
+
+Also, the chart bars could be a bit wider. Can you adjust the Chart.js barPercentage and categoryPercentage to make them feel more substantial?</pre>
+            </div>
+            <div class="callout callout-tip"><strong>Notice the pattern:</strong> You described <em>specifically</em> what was wrong and what to change. "Make it look better" would give Claude nothing. "Add a colored top border matching the chart's green" tells Claude exactly what to do.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Working with Data — Two Approaches</h4>
+            <p><strong>Approach 1: Embed data in the HTML</strong> — Best for small, static datasets. Claude writes the data directly into the JavaScript as a variable. Simple, portable, works everywhere.</p>
+            <p><strong>Approach 2: Fetch from GitHub</strong> — Best for larger datasets or data you want to update easily. You upload the CSV to your GitHub repo, then the HTML fetches it via the raw URL. This is what we'll do in the projects.</p>
+            <div class="callout callout-warn"><strong>Why not just open a CSV locally?</strong> Browsers block local file access for security reasons. By hosting your data on GitHub and fetching it via URL, you bypass this entirely — and get version control for free.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Mini-Project: Personal Stats Dashboard</h4>
+            <p>Build a dashboard about something you actually track — workouts, books read, hours of sleep, money spent on coffee. Real data makes the work more interesting.</p>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Personal Stats Dashboard</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">I want to build a personal stats dashboard as my first practice project. Here's my data:
+
+[Replace this with your actual data — examples:]
+Books read per month (Jan–Jun): 2, 1, 3, 2, 4, 3
+Workout sessions per week (last 8 weeks): 4, 3, 5, 4, 6, 3, 5, 4
+Average daily steps (last 6 months): 7200, 6800, 8100, 7500, 9200, 8400
+
+Build me a clean, dark-themed HTML dashboard with:
+- A title with my name: "[YOUR NAME]'s 2024 Stats"
+- At least two chart types (e.g., bar and line)
+- A KPI row at the top with my best month, average, and total
+- Design it as something I'd be proud to show — portfolio-worthy from day one</pre>
+            </div>
+          </div>
+
+          <div class="deliverable">
+            <div class="deliverable-label">Module 3 Deliverable</div>
+            <ul>
+              <li>Coffee shop bar chart built and displayed correctly in browser</li>
+              <li>Design iterated at least twice using follow-up prompts</li>
+              <li>Personal stats dashboard built and saved</li>
+              <li>You can confidently open the browser console and identify errors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Module 4.5 -->
+      <div class="module" id="module-45">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">04.5</span>
+          <span class="module-title">Build Your Dashboard Spec</span>
+          <span class="module-chip chip-spec">Spec</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">After two projects you know exactly what it feels like to start Claude cold every session — no memory of your colors, your layout, your style. Your dashboard spec fixes that permanently, and you'll need it for the interactive build ahead.</p>
+
+          <div class="lesson-step">
+            <h4>What Is the /dash Skill?</h4>
+            <p>A <code>.md</code> file saved as <code>.claude/commands/dash.md</code> in your GitHub repo. It has two parts: your personal design spec (colors, fonts, layout, chart style) and a planning protocol — instructions that tell Claude to ask you the right questions before writing any code. Claude Code automatically turns any file in <code>.claude/commands/</code> into a slash command, so <code>dash.md</code> becomes <code>/dash</code>.</p>
+            <p>Type <code>/dash</code> at the start of a build session and Claude loads your spec, then walks you through planning: what's the goal, who's the audience, what does the data look like? Only after you answer does it produce a build brief and wait for your go-ahead. No copy-pasting. No starting cold. No building the wrong thing.</p>
+          </div>
+
+          <a class="data-download" href="data/dashboard-spec-template.md" download>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download dashboard-spec-template.md
+          </a>
+
+          <div class="lesson-step">
+            <h4>Step 1 — Generate Your /dash Skill</h4>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Generate Your /dash Skill</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">I want to create a Claude Code slash command skill file called dash.md. When I type /dash at the start of a session, I want Claude to load my personal design spec and then walk me through planning a dashboard before writing any code.
+
+First, ask me the questions you need to build my design spec:
+- Colors or palettes I'm drawn to (ask for examples if helpful)
+- Layouts I find appealing (minimal sidebar? full-screen? card-heavy?)
+- The mood or personality I want my work to convey (corporate and clean? bold and data-forward? editorial and calm?)
+- Chart styles I prefer (dense vs. spacious, gridlines vs. none, etc.)
+
+After I answer, generate a complete dash.md file with two sections:
+
+## My Design Spec
+Hex color palette, font choice, layout preferences, chart style — everything Claude needs to match my visual identity.
+
+## Planning Protocol
+Instructions telling Claude to ask these questions before writing any code when /dash is invoked:
+1. What is the goal of this dashboard and who will read it?
+2. What data do you have? (ask me to describe it or paste a sample)
+3. What are the 2–3 key questions this dashboard needs to answer?
+
+Then: recommend chart types with a one-line justification for each, propose a layout skeleton, and write a one-sentence build brief. Wait for my approval before writing any code.</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 2 — Preview Your Style</h4>
+            <p>Paste the contents of your <code>dash.md</code> below. This is a visual test only — tell Claude to use the design spec section and skip the planning protocol for now.</p>
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt — Style Preview</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Here is my dash.md skill file:
+[Paste your completed dash.md here]
+
+Use only the "My Design Spec" section above — ignore the Planning Protocol for this prompt. Build me a simple style preview page: not a real dashboard, just a visual test. Include:
+- A header with my name as a title
+- Three KPI cards with placeholder numbers
+- One sample bar chart with placeholder data
+- One sample line chart with placeholder data
+
+I want to see how the spec translates visually before I commit to it. Keep everything in one HTML file.</pre>
+            </div>
+          </div>
+
+          <div class="lesson-step">
+            <h4>Step 3 — Save and Commit</h4>
+            <p>Save your finalized file as <code>.claude/commands/dash.md</code> inside your repo — create the <code>.claude/commands/</code> folder if it doesn't exist. Claude Code watches that folder and registers every <code>.md</code> file there as a slash command. Once committed, <code>dash.md</code> becomes <code>/dash</code>. From now on, start every Claude Code build session with <code>/dash</code> — your spec loads, planning begins, and nothing gets built until you've thought it through.</p>
+            <div class="callout callout-tip"><strong>Living document:</strong> Your spec will evolve. After each project, update it if you discovered preferences you didn't know you had. Version control means you can always go back.</div>
+          </div>
+
+          <div class="deliverable">
+            <div class="deliverable-label">Module 4.5 Deliverable</div>
+            <ul>
+              <li><code>.claude/commands/dash.md</code> committed to your repo — <code>/dash</code> works in Claude Code</li>
+              <li>Style preview page generated and reviewed</li>
+              <li>You've confirmed <code>/dash</code> starts a planning session in Claude Code</li>
             </ul>
           </div>
         </div>
