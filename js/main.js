@@ -66,11 +66,11 @@ if (y) y.textContent = new Date().getFullYear();
     }
   });
 
+  const brand = getComputedStyle(document.documentElement).getPropertyValue('--brand').trim();
+  const brand2 = getComputedStyle(document.documentElement).getPropertyValue('--brand-2').trim();
+
   function step() {
     ctx.clearRect(0, 0, w, h);
-
-    const brand = getComputedStyle(document.documentElement).getPropertyValue('--brand');
-    const brand2 = getComputedStyle(document.documentElement).getPropertyValue('--brand-2');
 
     for (const p of pts) {
       const dx = p.x - mouse.x;
