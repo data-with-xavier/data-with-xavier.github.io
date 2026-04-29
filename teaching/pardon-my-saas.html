@@ -1056,100 +1056,115 @@ Chart requirements:
 
       <div class="assignment-divider"><span>Assignment 3</span></div>
 
-      <!-- Module 4 -->
-      <div class="module" id="module-4-project1">
+      <!-- Module 3 -->
+      <div class="module" id="module-3-presentation">
         <button class="module-header" aria-expanded="false">
-          <span class="module-num">04</span>
-          <span class="module-title">Project 1 — Sales &amp; Budget Tracker</span>
+          <span class="module-num">03</span>
+          <span class="module-title">Project 1 — Data Presentation</span>
           <span class="module-chip chip-project">Project</span>
           <span class="module-toggle">+</span>
         </button>
         <div class="module-body">
-          <p class="module-intro">Your first real project. You're building a dashboard for a fictional regional grocery chain — the kind of thing a junior analyst would actually be asked to build. No hand-holding this time; you drive.</p>
-
-          <a class="data-download" href="data/sales-data.csv" download>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download sales-data.csv
-          </a>
+          <p class="module-intro">You've learned the principles. You've built charts. Now you have to stand up and argue with your data. This project is a 5-minute, 5-slide PowerPoint presentation — built with Claude, delivered live.</p>
 
           <div class="lesson-step">
             <h4>The Brief</h4>
-            <p>You're a junior analyst at Northside Foods, a regional grocery chain. The regional VP wants a dashboard to track monthly performance across three regions: North, East, and West. She needs to see revenue vs. expenses, profit margin trends, and top-performing regions at a glance. The data covers 24 months (Jan 2022 – Dec 2023).</p>
-            <p><strong>Fields:</strong> Month, Region, Revenue, Expenses, Profit, Units_Sold</p>
+            <p><strong>Topic:</strong> [TBD — your instructor will announce the topic and provide the dataset in class.]</p>
+            <p>Your job is to take that data, find the most important story it tells, and present it clearly to an audience who hasn't seen it before. You're not summarizing everything — you're making an argument.</p>
+            <div class="callout callout-warn"><strong>5 slides. 5 minutes. No exceptions.</strong> Constraints force decisions. If everything is on the slide, nothing is the point.</div>
           </div>
 
+          <hr class="step-divider">
+
           <div class="lesson-step">
-            <h4>Step 1 — Initial Build</h4>
-            <p>Open your CSV, look at the first few rows to understand the data, then use this prompt. Paste a sample of the data (the first 10 rows or so) directly into the prompt.</p>
+            <h4>Step 1 — Find the Story Before You Build Anything</h4>
+            <p>Open the dataset. Spend 10 minutes just reading it. Ask yourself: what is the single most interesting or surprising thing here? That's your thesis — the claim your presentation will prove.</p>
+            <p>Don't open PowerPoint yet. Don't ask Claude yet. Just look at the numbers and write one sentence that captures what you want the audience to walk away believing.</p>
+            <div class="callout callout-tip"><strong>The test:</strong> If your one sentence is "this dataset shows various trends across multiple categories" — you haven't found the story yet. Keep looking.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 2 — Use Claude to Structure the Deck</h4>
+            <p>Once you have your thesis, use Claude Desktop to turn it into a slide structure. Paste your data and your one-sentence argument, then ask Claude to help you build the arc.</p>
 
             <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Prompt — Initial Dashboard Build</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">I'm building an executive dashboard for Northside Foods, a regional grocery chain. The dataset has these columns: Month (YYYY-MM format), Region (North/East/West), Revenue, Expenses, Profit, Units_Sold — covering 24 months across 3 regions.
+              <div class="prompt-header"><span class="prompt-label">Prompt — Structure the Narrative</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">I'm building a 5-slide, 5-minute data presentation. Here is my dataset:
 
-Build an HTML dashboard with:
-1. A header with the company name and subtitle "Regional Performance Dashboard"
-2. A KPI row (Total Revenue, Total Profit, Avg Profit Margin %, Best Region)
-3. A grouped bar chart: Revenue vs. Expenses by month for all regions combined
-4. A line chart: Profit Margin % over time, one line per region (3 lines total)
-5. A top-5 months table (ranked by profit) with Month, Region, Revenue, Profit columns
-6. A region filter dropdown that updates all three visuals when changed
+[Paste your data here]
 
-Dark theme, professional design. Use Chart.js via CDN.
+My core argument — what I want the audience to believe by the end — is:
+[Your one-sentence thesis]
 
-Here's a sample of the data (embed the full dataset from this structure):
-Month,Region,Revenue,Expenses,Profit,Units_Sold
-2022-01,North,142500,98200,44300,1842
-2022-01,East,118700,84100,34600,1531
-2022-01,West,97300,71400,25900,1256
-[continue with your full data...]</pre>
+Help me structure a 5-slide narrative arc. For each slide give me:
+- A slide title (declarative, not descriptive — make a claim)
+- 2–3 bullet points of what goes on the slide
+- The chart type I should use (if any)
+- One sentence of what I should say out loud for this slide
+
+Slide 1 should set up the problem or context. Slide 5 should be a clear takeaway or recommendation. The middle three slides should build the argument.</pre>
             </div>
           </div>
 
+          <hr class="step-divider">
+
           <div class="lesson-step">
-            <h4>Step 2 — Iterate on the Charts</h4>
+            <h4>Step 3 — Build the Charts, Then Build the Slides</h4>
+            <p>For any chart your structure calls for, use Claude Code (or Claude Desktop) to build it first as an HTML file — apply everything from Module 2. Take a screenshot of the finished chart and drop it into your PowerPoint slide.</p>
+            <p>This keeps your charts clean and purposeful rather than whatever Excel or PowerPoint generates by default.</p>
+
             <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Prompt — Chart Refinement</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">A few refinements:
-1. The grouped bar chart bars are too thin — increase barPercentage to 0.8 and categoryPercentage to 0.7
-2. Add value labels on top of each bar showing the amount in $K (e.g., "$142K")
-3. Move the chart legends below each chart instead of to the right
-4. On the line chart, add data point dots that are slightly larger than the default
-5. The top-5 table — add alternating row colors and make the header row bold with a slightly different background</pre>
+              <div class="prompt-header"><span class="prompt-label">Prompt — Build a Presentation Chart</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build a [chart type] in a single HTML file using Chart.js via CDN.
+
+Data: [paste your data]
+
+Requirements:
+- Dark background (#0b0b10), white/light text
+- Declarative title: "[your slide title]"
+- Purposeful color — use one accent color to highlight the most important value
+- No chart border, faint gridlines only, labeled axes with units
+- Large enough to screenshot cleanly at 1200px wide
+
+This chart will be screenshotted and dropped into a PowerPoint slide, so make it visually bold — slightly larger fonts and thicker lines than you'd use for a web dashboard.</pre>
             </div>
+
+            <p style="color:var(--muted);font-size:.875rem;margin-top:6px;">Once the chart looks right: take a screenshot, then paste it into your PowerPoint slide. Resize to fill the slide. Let the chart do the talking — keep text on the slide minimal.</p>
           </div>
 
+          <hr class="step-divider">
+
           <div class="lesson-step">
-            <h4>Step 3 — Fetch from GitHub Instead of Embedding</h4>
-            <p>Upload <code>sales-data.csv</code> to a <code>data/</code> folder in your portfolio repo. Then update the dashboard to fetch it instead of embedding the data inline.</p>
+            <h4>Step 4 — Prepare to Be Challenged</h4>
+            <p>After your 5 minutes, your instructor and classmates will ask you questions about the data. This is not optional and it is not a formality — it is part of your grade.</p>
+            <p>Use Claude to stress-test your argument before you present.</p>
+
             <div class="prompt-block">
-              <div class="prompt-header"><span class="prompt-label">Prompt — Switch to Fetched Data</span><button class="copy-btn">Copy</button></div>
-              <pre class="prompt-text">Currently the data is embedded in the JavaScript as a hardcoded array. I want to fetch it instead from a CSV file. The CSV is hosted at this URL:
+              <div class="prompt-header"><span class="prompt-label">Prompt — Anticipate Hard Questions</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Here is my presentation argument:
 
-https://raw.githubusercontent.com/[your-username]/[your-username].github.io/main/data/sales-data.csv
+[Paste your thesis and slide outline]
 
-Please update the dashboard to:
-1. Fetch the CSV from that URL using the Fetch API on page load
-2. Parse it into the same data structure the charts currently use
-3. Show a loading state while the data is being fetched
-4. Handle the case where the fetch fails (show a simple error message)
+And here is the underlying data:
 
-Everything else should stay the same.</pre>
+[Paste your data]
+
+Play the role of a skeptical audience member. Give me the 5 hardest questions someone could ask to challenge my argument — questions about the data, my methodology, what I might have missed, or alternative interpretations. Then give me a one-paragraph answer to each.</pre>
             </div>
-          </div>
 
-          <div class="lesson-step">
-            <h4>Step 4 — Publish and Link</h4>
-            <p>Save the file as <code>dashboards/project-1.html</code> in your repo. Commit and push. Then update your portfolio <code>index.html</code> to replace one of the placeholder cards with a real link to this dashboard.</p>
+            <div class="callout callout-tip"><strong>The goal:</strong> You should be able to answer any question about this data without looking at your slides. If you built it with Claude and never really understood it, that will be obvious in 30 seconds.</div>
           </div>
 
           <div class="deliverable">
             <div class="deliverable-label">Project 1 Deliverable</div>
             <ul>
-              <li>Dashboard live at <code>https://[username].github.io/dashboards/project-1.html</code></li>
-              <li>All 3 visualizations render correctly with real data</li>
-              <li>Region filter dropdown updates all charts</li>
-              <li>Data is fetched from GitHub raw URL (not embedded)</li>
-              <li>Portfolio home page links to this project</li>
+              <li>5-slide PowerPoint submitted to Canvas before class</li>
+              <li>Each slide has a declarative title that makes a claim</li>
+              <li>At least one chart built with Claude and screenshotted into the deck</li>
+              <li>5-minute live presentation delivered in class</li>
+              <li><strong>Graded on:</strong> visual quality of the deck, clarity of your argument, delivery, and your ability to answer questions about the data</li>
             </ul>
           </div>
         </div>
