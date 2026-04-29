@@ -962,6 +962,97 @@ Requirements for maximum badness:
         </div>
       </div>
 
+      <!-- Module 2.5 -->
+      <div class="module" id="module-2-5-miniproject">
+        <button class="module-header" aria-expanded="false">
+          <span class="module-num">02.5</span>
+          <span class="module-title">Mini-Project — Game by Game</span>
+          <span class="module-chip chip-project">Project</span>
+          <span class="module-toggle">+</span>
+        </button>
+        <div class="module-body">
+          <p class="module-intro">You've studied the principles. Now build something real. This mini-project takes you from theory to a finished, shareable HTML file using actual St. Thomas Tommies football data — pulled and chosen by you.</p>
+
+          <div class="lesson-step">
+            <h4>The Brief</h4>
+            <p>You're visualizing the 2025 St. Thomas football season for a fan who wants to understand two things at a glance: how the team performed game by game, and how the offense balanced its attack throughout the season.</p>
+            <p>Your deliverable is a single HTML file with two charts, each with a declarative title that makes an argument about what the data shows.</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 1 — Get the Data</h4>
+            <p>Go to <a href="https://tommiesports.com/sports/football/stats/2025" target="_blank" rel="noopener">tommiesports.com/sports/football/stats/2025</a> and find two tables:</p>
+            <ul>
+              <li><strong>Game-by-game scores</strong> — opponent name, points scored by St. Thomas, and points allowed for each game</li>
+              <li><strong>Rushing and passing yards per game</strong> — rushing yards and passing yards for each game</li>
+            </ul>
+            <p>Copy those numbers into a text file or paste them directly into the prompts below. You don't need every column — just the fields listed above.</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Chart 1 — Points Scored vs. Points Allowed</h4>
+            <p>A clustered bar chart with two bars per game: one for points scored, one for points allowed. The gap between them tells the story of each game instantly.</p>
+            <p><strong>Before you build:</strong> look at the data and draft a declarative title. Don't describe the chart — make a claim. "St. Thomas Outscored Opponents in X of Y Games" is a title. "Points by Game" is a label.</p>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt 1 — Clustered Bar Chart</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Build a clustered bar chart in a single HTML file using Chart.js via CDN.
+
+Dataset: St. Thomas 2025 football season, game by game. [Paste your data here — opponent, St. Thomas points, opponent points for each game.]
+
+Chart requirements:
+- Two bars per game: "Tommies" and "Opponent" — use two distinct colors
+- X-axis: opponent name for each game
+- Y-axis: points (start at 0)
+- A declarative title that makes a claim about the season (you write this based on what the data shows)
+- A one-sentence subtitle that adds context
+- Dark background, clean design — apply the data-ink ratio principle from Module 2
+- No chart border, faint gridlines only</pre>
+            </div>
+            <p style="color:var(--muted);font-size:.875rem;margin-top:6px;"><strong>After building it:</strong> Does your title hold up visually? Can a reader confirm your claim just by looking at the chart?</p>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Chart 2 — Rushing vs. Passing Yards per Game</h4>
+            <p>A two-line chart showing how the offense was distributed across the season. When the lines cross or diverge, something changed — your title should say what.</p>
+            <p><strong>Before you build:</strong> scan the data for the most interesting pattern. Did the offense shift toward passing late in the season? Was there one outlier game? Build your title around that observation.</p>
+
+            <div class="prompt-block">
+              <div class="prompt-header"><span class="prompt-label">Prompt 2 — Line Chart</span><button class="copy-btn">Copy</button></div>
+              <pre class="prompt-text">Add a second chart to my HTML file below the first one.
+
+Dataset: St. Thomas 2025 football season, rushing yards and passing yards per game. [Paste your data here.]
+
+Chart requirements:
+- Two lines: "Rushing Yards" and "Passing Yards"
+- X-axis: game number or opponent name
+- Y-axis: yards (start at 0)
+- Label each line directly on the chart — no legend box
+- A declarative title that makes an argument about the offensive balance (you write this)
+- A one-sentence subtitle
+- Same dark theme and clean style as Chart 1</pre>
+            </div>
+            <p style="color:var(--muted);font-size:.875rem;margin-top:6px;"><strong>After building it:</strong> What does the crossing point (if any) tell you? What game sticks out as an outlier, and does your chart make that obvious?</p>
+          </div>
+
+          <div class="deliverable">
+            <div class="deliverable-label">Module 2.5 Deliverable</div>
+            <ul>
+              <li>One HTML file with both charts</li>
+              <li>Chart 1: clustered bar, points scored vs. allowed per game, with a declarative title</li>
+              <li>Chart 2: two-line chart, rushing vs. passing yards per game, with a declarative title</li>
+              <li>Both charts apply Module 2 principles: purposeful color, high data-ink ratio, labeled axes with units</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <div class="assignment-divider"><span>Assignment 3</span></div>
 
       <!-- Module 4 -->
