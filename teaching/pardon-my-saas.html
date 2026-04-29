@@ -67,6 +67,7 @@
     .lesson-step p, .lesson-step li { color: var(--muted); font-size: .875rem; line-height: 1.65; margin: 0 0 6px; }
     .lesson-step ul, .lesson-step ol { padding-left: 20px; margin: 6px 0; }
     .lesson-step ol li { margin-bottom: 4px; }
+    .lesson-step a { color: var(--brand-2); }
     .step-divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
 
     /* ── Prompt blocks ── */
@@ -223,9 +224,32 @@
           <p class="module-intro">No prior experience assumed. By the end of this module, your portfolio will be live on the internet and you'll have had your first real conversation with Claude Code.</p>
 
           <div class="lesson-step">
-            <h4>Step 1 — Create a GitHub Account</h4>
+            <h4>Step 1 — Install Claude Desktop and Claude Code</h4>
+            <p>You'll use two different Claude tools throughout this course. Install both now.</p>
+
+            <p><strong>Claude Desktop</strong> — the conversational app. Use this for brainstorming, writing help, exploring a dataset, understanding an error in plain English, or any other course assignment that doesn't involve writing code files.</p>
             <ol>
-              <li>Go to <strong>github.com</strong> and click <em>Sign up</em></li>
+              <li>Download <strong>Claude Desktop</strong> from <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a></li>
+              <li>Log in with your Claude Pro account</li>
+            </ol>
+
+            <p style="margin-top:14px;"><strong>Claude Code</strong> — the agentic CLI tool. Use this when building dashboards — it writes and edits files directly on your computer, inside your project folder. This is your primary tool for all dashboard projects in this course.</p>
+            <ol>
+              <li>Install <strong>Node.js</strong> from <a href="https://nodejs.org" target="_blank" rel="noopener">nodejs.org</a> (download the LTS version)</li>
+              <li>Open <strong>Terminal</strong> (Mac) or <strong>Command Prompt</strong> (Windows)</li>
+              <li>Run: <code>npm install -g @anthropic-ai/claude-code</code></li>
+              <li>Run: <code>claude</code> and follow the login prompts — use the same Claude Pro account</li>
+            </ol>
+
+            <div class="callout callout-tip"><strong>When to use which:</strong> Think of Claude Desktop as your thinking partner and Claude Code as your builder. "Help me understand what story this data tells" → Desktop. "Build me a bar chart from this data" → Code.</div>
+          </div>
+
+          <hr class="step-divider">
+
+          <div class="lesson-step">
+            <h4>Step 2 — Create a GitHub Account</h4>
+            <ol>
+              <li>Go to <a href="https://github.com" target="_blank" rel="noopener">github.com</a> and click <em>Sign up</em></li>
               <li>Choose a username you'd be comfortable putting on a resume — your name or initials work well (e.g., <code>jsmith-analytics</code>)</li>
               <li>Verify your email and complete setup</li>
             </ol>
@@ -235,7 +259,7 @@
           <hr class="step-divider">
 
           <div class="lesson-step">
-            <h4>Step 2 — Create Your Portfolio Repository</h4>
+            <h4>Step 3 — Create Your Portfolio Repository</h4>
             <ol>
               <li>Click the <strong>+</strong> icon → <em>New repository</em></li>
               <li>Name it exactly: <code>[your-username].github.io</code> (replace with your actual username)</li>
@@ -249,7 +273,7 @@
           <hr class="step-divider">
 
           <div class="lesson-step">
-            <h4>Step 3 — Enable GitHub Pages</h4>
+            <h4>Step 4 — Enable GitHub Pages</h4>
             <ol>
               <li>Inside your new repo, click <strong>Settings</strong></li>
               <li>In the left sidebar, click <strong>Pages</strong></li>
@@ -263,33 +287,10 @@
           <hr class="step-divider">
 
           <div class="lesson-step">
-            <h4>Step 4 — Install Claude Desktop and Claude Code</h4>
-            <p>You'll use two different Claude tools throughout this course. Install both now.</p>
-
-            <p><strong>Claude Desktop</strong> — the conversational app. Use this for brainstorming, writing help, exploring a dataset, understanding an error in plain English, or any other course assignment that doesn't involve writing code files.</p>
-            <ol>
-              <li>Download <strong>Claude Desktop</strong> from <strong>claude.ai/download</strong></li>
-              <li>Log in with your Claude Pro account</li>
-            </ol>
-
-            <p style="margin-top:14px;"><strong>Claude Code</strong> — the agentic CLI tool. Use this when building dashboards — it writes and edits files directly on your computer, inside your project folder. This is your primary tool for all dashboard projects in this course.</p>
-            <ol>
-              <li>Install <strong>Node.js</strong> from <strong>nodejs.org</strong> (download the LTS version)</li>
-              <li>Open <strong>Terminal</strong> (Mac) or <strong>Command Prompt</strong> (Windows)</li>
-              <li>Run: <code>npm install -g @anthropic-ai/claude-code</code></li>
-              <li>Run: <code>claude</code> and follow the login prompts — use the same Claude Pro account</li>
-            </ol>
-
-            <div class="callout callout-tip"><strong>When to use which:</strong> Think of Claude Desktop as your thinking partner and Claude Code as your builder. "Help me understand what story this data tells" → Desktop. "Build me a bar chart from this data" → Code.</div>
-          </div>
-
-          <hr class="step-divider">
-
-          <div class="lesson-step">
             <h4>Step 5 — Set Up VS Code</h4>
             <p>VS Code is the code editor you'll use to view, organize, and manage your project files. Claude Code writes the code — VS Code is where you see it, navigate it, and keep everything tidy.</p>
             <ol>
-              <li>Download <strong>Visual Studio Code</strong> from <strong>code.visualstudio.com</strong> (free)</li>
+              <li>Download <strong>Visual Studio Code</strong> from <a href="https://code.visualstudio.com" target="_blank" rel="noopener">code.visualstudio.com</a> (free)</li>
               <li>Open VS Code, then go to <strong>File → Open Folder</strong> and select your <code>[username].github.io</code> folder</li>
               <li>In the left sidebar, click the <strong>Extensions</strong> icon (four squares) and search for <strong>Live Server</strong> by Ritwick Dey — install it</li>
             </ol>
