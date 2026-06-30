@@ -115,6 +115,10 @@
     body.projector .card{box-shadow:0 6px 18px rgba(0,0,0,.08)}
     body.projector .callout-tip strong{color:#0e7490}
     body.projector .callout-warn strong{color:#b45309}
+
+    .principle-chip.wrong{background:rgba(249,115,22,.14);color:#fb923c}
+    .chart-example-wrong{background:var(--panel);border:1px solid rgba(239,68,68,.3);border-radius:12px;padding:16px;margin-top:16px;position:relative}
+    .wrong-badge{position:absolute;top:12px;right:12px;font-size:.63rem;font-weight:700;padding:3px 9px;border-radius:8px;background:rgba(239,68,68,.12);color:#f87171;letter-spacing:.06em;text-transform:uppercase}
   </style>
 </head>
 <body data-page="teaching">
@@ -151,6 +155,7 @@
         <span class="agenda-chip"><strong>Composition</strong></span>
         <span class="agenda-chip"><strong>Distribution</strong></span>
         <span class="agenda-chip"><strong>Special Cases</strong></span>
+        <span class="agenda-chip"><strong>Common Mistakes</strong></span>
       </div>
     </section>
 
@@ -551,6 +556,64 @@
 
     <hr class="divider">
 
+    <!-- ════ COMMON MISTAKES ════ -->
+    <section>
+      <p class="section-label">Common Mistakes</p>
+      <h2 class="section-title">The wrong chart for the data</h2>
+      <p class="lede">Choosing the wrong chart doesn't just look bad — it actively misleads. These are three of the most common mistakes in the wild, each one understandable, each one genuinely broken.</p>
+      <p class="hint">Click any example to see the flawed chart and why it fails.</p>
+      <div class="acc">
+
+        <div class="principle">
+          <button class="principle-header" aria-expanded="false"><span class="principle-num">M1</span><span class="principle-name">Pie chart on multi-select survey data</span><span class="principle-chip wrong">Common Mistake</span><span class="principle-toggle">+</span></button>
+          <div class="principle-body">
+            <p class="principle-text">A pie chart makes one visual promise to the reader: <b>all slices together equal 100%</b>. That promise is the entire point of the format. When the underlying data is multi-select — where respondents could pick more than one answer — the slices can't possibly sum to 100%, and every percentage becomes meaningless.</p>
+            <div class="chart-example-wrong">
+              <span class="wrong-badge">⚠ Flawed Chart</span>
+              <div class="chart-wrap"><canvas id="c_wrong_pie"></canvas></div>
+              <p class="chart-caption"><b>Orbit Media — "Which benefits do you use?" Employee Survey (n=200, multi-select)</b></p>
+              <p class="chart-narrative">HR surveyed 200 employees asking which benefits they actively use. Employees could select all that applied. Someone plugged the results into a pie chart. <b>Every individual number is accurate. The chart is still wrong.</b> The slices total 394%. A reader who glances at this sees "Remote Work is the most popular, used by roughly a quarter of employees." The truth is 94% of employees use it. The chart doesn't just obscure the story — it inverts it. The fix is a horizontal bar chart sorted by usage rate. Multi-select data is never a pie chart.</p>
+            </div>
+            <div class="callout callout-warn"><strong>Why it breaks:</strong> Pie slice angles encode share of a whole. When totals exceed 100%, the angles are computed against an inflated denominator and every proportion shown is mathematically wrong.</div>
+            <div class="callout callout-tip"><strong>Fix:</strong> Bar chart, sorted by value. Each rate stands on its own without implying the bars share a single whole.</div>
+          </div>
+        </div>
+
+        <div class="principle">
+          <button class="principle-header" aria-expanded="false"><span class="principle-num">M2</span><span class="principle-name">Line chart on an unordered categorical axis</span><span class="principle-chip wrong">Common Mistake</span><span class="principle-toggle">+</span></button>
+          <div class="principle-body">
+            <p class="principle-text">A line chart communicates one thing above all else: <b>the slope between two points means something</b>. Rising slope means increase. Falling slope means decrease. That meaning only holds when the x-axis has a natural, continuous order — like time. When the x-axis is a list of unrelated categories, every slope is noise dressed up as signal.</p>
+            <div class="chart-example-wrong">
+              <span class="wrong-badge">⚠ Flawed Chart</span>
+              <div class="chart-wrap"><canvas id="c_wrong_line"></canvas></div>
+              <p class="chart-caption"><b>Crestwood Retail — Annual Revenue by Department ($K)</b></p>
+              <p class="chart-narrative">A sales analyst wanted to show revenue across five departments and used a line chart because it "looked cleaner" than bars. The chart appears to tell a story: revenue rises from Electronics to Clothing, dips at Food, recovers at Sports, then drops again. <b>None of that is real.</b> There is no meaningful direction from "Electronics" to "Clothing" to "Food." The slope between them implies that as you move from one category to the next, something changes — nothing does. Rearrange the departments in any order and you get a completely different "trend," which proves there is no trend. The line chart is manufacturing a pattern in data that has no pattern to find.</p>
+            </div>
+            <div class="callout callout-warn"><strong>Why it breaks:</strong> Line slope implies continuity and direction. Unordered categories have neither — the visual story changes completely depending on which order you place the labels.</div>
+            <div class="callout callout-tip"><strong>Fix:</strong> Bar chart sorted by revenue. Bars make it clear these are discrete, independent values — no false trend implied.</div>
+          </div>
+        </div>
+
+        <div class="principle">
+          <button class="principle-header" aria-expanded="false"><span class="principle-num">M3</span><span class="principle-name">Dual y-axis chart used to "prove" correlation</span><span class="principle-chip wrong">Common Mistake</span><span class="principle-toggle">+</span></button>
+          <div class="principle-body">
+            <p class="principle-text">You have two metrics. You want to show they move together. You put them on the same chart with two y-axes. The lines line up beautifully. <b>The problem: you control both axis ranges, which means you control the visual relationship between the lines — entirely.</b> Two completely unrelated metrics can be made to look perfectly correlated or perfectly opposed just by adjusting the axis min and max. The chart isn't showing a relationship. It's performing one.</p>
+            <div class="chart-example-wrong">
+              <span class="wrong-badge">⚠ Flawed Chart</span>
+              <div class="chart-wrap"><canvas id="c_wrong_dual"></canvas></div>
+              <p class="chart-caption"><b>Westbrook Media — Blog Posts Published vs Monthly Revenue ($K)</b></p>
+              <p class="chart-narrative">A content team wanted to justify their blogging investment. They plotted monthly blog posts (left axis) and monthly revenue (right axis) over 12 months. The lines track each other almost perfectly. The analyst declares: "content drives revenue." <b>Now change the left axis from 0–12 to 0–100.</b> The blog posts line collapses to nearly flat at the bottom while revenue climbs. The "relationship" evaporates instantly — because it was never in the data. It was in the axis scaling. This works for any two metrics that both trend upward over the same period, which describes almost every KPI at a growing company. The visual correlation is 100% manufactured. What the analyst actually needs is a scatter plot: one dot per month, blog posts on x, revenue on y. If there's a real relationship, the scatter will show it — and no one can fake it by adjusting an axis range.</p>
+            </div>
+            <div class="callout callout-warn"><strong>Why it breaks:</strong> The visual relationship between two lines on a dual-axis chart is determined by how you scale the axes, not by the data. You can make any two upward-trending metrics look perfectly correlated.</div>
+            <div class="callout callout-tip"><strong>Fix:</strong> Scatter plot. One dot per time period, one metric per axis. The pattern you see is the actual correlation — not a side effect of your axis min/max choices.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="divider">
+
     <!-- Quick Reference -->
     <section>
       <p class="section-label">Quick Reference</p>
@@ -917,6 +980,43 @@
           plugins:{ tooltip:makeTip(T,c=>`Median: ${c.raw.median}h · Q1: ${c.raw.q1}h · Q3: ${c.raw.q3}h`,i=>`${i.label}`),
             title:ttl('Dextra Support — Ticket Resolution Time by Plan Tier (hours)',T.text,12) },
           scales:{ x:gx(), y:gy(T,{title:{display:true,text:'Hours to Resolution',color:T.muted,font:{size:10}}}) } }
+      }),
+
+      c_wrong_pie: T => ({
+        type:'doughnut',
+        data:{ labels:['Remote Work (94%)','PTO (89%)','Health Insurance (78%)','401(k) (71%)','Dental (62%)'],
+          datasets:[{data:[94,89,78,71,62],backgroundColor:[T.brand,T.brand2,T.green,T.amber,T.red],borderColor:T.pieBorder,borderWidth:3,hoverOffset:6}] },
+        options:{ cutout:'60%',
+          plugins:{ legend:{display:true,position:'right',labels:{boxWidth:12,color:T.muted,font:{size:10}}},
+            tooltip:makeTip(T,c=>`${c.raw}% of employees`,i=>i.label),
+            title:ttl('Benefits Usage — Multi-Select Survey (slices total 394%)',T.red,12) } }
+      }),
+
+      c_wrong_line: T => ({
+        type:'line',
+        data:{ labels:['Electronics','Clothing','Food','Sports','Toys'],
+          datasets:[{data:[420,310,185,260,140],borderColor:T.brand,backgroundColor:'transparent',borderWidth:2.5,pointRadius:5,pointBackgroundColor:T.brand,tension:.3}] },
+        options:{
+          plugins:{ tooltip:makeTip(T,c=>`$${c.raw}K`,i=>i.label), title:ttl('Crestwood Retail — Annual Revenue by Department ($K)',T.red,12) },
+          scales:{ x:{grid:{display:false},ticks:{color:T.muted}}, y:gy(T,{ticks:{color:T.muted,callback:v=>`$${v}K`}}) } }
+      }),
+
+      c_wrong_dual: T => ({
+        type:'line',
+        data:{ labels:MONTHS12,
+          datasets:[
+            {label:'Blog Posts Published',data:[3,2,4,3,5,4,6,5,6,7,7,8],borderColor:T.brand,backgroundColor:'transparent',borderWidth:2.5,pointRadius:4,pointBackgroundColor:T.brand,tension:.3,yAxisID:'y'},
+            {label:'Monthly Revenue ($K)',data:[182,195,203,218,224,241,255,268,279,295,310,338],borderColor:T.brand2,backgroundColor:'transparent',borderWidth:2.5,pointRadius:4,pointBackgroundColor:T.brand2,tension:.3,yAxisID:'y2'}
+          ] },
+        options:{
+          plugins:{ legend:{display:true,labels:{boxWidth:12,color:T.muted,font:{size:11}}},
+            tooltip:{enabled:true,backgroundColor:T.tipBg,titleColor:T.tipText,bodyColor:T.tipText,borderColor:T.tipBorder,borderWidth:1,padding:10,cornerRadius:8,displayColors:false,callbacks:{title:items=>items[0].label,label:c=>c.dataset.yAxisID==='y'?`Blog posts: ${c.raw}`:`Revenue: $${c.raw}K`}},
+            title:ttl('Westbrook Media — Blog Posts vs Revenue (dual axis)',T.red,12) },
+          scales:{
+            x:{grid:{display:false},ticks:{color:T.muted}},
+            y:{...gy(T,{min:0,max:12}),position:'left',title:{display:true,text:'Blog Posts',color:T.brand,font:{size:10}}},
+            y2:{...gy(T,{min:100,max:400}),position:'right',grid:{display:false},ticks:{color:T.muted,callback:v=>`$${v}K`},title:{display:true,text:'Revenue ($K)',color:T.brand2,font:{size:10}}}
+          } }
       }),
 
       c_density: T => {
