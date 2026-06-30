@@ -74,6 +74,19 @@
     .callout-warn{background:rgba(251,191,36,.05);border:1px solid rgba(251,191,36,.2);color:var(--muted)}
     .callout-warn strong{color:#fbbf24}
 
+    .cat-acc{margin-top:18px}
+    .cat-item{border:1px solid var(--border);border-radius:12px;margin-bottom:8px;overflow:hidden;background:var(--card);transition:border-color .2s}
+    .cat-item:hover{border-color:rgba(139,92,246,.35)}
+    .cat-item.open{border-color:var(--brand)}
+    .cat-header{width:100%;background:none;border:none;cursor:pointer;padding:13px 16px;display:flex;align-items:center;gap:12px;text-align:left;color:var(--text);font-family:inherit;transition:background .15s}
+    .cat-header:hover{background:rgba(139,92,246,.04)}
+    .cat-toggle{margin-left:auto;font-size:1.2rem;font-weight:300;color:var(--muted);transition:transform .25s,color .2s;min-width:16px;text-align:center;line-height:1}
+    .cat-item.open .cat-toggle{transform:rotate(45deg);color:var(--brand)}
+    .cat-body{display:none;padding:0 16px 16px;border-top:1px solid var(--border)}
+    .cat-item.open .cat-body{display:block}
+    .cat-q{color:var(--muted);font-size:.9rem;font-style:italic;margin:12px 0 10px}
+    .cat-charts{display:flex;flex-wrap:wrap;gap:6px}
+
     .chart-wrap{position:relative;height:240px}
     .chart-example{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:16px}
     .chart-caption{font-size:.84rem;line-height:1.6;color:var(--muted);margin:14px 0 0;padding-top:12px;border-top:1px solid var(--border)}
@@ -145,12 +158,73 @@
       <p class="section-label">Start Here</p>
       <h2 class="section-title">One question before you open your charting tool</h2>
       <p class="lede">Before you pick a chart type, ask: <b style="color:var(--text)">what relationship am I trying to show?</b> Almost every chart falls into one of four categories based on the relationship it reveals.</p>
-      <div class="callout callout-tip" style="margin-top:18px;">
-        <strong>The four categories:</strong><br>
-        — <strong>Comparison</strong>: How do values rank or change against each other?<br>
-        — <strong>Relationship</strong>: Is there a connection between two or more variables?<br>
-        — <strong>Composition</strong>: What makes up the whole?<br>
-        — <strong>Distribution</strong>: How are values spread across a range?
+      <div class="cat-acc">
+
+        <div class="cat-item">
+          <button class="cat-header" aria-expanded="false">
+            <span class="principle-chip">Comparison</span>
+            <span class="cat-toggle">+</span>
+          </button>
+          <div class="cat-body">
+            <p class="cat-q">How do values rank or change against each other?</p>
+            <div class="cat-charts">
+              <span class="tag tag-comp">Bar Chart</span>
+              <span class="tag tag-comp">Column Chart</span>
+              <span class="tag tag-comp">Line Chart</span>
+              <span class="tag tag-comp">Slope Chart</span>
+              <span class="tag tag-comp">Bullet Chart</span>
+              <span class="tag tag-comp">Radar Chart</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-item">
+          <button class="cat-header" aria-expanded="false">
+            <span class="principle-chip rel">Relationship</span>
+            <span class="cat-toggle">+</span>
+          </button>
+          <div class="cat-body">
+            <p class="cat-q">Is there a connection between two or more variables?</p>
+            <div class="cat-charts">
+              <span class="tag tag-rel">Scatter Plot</span>
+              <span class="tag tag-rel">Bubble Chart</span>
+              <span class="tag tag-rel">Heatmap</span>
+              <span class="tag tag-rel">Sankey Chart</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-item">
+          <button class="cat-header" aria-expanded="false">
+            <span class="principle-chip compo">Composition</span>
+            <span class="cat-toggle">+</span>
+          </button>
+          <div class="cat-body">
+            <p class="cat-q">What makes up the whole?</p>
+            <div class="cat-charts">
+              <span class="tag tag-compo">Pie &amp; Donut</span>
+              <span class="tag tag-compo">Stacked Bar</span>
+              <span class="tag tag-compo">Treemap</span>
+              <span class="tag tag-compo">Waterfall</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-item">
+          <button class="cat-header" aria-expanded="false">
+            <span class="principle-chip dist">Distribution</span>
+            <span class="cat-toggle">+</span>
+          </button>
+          <div class="cat-body">
+            <p class="cat-q">How are values spread across a range?</p>
+            <div class="cat-charts">
+              <span class="tag tag-dist">Histogram</span>
+              <span class="tag tag-dist">Box Plot</span>
+              <span class="tag tag-dist">Density Plot</span>
+            </div>
+          </div>
+        </div>
+
       </div>
       <p class="lede" style="margin-top:14px;">Match your question to the right category, then pick the chart within that category that fits your data. The sections below walk through every major chart type with a real scenario and a narrated example.</p>
     </section>
@@ -888,6 +962,14 @@
     }
 
     function buildIn(el){ el.querySelectorAll('canvas').forEach(c=>buildCanvas(c.id)); }
+
+    document.querySelectorAll('.cat-header').forEach(h=>{
+      h.addEventListener('click',()=>{
+        const item=h.closest('.cat-item');
+        const open=item.classList.toggle('open');
+        h.setAttribute('aria-expanded',open?'true':'false');
+      });
+    });
 
     document.querySelectorAll('.principle-header').forEach(h=>{
       h.addEventListener('click',()=>{
