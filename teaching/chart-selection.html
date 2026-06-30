@@ -309,12 +309,12 @@
           <div class="principle-body">
             <p class="principle-text">A <b>Sankey chart</b> shows the flow of a quantity between nodes. The width of each band is proportional to the quantity flowing. Originally used for energy systems; now common for conversion funnels, budget allocations, and user journey analysis.</p>
             <div class="chart-example">
-              <div class="chart-wrap" style="height:280px;"><canvas id="c_sankey"></canvas></div>
-              <p class="chart-caption"><b>Fieldr E-Commerce — Checkout Funnel, 1,000 Product Page Visitors</b></p>
-              <p class="chart-narrative">Fieldr's growth team started with 1,000 people who landed on a product page. The Sankey chart shows where each one went. The band from Product Page to Add to Cart carries 420 people — a 42% add-to-cart rate that's actually solid. Then <b>watch the next band</b>: from Add to Cart to Checkout, only 280 make it through. That's a 33% drop right at the critical moment. By the time you reach Purchase, 95 people remain out of the original 1,000. A bar chart could show these five numbers, but it would not show the flow — it couldn't tell you that the person who abandoned at Checkout was previously in your Cart. The Sankey makes the leakage visual: you can see where the funnel is narrowest, and in this case, the Checkout → Payment drop (280 to 140) is where the UX team should be looking next.</p>
+              <div class="chart-wrap" style="height:420px;"><canvas id="c_sankey"></canvas></div>
+              <p class="chart-caption"><b>U.S. Federal Budget FY 2024 — Where the Money Comes From and Where It Goes</b></p>
+              <p class="chart-narrative">The U.S. government collected $4.9 trillion in revenue in FY 2024 — and spent $6.8 trillion. The Sankey chart makes the math visceral. On the left, four revenue streams flow toward the center: <b>Individual Income Taxes are by far the largest at $2.4T</b>, followed by Payroll Taxes at $1.7T. But watch the red band: Deficit — $1.9 trillion in borrowed money — also flows in, because receipts alone cannot cover the bill. On the right, that combined pool distributes across ten spending categories. <b>Social Security ($1.5T) and Healthcare ($912B) are the two widest bands</b>, together accounting for over a third of all spending. Net Interest on the national debt — money paid simply to service existing loans — comes in at $882B, nearly matching Medicare and Defense individually. A bar chart of the ten spending categories would answer "how much?" Only the Sankey answers "where did the money come from, and where did it go?" — and makes the deficit visible as part of the same picture.</p>
             </div>
             <div class="callout callout-tip"><strong>Use when:</strong> Showing how a quantity is distributed or transferred across stages. The shrinking bands make drop-off or loss visible before the reader processes a single number.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> You have too many nodes or crossing flows — it becomes unreadable. Keep to ≤8 nodes and ≤12 flows.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> Flows cross each other in a tangled multi-directional web — that's what kills legibility, not node count alone. A well-structured layout (sources → hub → destinations) can handle 15+ flows cleanly; an unorganized tangle of 6 can be unreadable.</div>
           </div>
         </div>
 
@@ -710,22 +710,54 @@
               y:{type:'category',labels:days,grid:{display:false},ticks:{color:T.muted},offset:true} } } };
       },
 
-      c_sankey: T => ({
-        type:'sankey',
-        data:{ datasets:[{
-          label:'Checkout Funnel',
-          data:[
-            {from:'Product Page',to:'Add to Cart',flow:420},
-            {from:'Add to Cart',to:'Checkout',flow:280},
-            {from:'Checkout',to:'Payment',flow:140},
-            {from:'Payment',to:'Purchase',flow:95}
-          ],
-          colorFrom:()=>rgba(T.brand,.8), colorTo:()=>rgba(T.brand2,.8), colorMode:'gradient', color:T.muted,
-          labels:{'Product Page':'Product Page (1,000)','Add to Cart':'Add to Cart (420)','Checkout':'Checkout (280)','Payment':'Payment (140)','Purchase':'Purchase (95)'}
-        }] },
-        options:{ plugins:{ tooltip:{enabled:true,backgroundColor:T.tipBg,titleColor:T.tipText,bodyColor:T.tipText,borderColor:T.tipBorder,borderWidth:1,padding:10,cornerRadius:8},
-          title:ttl('Fieldr — Checkout Funnel (1,000 Product Page Visitors)',T.text,12) } }
-      }),
+      c_sankey: T => {
+        const revNodes = new Set(['Income Tax','Payroll Tax','Corp Tax','Other Revenue']);
+        return {
+          type:'sankey',
+          data:{ datasets:[{
+            label:'US Federal Budget FY 2024',
+            data:[
+              {from:'Income Tax',    to:'Federal Budget', flow:2400},
+              {from:'Payroll Tax',   to:'Federal Budget', flow:1700},
+              {from:'Corp Tax',      to:'Federal Budget', flow:530},
+              {from:'Other Revenue', to:'Federal Budget', flow:253},
+              {from:'Deficit',       to:'Federal Budget', flow:1908},
+              {from:'Federal Budget',to:'Social Security', flow:1500},
+              {from:'Federal Budget',to:'Healthcare',      flow:912},
+              {from:'Federal Budget',to:'Net Interest',    flow:882},
+              {from:'Federal Budget',to:'Medicare',        flow:874},
+              {from:'Federal Budget',to:'Defense',         flow:874},
+              {from:'Federal Budget',to:'Income Security', flow:671},
+              {from:'Federal Budget',to:'Veterans',        flow:325},
+              {from:'Federal Budget',to:'Education',       flow:305},
+              {from:'Federal Budget',to:'Transport',       flow:137},
+              {from:'Federal Budget',to:'Other Spending',  flow:311}
+            ],
+            colorFrom: c => { const d=c.dataset.data[c.dataIndex]; return d.from==='Deficit'?rgba(T.red,.75):revNodes.has(d.from)?rgba(T.brand2,.75):rgba(T.brand,.75); },
+            colorTo:   c => { const d=c.dataset.data[c.dataIndex]; return d.from==='Deficit'?rgba(T.red,.3):revNodes.has(d.from)?rgba(T.brand2,.3):rgba(T.brand,.3); },
+            colorMode:'gradient', color:T.muted,
+            labels:{
+              'Income Tax':'Income Tax ($2.4T)','Payroll Tax':'Payroll Tax ($1.7T)',
+              'Corp Tax':'Corp Tax ($530B)','Other Revenue':'Other ($253B)',
+              'Deficit':'Deficit ($1.9T)','Federal Budget':'Federal Budget',
+              'Social Security':'Social Security ($1.5T)','Healthcare':'Healthcare ($912B)',
+              'Net Interest':'Net Interest ($882B)','Medicare':'Medicare ($874B)',
+              'Defense':'Defense ($874B)','Income Security':'Income Security ($671B)',
+              'Veterans':'Veterans ($325B)','Education':'Education ($305B)',
+              'Transport':'Transport ($137B)','Other Spending':'Other ($311B)'
+            }
+          }] },
+          options:{ plugins:{
+            tooltip:{enabled:true,backgroundColor:T.tipBg,titleColor:T.tipText,bodyColor:T.tipText,borderColor:T.tipBorder,borderWidth:1,padding:10,cornerRadius:8,
+              callbacks:{
+                title: items => { const d=items[0].dataset.data[items[0].dataIndex]; return `${d.from} → ${d.to}`; },
+                label: items => { const b=items[0].dataset.data[items[0].dataIndex].flow; return b>=1000?`$${(b/1000).toFixed(1)}T`:`$${b}B`; }
+              }
+            },
+            title:ttl('U.S. Federal Budget FY 2024 — Revenue, Deficit & Spending',T.text,12)
+          } }
+        };
+      },
 
       c_donut: T => ({
         type:'doughnut',
