@@ -169,13 +169,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">01</span><span class="principle-name">Bar Chart</span><span class="principle-chip">Comparison</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>bar chart</b> uses horizontal bars to compare values across categories. Bar length is proportional to value, and the horizontal layout gives long category labels room to breathe without colliding.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Ranking discrete categories — especially when labels are long. Sorting longest-to-shortest hands the reader the ranking before they read a single number.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> Showing change over time (use a line chart) or parts of a whole (use a stacked bar or pie).</div>
             <div class="chart-example">
               <div class="chart-wrap"><canvas id="c_bar"></canvas></div>
               <p class="chart-caption"><b>Orbit Media — Q4 Podcast Downloads by Show</b></p>
               <p class="chart-narrative">Orbit Media runs six true-crime and investigative podcasts. Their programming team needed to know where to invest production budget for next year. The bar chart answers the question instantly: <b>Crime After Dark dominates</b>, pulling nearly 2.4 million downloads — almost double the second-place show. The chart is sorted longest to shortest, so the ranking is done before you read a label. Notice how the long show titles, which would have crashed into each other at the bottom of a column chart, read cleanly here because the horizontal layout gives them space. If this had been a pie chart, you'd be comparing thin slices of similar-ish sizes with no clear winner. The bar chart was the only honest choice for this question.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Ranking discrete categories — especially when labels are long. Sorting longest-to-shortest hands the reader the ranking before they read a single number.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> Showing change over time (use a line chart) or parts of a whole (use a stacked bar or pie).</div>
           </div>
         </div>
 
@@ -183,13 +183,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">02</span><span class="principle-name">Column Chart</span><span class="principle-chip">Comparison</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>column chart</b> is the vertical sibling of the bar chart. It's the default for comparing values across a few categories — especially when the x-axis is time, since left-to-right matches how we read chronology.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Comparing ≤8 categories with short labels, or when the x-axis is time-ordered. The month-by-month or quarter-by-quarter rhythm feels natural vertically.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> You have many categories or long labels — switch to a bar chart. Also avoid connecting columns with a line when the x-axis is not continuous.</div>
             <div class="chart-example">
               <div class="chart-wrap"><canvas id="c_col"></canvas></div>
               <p class="chart-caption"><b>Halfmoon Brewing — Monthly Pint Sales, Full Year</b></p>
               <p class="chart-narrative">Halfmoon Brewing tracks pint sales by month to plan staffing, inventory, and seasonal releases. The column chart makes the seasonality unmissable: <b>June and July are the clear peaks</b>, driven by patio season and local festivals. January and February are the valley. There's also a small November bump worth noting — the pre-holiday crowd hitting the taproom before the holidays hit their wallets. A line chart could technically show this, but columns are more honest here because each month is a discrete total, not a point on a continuous curve. The gaps between columns (which a line chart would bridge with a slope) don't actually mean anything — there is no "between months." Columns respect that.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Comparing ≤8 categories with short labels, or when the x-axis is time-ordered. The month-by-month or quarter-by-quarter rhythm feels natural vertically.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> You have many categories or long labels — switch to a bar chart. Also avoid connecting columns with a line when the x-axis is not continuous.</div>
           </div>
         </div>
 
@@ -197,13 +197,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">03</span><span class="principle-name">Line Chart</span><span class="principle-chip">Comparison</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>line chart</b> connects data points to show trend over a continuous axis — usually time. The slope of the line communicates rate of change instantly. Multiple lines compare trends across groups in the same space.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Showing how a value changes over a continuous sequence. The shape of the line IS the insight — momentum, acceleration, dips, and recoveries all read instantly.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> The x-axis is categorical with no natural order (use a bar chart), or you have only 2 data points (use a slope chart — it's cleaner and more honest).</div>
             <div class="chart-example">
               <div class="chart-wrap"><canvas id="c_line"></canvas></div>
               <p class="chart-caption"><b>Meridian Fitness App — Monthly Active Users, Jan–Dec</b></p>
               <p class="chart-narrative">Meridian launched their fitness app in January with a small but loyal user base. By December, monthly active users had grown from 4,200 to 9,100 — a 117% increase. But the headline number alone misses the story. <b>Look at the shape.</b> Growth was steady through Q1, then accelerated sharply in April following a viral partnership with a national gym chain. It leveled off briefly in September — users returning to in-person classes after summer — then climbed again into year-end. A bar chart would show you the same twelve numbers but hide this shape entirely. The line chart doesn't just tell you the destination; it shows you the journey and the events that shaped it. The slope from April onward tells you momentum changed — a bar chart cannot tell you that.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Showing how a value changes over a continuous sequence. The shape of the line IS the insight — momentum, acceleration, dips, and recoveries all read instantly.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> The x-axis is categorical with no natural order (use a bar chart), or you have only 2 data points (use a slope chart — it's cleaner and more honest).</div>
           </div>
         </div>
 
@@ -211,13 +211,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">04</span><span class="principle-name">Slope Chart</span><span class="principle-chip">Comparison</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>slope chart</b> is a line chart reduced to exactly two time points. Each line connects a "before" value to an "after" value. Rising slope = increase. Falling slope = decrease. The steepness shows magnitude of change.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Comparing change between exactly two periods across multiple entities — market share shifts, before/after test results, year-over-year changes for a handful of categories.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> You have more than two time points (use a line chart), or so many entities that the lines become a tangle of crossings.</div>
             <div class="chart-example">
               <div class="chart-wrap" style="height:270px;"><canvas id="c_slope"></canvas></div>
               <p class="chart-caption"><b>Streaming Market Share (%): 2022 vs 2024</b></p>
               <p class="chart-narrative">Between 2022 and 2024, the streaming landscape shifted significantly. The slope chart makes the winners and losers impossible to miss. <b>StreamMax's line climbs steeply</b> — they gained 11 points of market share, largely by acquiring two regional platforms. PrimeView's line is nearly flat — they held their ground. CinemaPlus's line falls sharply after a price increase drove subscribers to competitors. LoopTV lost ground quietly. A line chart with 24 months of weekly data would drown these shifts in noise. A grouped bar chart would require you to compare four pairs of bars and do the math yourself. The slope chart collapses the story to its essence: who went up, who went down, and by how much. The reader gets the answer before they consciously process the numbers.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Comparing change between exactly two periods across multiple entities — market share shifts, before/after test results, year-over-year changes for a handful of categories.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> You have more than two time points (use a line chart), or so many entities that the lines become a tangle of crossings.</div>
           </div>
         </div>
 
@@ -225,13 +225,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">05</span><span class="principle-name">Bullet Chart</span><span class="principle-chip">Comparison</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>bullet chart</b> compares a primary measure (actual) against a target and qualitative performance bands. Invented by Stephen Few as a compact, information-dense alternative to gauges and speedometers. Multiple bullet charts stack tightly for KPI dashboards.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Showing performance vs. a target — sales quotas, project milestones, OKR dashboards. Packs actual + target into minimal horizontal space.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> Your audience hasn't seen one before — give them a one-sentence explanation the first time. For a general audience, a grouped bar chart of actual vs target communicates faster.</div>
             <div class="chart-example">
               <div class="chart-wrap" style="height:200px;"><canvas id="c_bullet"></canvas></div>
               <p class="chart-caption"><b>Vantage Sales Team — Q4 Actual vs $100K Quota</b></p>
               <p class="chart-narrative">Vantage's VP of Sales reviews rep performance every quarter. The bullet chart shows five reps at a glance: the purple bar is what each rep actually closed; the gray bar is the $100K quota. <b>Ada and Eli are above target</b> — Ada at 112%, Eli at 120%. Ben is the outlier on the low side at 87%, a conversation the VP needs to have. The power of this format is density: a traditional grouped bar chart showing the same five reps would take up twice the space and force the reader to compare two adjacent bars per rep. The bullet chart layers them in the same bar width, which is why dashboards use it — you can fit twelve KPIs in the space a bar chart would use for four.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Showing performance vs. a target — sales quotas, project milestones, OKR dashboards. Packs actual + target into minimal horizontal space.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> Your audience hasn't seen one before — give them a one-sentence explanation the first time. For a general audience, a grouped bar chart of actual vs target communicates faster.</div>
           </div>
         </div>
 
@@ -239,13 +239,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">06</span><span class="principle-name">Radar Chart</span><span class="principle-chip">Comparison</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>radar chart</b> plots multiple variables on axes radiating from a center point. Each entity forms a polygon. The shape of the polygon is the signature of that entity's strengths and weaknesses across all dimensions simultaneously.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Comparing 2–3 entities across 4–8 dimensions — product comparisons, performance reviews, competitive analysis. The shape communicates the overall profile at a glance.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> You have only one entity (nothing to compare shapes against), more than 3 entities (polygons overlap into a mess), or when precise values matter more than overall profile.</div>
             <div class="chart-example">
               <div class="chart-wrap" style="height:280px;"><canvas id="c_radar"></canvas></div>
               <p class="chart-caption"><b>Apex CRM vs Nexus CRM — IT Buyer Evaluation, 6 Criteria</b></p>
               <p class="chart-narrative">An IT procurement team is evaluating two enterprise CRMs and needs to present their findings to the C-suite. They scored each product across six criteria. The radar chart makes the profiles immediately readable: <b>Apex's polygon stretches wide on Speed and Price</b> — it's fast and affordable. <b>Nexus's polygon extends further on Support and Integrations</b> — it plays better with existing infrastructure and has a more responsive support team. A bar chart would give you the same numbers with more precision, but the C-suite would need to mentally construct the trade-off themselves. The radar hands it to them: these products are optimized for different buyers. Apex is the right call for a lean team that moves fast. Nexus is the right call for a complex enterprise that needs deep integrations and hand-holding.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Comparing 2–3 entities across 4–8 dimensions — product comparisons, performance reviews, competitive analysis. The shape communicates the overall profile at a glance.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> You have only one entity (nothing to compare shapes against), more than 3 entities (polygons overlap into a mess), or when precise values matter more than overall profile.</div>
           </div>
         </div>
 
@@ -266,13 +266,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">07</span><span class="principle-name">Scatter Plot</span><span class="principle-chip rel">Relationship</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>scatter plot</b> places each data point at the intersection of two numeric variables. The pattern of dots reveals correlation, inverse correlation, or no relationship at all. Outliers stand out without any effort.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Exploring whether two continuous variables are related. Great for finding clusters, outliers, and the shape of a relationship across 15+ data points.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> You have fewer than ~15 points (no pattern will emerge) or when the goal is to communicate a single summary stat — just show the number.</div>
             <div class="chart-example">
               <div class="chart-wrap"><canvas id="c_scatter"></canvas></div>
               <p class="chart-caption"><b>Luminary Tech — Nightly Sleep vs Next-Day Focus Score (n=40 employees)</b></p>
               <p class="chart-narrative">Luminary Tech's HR team ran a 60-day wellness study, asking employees to log their nightly sleep and rate their next-day focus from 1–10. The scatter plot shows what they found. <b>The upward drift is real</b> — more sleep correlates with higher focus scores. But the scatter plot shows you more than a correlation coefficient ever could. Notice the employee at the top-left: 5 hours of sleep, a focus score of 9. That's an outlier worth interviewing — what's their secret? And the two dots at the bottom-right — over 8 hours of sleep, still low focus scores — suggest other variables at play: stress, diet, workload. A line chart would have implied these 40 measurements are sequential, which they're not. A bar chart would have collapsed individual data points into group averages and hidden every anomaly. The scatter plot shows you the relationship and every exception in the same frame.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Exploring whether two continuous variables are related. Great for finding clusters, outliers, and the shape of a relationship across 15+ data points.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> You have fewer than ~15 points (no pattern will emerge) or when the goal is to communicate a single summary stat — just show the number.</div>
           </div>
         </div>
 
@@ -280,13 +280,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">08</span><span class="principle-name">Bubble Chart</span><span class="principle-chip rel">Relationship</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>bubble chart</b> extends the scatter plot by encoding a third variable as bubble size. Three dimensions in one view: x position, y position, and area. Color can add a fourth dimension when needed.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> You need to show three variables at once and the third variable has meaningful size differences. Works well with ≤15 bubbles before things get cluttered.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> Bubble sizes are similar (the encoding becomes meaningless) or precision matters (humans are poor at judging area differences — use a bar chart for the third variable instead).</div>
             <div class="chart-example">
               <div class="chart-wrap" style="height:260px;"><canvas id="c_bubble"></canvas></div>
               <p class="chart-caption"><b>U.S. Cities — Cost of Living vs Quality of Life Index, sized by Population</b></p>
               <p class="chart-narrative">A relocation consultancy built this chart to help corporate clients advise employees on where to move. Each bubble is a city. Its x-position is cost of living (100 = national average). Its y-position is a composite quality of life score. Its size is population. The story it tells: <b>San Francisco and NYC are expensive and don't score proportionally higher on quality of life</b> — they're in the top-right corner with massive bubbles but no quality-of-life premium over Nashville or Denver, which are cheaper and smaller. Austin sits in an interesting middle ground — rising costs but strong scores. The bubble chart earns its third variable here because population genuinely changes the interpretation. A city of 50,000 with great scores is a very different proposition than a city of 4 million with the same scores. A scatter plot without the size encoding would hide that context entirely.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> You need to show three variables at once and the third variable has meaningful size differences. Works well with ≤15 bubbles before things get cluttered.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> Bubble sizes are similar (the encoding becomes meaningless) or precision matters (humans are poor at judging area differences — use a bar chart for the third variable instead).</div>
           </div>
         </div>
 
@@ -294,13 +294,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">09</span><span class="principle-name">Heatmap</span><span class="principle-chip rel">Relationship</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>heatmap</b> uses color intensity to encode a value across a matrix of two categorical axes. The result is a grid where each cell's color communicates magnitude at that intersection. Strong patterns emerge as blocks of similar color.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Showing how a metric varies across two categorical dimensions simultaneously — sessions by day and hour, feature usage by user segment, correlation matrices.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> Precise values matter (color is an imprecise encoding), or one axis has only 2–3 categories (a grouped bar chart will be clearer).</div>
             <div class="chart-example">
               <div class="chart-wrap" style="height:260px;"><canvas id="c_heatmap"></canvas></div>
               <p class="chart-caption"><b>Wavelength Music App — Listening Sessions by Day & Hour</b></p>
               <p class="chart-narrative">Wavelength's product team wanted to know when to push notifications and run in-app promotions. They pulled a week of listening session data and put it in a heatmap. The answer jumps out before you read a label: <b>weekday mornings at 8am and evenings at 6pm are the darkest cells</b> — commute hours. That's when people are on the train or in the car, headphones in. Midday on weekdays is moderate. Then look at the weekend: the pattern flips completely. Saturday and Sunday listening spreads out through the afternoon and peaks in the evening. There is no way to see this pattern in a chart that summarizes by day alone or by hour alone. It only emerges when you cross both dimensions at once, which is exactly what the heatmap is built to do.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Showing how a metric varies across two categorical dimensions simultaneously — sessions by day and hour, feature usage by user segment, correlation matrices.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> Precise values matter (color is an imprecise encoding), or one axis has only 2–3 categories (a grouped bar chart will be clearer).</div>
           </div>
         </div>
 
@@ -308,13 +308,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">10</span><span class="principle-name">Sankey Chart</span><span class="principle-chip rel">Relationship</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>Sankey chart</b> shows the flow of a quantity between nodes. The width of each band is proportional to the quantity flowing. Originally used for energy systems; now common for conversion funnels, budget allocations, and user journey analysis.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Showing how a quantity is distributed or transferred across stages. The shrinking bands make drop-off or loss visible before the reader processes a single number.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> You have too many nodes or crossing flows — it becomes unreadable. Keep to ≤8 nodes and ≤12 flows.</div>
             <div class="chart-example">
               <div class="chart-wrap" style="height:280px;"><canvas id="c_sankey"></canvas></div>
               <p class="chart-caption"><b>Fieldr E-Commerce — Checkout Funnel, 1,000 Product Page Visitors</b></p>
               <p class="chart-narrative">Fieldr's growth team started with 1,000 people who landed on a product page. The Sankey chart shows where each one went. The band from Product Page to Add to Cart carries 420 people — a 42% add-to-cart rate that's actually solid. Then <b>watch the next band</b>: from Add to Cart to Checkout, only 280 make it through. That's a 33% drop right at the critical moment. By the time you reach Purchase, 95 people remain out of the original 1,000. A bar chart could show these five numbers, but it would not show the flow — it couldn't tell you that the person who abandoned at Checkout was previously in your Cart. The Sankey makes the leakage visual: you can see where the funnel is narrowest, and in this case, the Checkout → Payment drop (280 to 140) is where the UX team should be looking next.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Showing how a quantity is distributed or transferred across stages. The shrinking bands make drop-off or loss visible before the reader processes a single number.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> You have too many nodes or crossing flows — it becomes unreadable. Keep to ≤8 nodes and ≤12 flows.</div>
           </div>
         </div>
 
@@ -335,13 +335,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">11</span><span class="principle-name">Pie & Donut Chart</span><span class="principle-chip compo">Composition</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>pie chart</b> divides a circle into slices proportional to each category's share. A <b>donut chart</b> removes the center — which reduces area-encoding distortion and creates space for a summary statistic. Both require all parts to sum to 100%.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Showing simple part-to-whole composition with 2–4 categories. Most powerful when one slice dominates — the visual contrast IS the story.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> You have more than 4–5 categories (humans can't judge slice angles), slices are similar in size, or you need to compare proportions across multiple wholes (use a stacked bar).</div>
             <div class="chart-example">
               <div class="chart-wrap"><canvas id="c_donut"></canvas></div>
               <p class="chart-caption"><b>Streaming Market Share — Q3 2024</b></p>
               <p class="chart-narrative">A media analyst is presenting competitive positioning to an investor audience. The question is simple: who owns the market? The donut chart answers it before anyone reads a label. <b>StreamMax's arc is nearly half the circle</b> — a dominant position that's visually undeniable. Disney+ is a clear second. The others are meaningful but clearly smaller. A bar chart could show these same four percentages, but the part-of-whole framing of the donut answers the question more directly: when "what share does the leader hold of the total pie?" is the question, a pie is the natural frame. Note what this chart cannot do: it cannot show you how these shares changed over time. For that, you would need a stacked bar with one column per quarter. The donut is a snapshot, not a story of change.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Showing simple part-to-whole composition with 2–4 categories. Most powerful when one slice dominates — the visual contrast IS the story.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> You have more than 4–5 categories (humans can't judge slice angles), slices are similar in size, or you need to compare proportions across multiple wholes (use a stacked bar).</div>
           </div>
         </div>
 
@@ -349,13 +349,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">12</span><span class="principle-name">Stacked Bar Chart</span><span class="principle-chip compo">Composition</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>stacked bar chart</b> stacks multiple series to show both the total and each part's contribution. A <b>100% stacked bar</b> normalizes all bars to the same height, emphasizing proportion shifts over absolute values.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Showing how composition changes across categories or over time. Use regular stacked to show totals + mix; use 100% stacked when only the proportion matters.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> You have more than 4–5 series — middle segments lose their common baseline and become impossible to compare accurately.</div>
             <div class="chart-example">
               <div class="chart-wrap"><canvas id="c_stacked"></canvas></div>
               <p class="chart-caption"><b>Northlight Software — Revenue Mix Shift, Q1–Q4</b></p>
               <p class="chart-narrative">Northlight Software spent the year deliberately transitioning from a services-heavy model to a subscription-first business. The stacked bar chart tells both stories at once. <b>Look at the total bar heights</b>: revenue held relatively steady across all four quarters, growing only modestly. Now look at the colors: the purple (SaaS subscriptions) grows from the smallest segment in Q1 to the dominant segment by Q4, while consulting (green) shrinks quarter by quarter. This story is impossible to tell with four separate pie charts — you'd have to visually compare arcs across four circles and do the mental math yourself. The stacked bar shows the transition happening in real time, left to right. You can see exactly when subscriptions overtook consulting. That crossing point is the moment the business fundamentally changed.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Showing how composition changes across categories or over time. Use regular stacked to show totals + mix; use 100% stacked when only the proportion matters.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> You have more than 4–5 series — middle segments lose their common baseline and become impossible to compare accurately.</div>
           </div>
         </div>
 
@@ -363,13 +363,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">13</span><span class="principle-name">Treemap</span><span class="principle-chip compo">Composition</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>treemap</b> encodes composition as nested rectangles. Each rectangle's area is proportional to its value. It's highly space-efficient — you can show dozens of categories in the space a bar chart would use for ten.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Showing the composition of a large hierarchy where relative size is the story — budget breakdowns, portfolio views, file systems, product revenue with many line items.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> Precise comparison matters (area is hard to judge accurately) or all values are similar in size (the rectangles become nearly identical).</div>
             <div class="chart-example">
               <div class="chart-wrap" style="height:280px;"><canvas id="c_treemap"></canvas></div>
               <p class="chart-caption"><b>City of Elmwood — Annual Budget Allocation ($M)</b></p>
               <p class="chart-narrative">The city of Elmwood published their $1.72B annual budget. A reporter covering city hall wanted to communicate where taxpayer money goes. The treemap makes the answer visual before a word is read: <b>Public Safety and Infrastructure together occupy more than half the canvas</b> — they are clearly where the money goes. Education and Health are substantial but visibly smaller. Parks, IT, Admin, and Finance are clearly present but clearly minor. A sorted bar chart would also show the ranking, but with 8 departments across varying magnitudes, readers would need to scan up and down a y-axis and read labels. The treemap hands them the proportional picture at a glance. It's the right choice when the full picture — not just the top items — is part of the message, and when the relative scale between the biggest and smallest categories is dramatic.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Showing the composition of a large hierarchy where relative size is the story — budget breakdowns, portfolio views, file systems, product revenue with many line items.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> Precise comparison matters (area is hard to judge accurately) or all values are similar in size (the rectangles become nearly identical).</div>
           </div>
         </div>
 
@@ -377,13 +377,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">14</span><span class="principle-name">Waterfall Chart</span><span class="principle-chip compo">Composition</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>waterfall chart</b> shows how a starting value builds up or breaks down through a series of positive and negative contributions to reach a final value. Increases float up; decreases float down. First and last bars are typically totals.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Explaining the journey from one value to another through its components — profit bridges, budget variances, headcount changes. The narrative is: "here's how we got there."</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> Components don't sum to a meaningful total, or you have more than ~8 steps. A table may be clearer for very granular breakdowns.</div>
             <div class="chart-example">
               <div class="chart-wrap" style="height:260px;"><canvas id="c_waterfall"></canvas></div>
               <p class="chart-caption"><b>Avora — Series A Runway: From $2M Raised to $740K Year-End Cash</b></p>
               <p class="chart-narrative">Avora's board wants to understand how the startup spent its Series A. The waterfall chart walks them through it. <b>Start at $2M on the left.</b> Engineering takes the biggest bite — $580K — and the bar drops. Marketing takes $420K. Product, G&A, and Facilities follow in descending order. Then, on the right side, the revenue the company earned during the year ($320K) pushes the bar back up. The year-end cash position is $740K. A table in the board deck would show every number, but the waterfall makes the decision-making visible: you can immediately see that Engineering was the dominant cost center and that revenue meaningfully offset burn. The slope from left to right tells the story of a year. No other chart type can do this — a bar chart cannot show the additive journey, only the final number.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Explaining the journey from one value to another through its components — profit bridges, budget variances, headcount changes. The narrative is: "here's how we got there."</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> Components don't sum to a meaningful total, or you have more than ~8 steps. A table may be clearer for very granular breakdowns.</div>
           </div>
         </div>
 
@@ -404,13 +404,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">15</span><span class="principle-name">Histogram</span><span class="principle-chip dist">Distribution</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>histogram</b> groups continuous values into bins and counts how many fall in each. The shape of the bars reveals the distribution — symmetric, skewed, bimodal, or with outliers. Unlike bar charts, the bars touch because the x-axis is continuous.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Understanding the distribution of a single continuous variable — response times, order values, test scores. The shape of the histogram is the insight that no average can capture.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> You have fewer than ~30 values (no meaningful shape emerges), or your variable is categorical (use a bar chart). Bin size has an enormous impact on what patterns appear — always try multiple.</div>
             <div class="chart-example">
               <div class="chart-wrap"><canvas id="c_hist"></canvas></div>
               <p class="chart-caption"><b>Fieldr API — Response Time Distribution, 10,000 Requests (ms)</b></p>
               <p class="chart-narrative">Fieldr's engineering team got a complaint from a customer that the app "sometimes feels slow." They pulled 10,000 API response times from their logs and ran a histogram. <b>What they found surprised them.</b> There are two distinct clusters: a healthy population of requests resolving in under 200ms, and a second smaller population clustering around 700–900ms. Their average response time was 210ms — which looked fine in their monitoring dashboard. That number was hiding a real problem. The histogram made the bimodal distribution visible immediately: these aren't just slow requests, they're a second population of requests with a completely different performance profile. This is almost certainly a specific query hitting an unindexed database column. No bar chart, no average, no line chart could have surfaced this. The histogram was the only tool for the job.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Understanding the distribution of a single continuous variable — response times, order values, test scores. The shape of the histogram is the insight that no average can capture.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> You have fewer than ~30 values (no meaningful shape emerges), or your variable is categorical (use a bar chart). Bin size has an enormous impact on what patterns appear — always try multiple.</div>
           </div>
         </div>
 
@@ -418,13 +418,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">16</span><span class="principle-name">Box Plot</span><span class="principle-chip dist">Distribution</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>box plot</b> summarizes a distribution using five statistics: minimum, Q1, median, Q3, and maximum. The box is the middle 50% of values. Whiskers extend to min/max. Outlier dots appear individually beyond the whiskers.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Comparing distributions across multiple groups side by side — test scores by class, salaries by department, delivery times by carrier. Packs a full distribution summary into very little space.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> Your audience doesn't know what quartiles are — box plots require a brief explanation for general audiences. A histogram or simple bar chart of medians may communicate faster.</div>
             <div class="chart-example">
               <div class="chart-wrap" style="height:260px;"><canvas id="c_boxplot"></canvas></div>
               <p class="chart-caption"><b>Dextra Support — Ticket Resolution Time by Plan Tier (hours)</b></p>
               <p class="chart-narrative">Dextra's customer success team wanted to know whether their support SLAs were actually being met across plan tiers — and whether the experience differed meaningfully between Starter and Enterprise customers. The box plot tells a story that no bar chart of averages ever could. <b>Enterprise customers have a tight box near the bottom</b> — fast median resolution (2 hours) and very little variability. They're getting the premium experience they paid for. Starter customers have a tall box and long whiskers — slower median (24 hours) but also wildly inconsistent. Some tickets close in 4 hours; others take 5 days. That inconsistency is a product quality problem, not just a capacity problem. The single outlier dot on the Enterprise tier is one escalated incident that took 48 hours — the team knows exactly which ticket that was. A bar chart of average resolution times would show Enterprise and Pro as similar. The distribution tells you they're not.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Comparing distributions across multiple groups side by side — test scores by class, salaries by department, delivery times by carrier. Packs a full distribution summary into very little space.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> Your audience doesn't know what quartiles are — box plots require a brief explanation for general audiences. A histogram or simple bar chart of medians may communicate faster.</div>
           </div>
         </div>
 
@@ -432,13 +432,13 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">17</span><span class="principle-name">Density Plot</span><span class="principle-chip dist">Distribution</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>density plot</b> (or KDE curve) is a smoothed version of a histogram. Instead of counting values in bins, it estimates the probability density across the full range, resulting in a continuous curve. The shape reveals where values concentrate without the bin-size sensitivity of a histogram.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> You want to show the shape of a distribution without the bin-size problem. Particularly useful when overlaying multiple distributions on the same chart — the curves stay legible where stacked histograms would become a muddy mess.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> Your audience needs to read specific counts (density plots show relative probability, not frequency). For a general audience, a histogram with clear axis labels communicates more concretely.</div>
             <div class="chart-example">
               <div class="chart-wrap" style="height:260px;"><canvas id="c_density"></canvas></div>
               <p class="chart-caption"><b>Luminary Tech — Time-to-First-Commit Distribution: Bootcamp vs CS Degree Hires</b></p>
               <p class="chart-narrative">Luminary's engineering leadership wanted to settle an internal debate: do bootcamp hires ramp up faster than CS degree hires? They measured days-to-first-meaningful-commit for both groups. <b>The density plot puts both distributions on the same axis simultaneously.</b> CS degree hires (purple) peak around 18 days — most of them are making meaningful contributions by the end of week three. Bootcamp hires (teal) peak earlier, around 12 days, but their curve is wider and has a longer right tail — a few take considerably longer. The means are actually similar, which is why this debate wasn't getting resolved in meetings. The density plot shows what the mean hides: bootcamp hires ramp faster on average, but CS hires are more consistent. Try overlaying two histograms to show the same comparison — you get overlapping bars that are nearly impossible to read. The density plot keeps both curves clean and legible.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> You want to show the shape of a distribution without the bin-size problem. Particularly useful when overlaying multiple distributions on the same chart — the curves stay legible where stacked histograms would become a muddy mess.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> Your audience needs to read specific counts (density plots show relative probability, not frequency). For a general audience, a histogram with clear axis labels communicates more concretely.</div>
           </div>
         </div>
 
@@ -459,9 +459,6 @@
           <button class="principle-header" aria-expanded="false"><span class="principle-num">18</span><span class="principle-name">Choropleth Map</span><span class="principle-chip special">Special Case</span><span class="principle-toggle">+</span></button>
           <div class="principle-body">
             <p class="principle-text">A <b>choropleth map</b> shades geographic regions (countries, states, counties) according to a variable's value. Color intensity encodes magnitude. It's the most common form of data map and is immediately intuitive to most audiences — everyone knows how to read a map.</p>
-            <div class="callout callout-tip"><strong>Use when:</strong> Geography is genuinely relevant to the story — not just because you have geographic data, but because the <em>pattern of where</em> things are happening is the insight. Regional clusters, geographic disparities, and spatial trends are all strong candidates.</div>
-            <div class="callout callout-warn"><strong>Avoid when:</strong> Large geographic areas dominate visually but contain little data (e.g. population-dense small states get visually dwarfed by sparse large ones). Also avoid when geography is incidental — if the insight doesn't require a map, a bar chart ranked by value is almost always clearer.</div>
-            <div class="callout callout-warn"><strong>Category note:</strong> A choropleth can serve <strong>Comparison</strong> (comparing revenue across regions), <strong>Distribution</strong> (showing how a value spreads spatially), or even <strong>Composition</strong> (showing what share of the total each region holds). The geography is the organizing principle — the category depends on your question.</div>
             <div class="chart-example" style="padding:20px;">
               <div style="text-align:center;padding:40px 20px;border:1px dashed var(--border);border-radius:8px;">
                 <p style="color:var(--muted);font-size:.9rem;margin:0 0 8px;">Choropleth maps require a geographic rendering library (Leaflet, D3, Mapbox) not included in this guide.</p>
@@ -469,6 +466,9 @@
               </div>
               <p class="chart-narrative" style="margin-top:16px;">Imagine a public health team mapping COVID-19 vaccination rates by U.S. county. A bar chart of all 3,000+ counties sorted by rate would be technically accurate but completely useless — no one can extract a geographic pattern from 3,000 bars. The choropleth makes the spatial story visible instantly: <b>urban counties cluster in the top decile; rural counties in the mountain west and deep south cluster at the bottom.</b> That geographic pattern is the finding — and it's a finding that only exists on a map. If the health team's question had been "which counties are below 50% vaccination?" a sorted bar chart would answer it more precisely. The choropleth earns its complexity when the spatial pattern itself is the point — when where things are matters as much as what the values are.</p>
             </div>
+            <div class="callout callout-tip"><strong>Use when:</strong> Geography is genuinely relevant to the story — not just because you have geographic data, but because the <em>pattern of where</em> things are happening is the insight. Regional clusters, geographic disparities, and spatial trends are all strong candidates.</div>
+            <div class="callout callout-warn"><strong>Avoid when:</strong> Large geographic areas dominate visually but contain little data (e.g. population-dense small states get visually dwarfed by sparse large ones). Also avoid when geography is incidental — if the insight doesn't require a map, a bar chart ranked by value is almost always clearer.</div>
+            <div class="callout callout-warn"><strong>Category note:</strong> A choropleth can serve <strong>Comparison</strong> (comparing revenue across regions), <strong>Distribution</strong> (showing how a value spreads spatially), or even <strong>Composition</strong> (showing what share of the total each region holds). The geography is the organizing principle — the category depends on your question.</div>
           </div>
         </div>
 
